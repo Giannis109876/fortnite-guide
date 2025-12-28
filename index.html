@@ -2,18 +2,16 @@
 <html lang="el">
 <head>
   <meta charset="UTF-8" />
-  <title>Αναλυτικός Οδηγός Fortnite</title>
+  <title>Ο Απόλυτος Οδηγός Fortnite</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
     :root {
-      --bg: #050816;
-      --bg-alt: #02010c;
-      --primary: #00dcff;
-      --accent: #ffdf3d;
+      --primary: #00c3ff;
+      --accent: #ff2fd3;
       --text: #f5f5f5;
-      --muted: #a3a3a3;
-      --card: #101522;
-      --border: #202746;
+      --muted: #a5a5b5;
+      --bg: #050816;
     }
 
     * {
@@ -23,8 +21,8 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1b255b 0%, #050816 45%, #02010c 100%);
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #1b2555, #050816);
       color: var(--text);
       line-height: 1.6;
     }
@@ -38,257 +36,170 @@
       text-decoration: underline;
     }
 
+    /* TOP BAR */
+    .top-bar {
+      background: #02010c;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .top-bar-inner {
+      max-width: 1100px;
+      margin: auto;
+      padding: 6px 20px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      font-size: 12px;
+    }
+
+    .top-bar span {
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* HEADER */
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      backdrop-filter: blur(14px);
-      background: rgba(3, 5, 20, 0.9);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 1rem;
+      backdrop-filter: blur(10px);
+      background: rgba(3,5,20,0.9);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+
+    /* HERO */
+    .hero {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
       text-align: center;
     }
 
-    .nav-links a {
-      margin: 0 0.7rem;
-      font-size: 1.05rem;
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
     }
 
-    .container {
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem 3rem;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 0.75rem;
-      color: var(--accent);
-      font-size: 2.3rem;
-    }
-
-    .intro {
-      text-align: center;
-      font-size: 1.1rem;
+    .hero p {
       color: var(--muted);
-      margin-bottom: 2rem;
     }
 
-    h2 {
-      margin-top: 1.8rem;
-      margin-bottom: 0.6rem;
-      color: var(--primary);
-      font-size: 1.5rem;
+    /* SECTIONS */
+    section {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 20px;
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
 
-    h3 {
-      margin-top: 1rem;
-      margin-bottom: 0.4rem;
-      color: var(--accent);
-      font-size: 1.1rem;
+    section h1 {
+      margin-bottom: 10px;
     }
 
-    p {
-      margin-bottom: 0.6rem;
-      color: var(--text);
-      font-size: 1rem;
-    }
-
-    ul {
-      margin-left: 1.2rem;
-      margin-bottom: 0.8rem;
-    }
-
-    li {
-      margin-bottom: 0.4rem;
-    }
-
-    .card {
-      background: rgba(7, 11, 30, 0.95);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.3rem 1.3rem 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .tagline {
-      text-align: center;
-      font-size: 0.95rem;
-      color: var(--muted);
-      margin-bottom: 2.2rem;
-    }
-
-    .highlight {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
+    /* FOOTER */
     footer {
+      padding: 20px;
       text-align: center;
-      padding: 1.5rem 1rem 2rem;
-      font-size: 0.9rem;
+      font-size: 12px;
       color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.05);
     }
   </style>
 </head>
 
 <body>
 
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <a href="#about">About</a>
+      <span>|</span>
+      <a href="#contact">Contact</a>
+      <span>|</span>
+      <a href="#privacy">Privacy Policy</a>
+    </div>
+  </div>
+
+  <!-- HEADER -->
   <header>
-    <div class="nav-links">
-      <a href="index.html">Home</a> |
-      <a href="about.html">About</a> |
-      <a href="contact.html">Contact</a> |
-      <a href="privacy.html">Privacy Policy</a>
+    <div class="nav">
+      <div class="logo">FORTNITE MASTER GUIDE</div>
     </div>
   </header>
 
-  <div class="container">
-    <h1>Αναλυτικός Οδηγός Fortnite</h1>
-    <p class="intro">
-      Καλώς ήρθες στον απόλυτο οδηγό για το Fortnite. Είτε είσαι αρχάριος είτε παίζεις χρόνια,
-      εδώ θα βρεις πρακτικές συμβουλές, στρατηγικές και μικρά μυστικά για να βελτιώσεις το παιχνίδι σου
-      και να πλησιάσεις όσο γίνεται περισσότερο το <span class="highlight">Victory Royale</span>.
-    </p>
+  <!-- HERO -->
+  <main>
+    <section class="hero">
+      <h1>Αναλυτικός Οδηγός Fortnite</h1>
+      <p>
+        Καλώς ήρθες στον απόλυτο οδηγό για το Fortnite!
+        Εδώ θα βρεις tips, στρατηγικές και μυστικά για να γίνεις master.
+      </p>
+    </section>
 
-    <p class="tagline">
-      Διάβασε με ηρεμία, εφάρμοσε σταδιακά όσα βλέπεις εδώ και θα δεις διαφορά στο gameplay σου.
-    </p>
+    <!-- ABOUT -->
+    <section id="about">
+      <h1>About</h1>
+      <p>
+        Το Fortnite Guide GR είναι ένας δωρεάν ελληνικός οδηγός για το Fortnite, φτιαγμένος για παίκτες κάθε επιπέδου.
+        Στόχος μου είναι να βοηθήσω τους παίκτες να βελτιώσουν aim, building, editing, rotations, game sense και στρατηγικές
+        για early, mid και late game.
+      </p>
+      <p>
+        Το site ενημερώνεται συνεχώς με νέες συμβουλές και περιεχόμενο.
+      </p>
+    </section>
 
-    <div class="card">
-      <h2>1. Βάσεις για αρχάριους</h2>
-      <p>
-        Αν είσαι καινούργιος στο Fortnite, ο στόχος σου δεν είναι αμέσως οι πολλές νίκες,
-        αλλά το να καταλάβεις πώς “σκέφτεται” το παιχνίδι. Μην αγχώνεσαι αν χάνεις συχνά στην αρχή·
-        κάθε game είναι ευκαιρία για να μάθεις κάτι μικρό.
-      </p>
-      <h3>Τι να προσέξεις στην αρχή</h3>
-      <ul>
-        <li><span class="highlight">Κινήσου συνέχεια:</span> παύσεις και στατικές στιγμές σε εκθέτουν σε εύκολα shots.</li>
-        <li><span class="highlight">Μάθε τα βασικά όπλα:</span> δοκίμασε shotgun, AR και SMG για να δεις τι σου ταιριάζει.</li>
-        <li><span class="highlight">Παίξε με φίλους:</span> τα λάθη είναι πιο διασκεδαστικά σε squad και μαθαίνεις πιο γρήγορα.</li>
-      </ul>
-    </div>
+    <!-- CONTACT -->
+    <section id="contact">
+      <h1>Contact</h1>
+      <p>Αν θέλεις να επικοινωνήσεις μαζί μου, μπορείς να στείλεις email στο:</p>
+      <p><strong>giannis10ritzakis@gmail.com</strong></p>
+      <p>Θα απαντήσω το συντομότερο δυνατό.</p>
+    </section>
 
-    <div class="card">
-      <h2>2. Aim & μηχανικά (mechanics)</h2>
+    <!-- PRIVACY -->
+    <section id="privacy">
+      <h1>Privacy Policy</h1>
       <p>
-        Το aim σου είναι από τα πιο σημαντικά στοιχεία. Ακόμα κι αν δεν είσαι τέλειος στο build,
-        ένα σταθερό aim μπορεί να σε σώσει σε πολλές μάχες 1v1.
+        Αυτό το site χρησιμοποιεί cookies και υπηρεσίες τρίτων, όπως το Google AdSense, για την εμφάνιση διαφημίσεων.
       </p>
-      <h3>Πώς να βελτιώσεις το aim σου</h3>
-      <ul>
-        <li><span class="highlight">Warm-up:</span> αφιέρωσε 10–15 λεπτά σε aim maps πριν μπεις σε κανονικά games.</li>
-        <li><span class="highlight">Ρυθμίσεις ευαισθησίας:</span> βρες μια ευαισθησία που δεν είναι ούτε υπερβολικά γρήγορη ούτε πολύ αργή.</li>
-        <li><span class="highlight">Ανάκρουση:</span> μάθε πώς συμπεριφέρονται τα όπλα όταν κρατάς πατημένη τη σκανδάλη.</li>
-      </ul>
-      <h3>Συμβουλή για controller & keyboard</h3>
       <p>
-        Αν παίζεις με controller, παίξε λίγο με τα deadzones και τα aim assist settings. Αν παίζεις με keyboard,
-        επένδυσε χρόνο στο να μάθεις σωστό <span class="highlight">crosshair placement</span> και να μην κοιτάς το πληκτρολόγιο.
+        Η Google μπορεί να χρησιμοποιεί cookies για την εξατομίκευση διαφημίσεων και για τη μέτρηση της απόδοσης.
       </p>
-    </div>
+      <p>
+        Δεν συλλέγω προσωπικά δεδομένα χρηστών.
+      </p>
+      <p>
+        Για περισσότερες πληροφορίες σχετικά με το πώς η Google χρησιμοποιεί δεδομένα, επισκεφθείτε:
+        <a href="https://policies.google.com/technologies/partner-sites" target="_blank">
+          Google Privacy & Terms
+        </a>.
+      </p>
+    </section>
+  </main>
 
-    <div class="card">
-      <h2>3. Χτίσιμο & edits</h2>
-      <p>
-        Το χτίσιμο είναι αυτό που κάνει το Fortnite να ξεχωρίζει από άλλα battle royale. Δεν χρειάζεται να είσαι
-        pro builder, αλλά πρέπει να νιώθεις άνετα με βασικές δομές άμυνας και επίθεσης.
-      </p>
-      <h3>Βασικά κομμάτια χτισίματος</h3>
-      <ul>
-        <li><span class="highlight">Γρήγοροι τοίχοι:</span> μόλις δεχτείς πυρά, ρίξε αμέσως έναν τοίχο για κάλυψη.</li>
-        <li><span class="highlight">Ράμπες για ύψος:</span> μια ράμπα μπορεί να σου δώσει καλύτερο angle για να ρίξεις.</li>
-        <li><span class="highlight">1x1 tower:</span> κλασική μικρή βάση για άμυνα και παρακολούθηση της περιοχής.</li>
-      </ul>
-      <h3>Edits για αρχή</h3>
-      <p>
-        Μην προσπαθήσεις να κάνεις τρελά triple–edits από την πρώτη μέρα. Ξεκίνα με απλά:
-      </p>
-      <ul>
-        <li>Ένα παράθυρο σε τοίχο για ασφαλές peek.</li>
-        <li>Μισό άνοιγμα πόρτας για να αλλάζεις θέση γρήγορα.</li>
-        <li>Κατέβασμα ράμπας για αλλαγή κατεύθυνσης χωρίς να εκτεθείς.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>4. Positioning & περιστροφές (rotations)</h2>
-      <p>
-        Πολλές φορές δεν χάνεις επειδή είσαι “κακός”, αλλά επειδή βρέθηκες σε λάθος σημείο τη λάθος στιγμή.
-        Το positioning είναι αυτό που ξεχωρίζει τους έξυπνους παίκτες από αυτούς που απλά τρέχουν προς τη ζώνη.
-      </p>
-      <h3>Συμβουλές για καλύτερο positioning</h3>
-      <ul>
-        <li><span class="highlight">Παίξε με το ύψος:</span> το high ground σου δίνει καλύτερη ορατότητα και πιο ασφαλή shots.</li>
-        <li><span class="highlight">Απόφυγε το κέντρο πολύ νωρίς:</span> πολλοί εχθροί, πολλά third–parties.</li>
-        <li><span class="highlight">Μπες στη ζώνη νωρίτερα:</span> μην περιμένεις το τελευταίο δευτερόλεπτο για να τρέξεις.</li>
-      </ul>
-      <p>
-        Προσπάθησε να σκέφτεσαι πάντα: <em>“Αν ξεκινήσει fight εδώ, έχω κάλυψη; Έχω escape route;”</em>.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>5. Διαχείριση loot & inventory</h2>
-      <p>
-        Το τι κουβαλάς πάνω σου είναι εξίσου σημαντικό με το πώς παίζεις. Ένα κακό setup όπλων
-        μπορεί να σε μπλοκάρει σε κρίσιμη στιγμή, ακόμα κι αν έχεις καλό aim.
-      </p>
-      <h3>Ισορροπημένο loadout</h3>
-      <ul>
-        <li><span class="highlight">Κοντινή απόσταση:</span> shotgun ή SMG.</li>
-        <li><span class="highlight">Μεσαία απόσταση:</span> assault rifle.</li>
-        <li><span class="highlight">Μακρινή απόσταση:</span> sniper ή DMR αν σου ταιριάζει.</li>
-        <li><span class="highlight">Healing:</span> τουλάχιστον 1–2 slot για shields / health.</li>
-      </ul>
-      <p>
-        Μην φοβάσαι να αλλάξεις όπλο αν βρεις κάτι καλύτερο. Κάνε όμως τις αλλαγές γρήγορα,
-        όταν είσαι σε ασφαλές σημείο και όχι στη μέση της μάχης.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>6. Ρυθμίσεις, FPS & απόδοση</h2>
-      <p>
-        Ακόμα και οι καλύτερες συμβουλές δεν βοηθούν αν το παιχνίδι σου “σέρνεται”.
-        Οι σταθερές επιδόσεις κάνουν το aim, το building και το reaction time πιο αξιόπιστα.
-      </p>
-      <h3>Τι να προσέξεις στις ρυθμίσεις</h3>
-      <ul>
-        <li><span class="highlight">FPS:</span> στόχευσε σε σταθερά FPS, όχι απαραίτητα στο μέγιστο δυνατό.</li>
-        <li><span class="highlight">Graphics:</span> χαμήλωσε τα περιττά effects για πιο καθαρή εικόνα.</li>
-        <li><span class="highlight">Keybinds:</span> βάλε τα κουμπιά χτισίματος σε θέσεις που φτάνεις άνετα.</li>
-      </ul>
-      <p>
-        Δοκίμαζε μικρές αλλαγές, μία–μία φορά, ώστε να καταλαβαίνεις τι πραγματικά σε βοηθάει.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>7. Mindset & βελτίωση</h2>
-      <p>
-        Αν θέλεις να δεις πραγματική βελτίωση, πρέπει να δεις το Fortnite όχι μόνο σαν παιχνίδι,
-        αλλά και σαν διαδικασία μάθησης. Όσο πιο ήρεμος και συγκεντρωμένος είσαι, τόσο καλύτερα παίζεις.
-      </p>
-      <h3>Μικρά μυστικά για πρόοδο</h3>
-      <ul>
-        <li><span class="highlight">Μην tiltάρεις:</span> 2–3 κακά games δεν σημαίνουν ότι “δεν το έχεις”.</li>
-        <li><span class="highlight">Δες τα λάθη σου:</span> σκέψου μετά από κάθε game τι θα μπορούσες να κάνεις διαφορετικά.</li>
-        <li><span class="highlight">Βάλε μικρούς στόχους:</span> σήμερα βελτιώνεις μόνο το aim, αύριο το build, κ.ο.κ.</li>
-      </ul>
-      <p>
-        Ο στόχος δεν είναι να γίνεις pro σε μία μέρα, αλλά να γίνεσαι λίγο καλύτερος κάθε εβδομάδα.
-      </p>
-    </div>
-
-  </div>
-
+  <!-- FOOTER -->
   <footer>
-    © 2025 Αναλυτικός Οδηγός Fortnite – Μη επίσημος οδηγός, φτιαγμένος για ψυχαγωγικούς και εκπαιδευτικούς σκοπούς.
+    Fortnite Master Guide © 2025
   </footer>
 
 </body>
 </html>
+
+
 
 
