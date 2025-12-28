@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ο Απόλυτος Οδηγός Fortnite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --primary: #00c3ff;
+      --accent: #ff2fd3;
+      --text: #f5f5f5;
+      --muted: #a5a5b5;
+      --card: #10152a;
+      --border: #202746;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1b2555 0, #050816 45%, #02010c 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(3, 5, 20, 0.82);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo span {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 0 12px rgba(0, 195, 255, 0.9);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 32px auto 24px;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(16, 21, 53, 0.9);
+      border: 1px solid rgba(0, 195, 255, 0.4);
+      margin-bottom: 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .badge span {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent), transparent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 11px;
+    }
+
+    .hero-title {
+      font-size: clamp(30px, 4vw, 40px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 520px;
+    }
+
+    .hero-subtitle strong {
+      color: var(--text);
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .hero-grid-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .hero-pill {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(9, 10, 28, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .hero-pill span {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, rgba(0, 195, 255, 0.12), transparent 50%),
+                  radial-gradient(circle at bottom right, rgba(255, 47, 211, 0.12), transparent 50%),
+                  linear-gradient(145deg, #070a1d 0%, #070818 45%, #050614 100%);
+      border-radius: 18px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 10% 0, rgba(0, 195, 255, 0.18), transparent 50%);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+
+    .status-pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(4, 222, 113, 0.14);
+      color: #9bf6c5;
+      font-size: 11px;
+      border: 1px solid rgba(4, 222, 113, 0.3);
+    }
+
+    .hero-card-main {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .progress-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .progress-bar-group {
+      flex: 1;
+      display: grid;
+      gap: 6px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .progress {
+      width: 100%;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      width: 74%;
+    }
+
+    .hero-tips {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .hero-tip {
+      padding: 6px 8px;
+      border-radius: 10px;
+      background: rgba(6, 11, 37, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      font-size: 11px;
+    }
+
+    .hero-tip span {
+      display: block;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .hero-tip strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 8px auto 24px;
+      padding: 0 20px;
+    }
+
+    .section-header {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .section-title span {
+      color: var(--primary);
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 14px 14px 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .card-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .card-label {
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      background: rgba(0, 195, 255, 0.08);
+      color: var(--primary);
+      border: 1px solid rgba(0, 195, 255, 0.32);
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .card-body {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .list {
+      margin-top: 6px;
+      padding-left: 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .list li {
+      margin-bottom: 4px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+      font-size: 11px;
+    }
+
+    .badge-small {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(3, 7, 30, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--muted);
+    }
+
+    .badge-small span {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 16px;
+    }
+
+    .note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    footer {
+      margin-top: 24px;
+      padding: 14px 20px 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      background: rgba(1, 3, 16, 0.95);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .footer-inner strong {
+      color: var(--text);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-card {
+        order: -1;
+      }
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        margin-top: 18px;
+      }
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .section {
+        padding: 0 14px;
+      }
+      .hero-card {
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="top">
+    <div class="nav">
+      <div class="logo">
+        <span></span>
+        FORTNITE MASTER GUIDE
+      </div>
+      <nav class="nav-links">
+        <a href="#basics">Βασικά</a>
+        <a href="#gameplan">Πλάνο</a>
+        <a href="#mechanics">Aim & build</a>
+        <a href="#settings">Ρυθμίσεις</a>
+        <a href="#mindset">Νοοτροπία</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="badge">
+          <span>⚡</span>
+          Οδηγός για αρχάριους αλλά και tryhards
+        </div>
+        <h1 class="hero-title">
+          Μάθε να παίζεις <span>Fortnite</span> σωστά, από το 0 μέχρι pro σκέψη.
+        </h1>
+        <p class="hero-subtitle">
+          Δεν έχει σημασία αν μόλις μπήκες στο παιχνίδι ή παίζεις χρόνια.
+          Εδώ θα βρεις την <strong>ουσία</strong>: πώς να σκέφτεσαι, πώς να κινείσαι,
+          πώς να χτίζεις και πώς να σταματήσεις να πεθαίνεις χωρίς να καταλαβαίνεις τι έγινε.
+        </p>
+
+        <div class="hero-grid">
+          <div class="hero-grid-row">
+            <div class="hero-pill">
+              <span>Βασικά:</span> drop, loot, κύκλος, rotation, survival.
+            </div>
+            <div class="hero-pill">
+              <span>Μηχανικά:</span> aim, building, editing, movement.
+            </div>
+          </div>
+          <div class="hero-grid-row">
+            <div class="hero-pill">
+              <span>Στρατηγική:</span> aggressive vs passive, 1v1, 3rd party.
+            </div>
+            <div class="hero-pill">
+              <span>Νοοτροπία:</span> ψυχραιμία, focus, βελτίωση χωρίς tilt.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="hero-card-header">
+          <div class="hero-card-title">Fortnite Progress Tracker</div>
+          <div class="status-pill">Grinding • Learning • Improving</div>
+        </div>
+        <div class="hero-card-main">
+          <div class="progress-row">
+            <span>Τρέχον επίπεδο</span>
+            <span>Από casual σε έξυπνο player</span>
+          </div>
+          <div class="progress-bar-group">
+            <div class="progress-label">
+              <span>Μηχανικά (aim/build)</span>
+              <span>~ 70%</span>
+            </div>
+            <div class="progress">
+              <div class="progress-fill"></div>
+            </div>
+            <div class="progress-label">
+              <span>Game sense & αποφάσεις</span>
+              <span>Το πραγματικό OP skill</span>
+            </div>
+          </div>
+
+          <div class="hero-tips">
+            <div class="hero-tip">
+              <span>Drop</span>
+              <strong>Μάθε 2–3 σταθερά σημεία</strong>
+              για να ξέρεις πάντα πού θα βρεις loot & materials.
+            </div>
+            <div class="hero-tip">
+              <span>Fights</span>
+              <strong>Πάρε fights με σκοπό να μάθεις,</strong>
+              όχι απλά να βγεις πρώτος μια φορά.
+            </div>
+            <div class="hero-tip">
+              <span>Mindset</span>
+              <strong>Ανάλυσε κάθε θάνατο:</strong>
+              ρώτα “τι θα μπορούσα να κάνω 1% καλύτερα;”.
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="basics">
+      <div class="section-header">
+        <h2 class="section-title">1. Τα <span>βασικά</span> του Fortnite</h2>
+        <p class="section-subtitle">
+          Αν καταλάβεις τους βασικούς κανόνες του παιχνιδιού, όλα τα υπόλοιπα (build, aim, edits) μπαίνουν στη θέση τους.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-tag">1.1 Drop & το ξεκίνημα του game</div>
+            <div class="card-label">Early game</div>
+          </div>
+          <h3 class="card-title">Πού κάνεις land και γιατί έχει σημασία</h3>
+          <p class="card-body">
+            Το λάθος που κάνουν πολλοί είναι ότι πηδάνε όπου να ’ναι. Διάλεξε
+            2–3 συγκεκριμένα σημεία στο map και παίξε εκεί συνέχεια. Έτσι:
+          </p>
+          <ul class="list">
+            <li><strong>Μαθαίνεις το μέρος:</strong> chest spawns, floor loot, materials.</li>
+            <li><strong>Ξέρεις από πού θα σου έρθουν αντίπαλοι:</strong> γειτονικές περιοχές, συχνά rotations.</li>
+            <li><strong>Ελαττώνεις το RNG:</strong> δεν βασίζεσαι τελείως στην τύχη κάθε game.</li>
+          </ul>
+          <p class="note">
+            Διάλεξε ένα σημείο με αρκετό loot αλλά όχι τρελό συνωστισμό, για να προλαβαίνεις να εξοπλιστείς πριν πας σε fights.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-tag">1.2 Loot & προτεραιότητες</div>
+            <div class="card-label">Inventory</div>
+          </div>
+          <h3 class="card-title">Τι ψάχνεις τα πρώτα λεπτά</h3>
+          <p class="card-body">
+            Μόλις κάνεις land, έχεις λίγα δευτερόλεπτα για να βάλεις τάξη στο χάος. Προτεραιότητα:
+          </p>
+          <ul class="list">
+            <li><strong>1 όπλο με μεσαία απόσταση</strong> (assault/SMG) για τα πρώτα trades.</li>
+            <li><strong>1 shotgun</strong> για κοντινές μάχες μέσα σε κτίρια.</li>
+            <li><strong>Shields + heals:</strong> έστω κάτι μικρό για να μη μένεις 100 HP γυμνός.</li>
+            <li><strong>Materials:</strong> μην ξεχνάς να farmάρεις από την αρχή (ξύλο/τούβλο).</li>
+          </ul>
+          <p class="note">
+            Μην περνάς την μισή αρχή ψάχνοντας “τέλειο loadout”. Χρειάζεσαι «αρκετά καλό» για να μπεις σε fights και να μάθεις.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-tag">1.3 Ο κύκλος & rotations</div>
+            <div class="card-label">Zone</div>
+          </div>
+          <h3 class="card-title">Πώς δεν πεθαίνεις άσκοπα στο storm</h3>
+          <p class="card-body">
+            Ο κύκλος δεν είναι απλά «τρέχω προς το λευκό». Είναι εργαλείο. Η θέση σου μέσα στη ζώνη
+            καθορίζει τι fights θα πάρεις.
+          </p>
+          <ul class="list">
+            <li><strong>Παίξε το high ground της ζώνης:</strong> λόφοι, κτίρια, φυσικά covers.</li>
+            <li><strong>Μην μπαίνεις πάντα στο κέντρο:</strong> συχνά η άκρη της ζώνης είναι πιο ασφαλής.</li>
+            <li><strong>Υπολόγισε χρόνο:</strong> ξεκίνα να κινείσαι νωρίτερα, όχι στο τελευταίο δευτερόλεπτο.</li>
+          </ul>
+          <p class="note">
+            Κάθε φορά που ανοίγει νέος κύκλος, ρώτα τον εαυτό σου: “Ποιο σημείο εδώ θέλω να ελέγχω;”.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="gameplan">
+      <div class="section-header">
+        <h2 class="section-title">2. Πλάνο παιχνιδιού <span>(game plan)</span></h2>
+        <p class="section-subtitle">
+          Δεν παίζεις random. Μπαίνεις σε κάθε game με συγκεκριμένο στόχο: τι θες να δουλέψεις και πώς θες να παίξεις.
+        </p>
+      </div>
+
+      <div class="two-column">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-tag">2.1 Aggressive vs passive</div>
+            <div class="card-label">Playstyle</div>
+          </div>
+          <h3 class="card-title">Πότε κυνηγάς fights και πότε κάνεις υπομονή</h3>
+          <p class="card-body">
+            Δεν υπάρχει «σωστό» playstyle, υπάρχει <strong>συνειδητή επιλογή</strong>. Για βελτίωση:
+          </p>
+          <ul class="list">
+            <li><strong>Λίγα games full aggro:</strong> σκοπός να μπεις σε πολλά 1v1 και να μάθεις building/aim.</li>
+            <li><strong>Άλλα games πιο passive:</strong> στόχος να φτάσεις late game και να μάθεις rotation & θέση.</li>
+            <li><strong>Μην αλλάζεις στιλ στη μέση:</strong> αν αποφάσισες aggro game, μείνε σε αυτό μέχρι τέλους.</li>
+          </ul>
+          <div class="badge-row">
+            <div class="badge-small"><span>Focus:</span> μάθηση, όχι μόνο wins.</div>
+            <div class="badge-small"><span>Σημείωση:</span> κάθε game να έχει έναν βασικό στόχο.</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-tag">2.2 Πώς παίζεις το mid & late game</div>
+            <div class="card-label">Endgame</div>
+          </div>
+          <h3 class="card-title">Από το top 30 μέχρι το win</h3>
+          <p class="card-body">
+            Όσο λιγοστεύουν οι παίκτες, τόσο πιο σημαντικό γίνεται να μην κάνεις βλακείες.
+          </p>
+          <ul class="list">
+            <li><strong>Mid game:</strong> προτίμησε fights που σου δίνουν καλύτερη θέση ή πολύ καλό loot.</li>
+            <li><strong>Late game:</strong> παίξε υπομονετικά, χρησιμοποίησε κάθε cover, πρόσεχε από 3rd parties.</li>
+            <li><strong>Μην overbuildάρεις άσκοπα:</strong> θα μείνεις χωρίς materials στο πιο κρίσιμο σημείο.</li>
+          </ul>
+          <p class="note">
+            Στο late game, το να μείνεις ζωντανός άλλα 5 δευτερόλεπτα με σωστή κίνηση αξίζει περισσότερο από
+            ένα random aggressive play που ίσως σου δώσει ένα kill και μετά πεθαίνεις.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="mechanics">
+      <div class="section-header">
+        <h2 class="section-title">3. Μηχανικά: <span>aim, building, editing</span></h2>
+        <p class="section-subtitle">
+          Τα χέρια σου πρέπει να ξέρουν τι κάνουν, πριν καν προλάβεις να το σκεφτείς.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-tag">3.1 Aim</div>
+            <div class="card-label">Precision</div>
+          </div>
+          <h3 class="card-title">Πώς δουλεύεις σοβαρά το aim σου</h3>
+          <p class="card-body">
+            Το aim δεν φτιάχνεται μαγικά. Θέλει συνέπεια.
+          </p>
+          <ul class="list">
+            <li><strong>Warm-up 10–15 λεπτά πριν παίξεις:</strong> creative maps για tracking & flicks.</li>
+            <li><strong>Μην αλλάζεις sensitivity κάθε εβδομάδα:</strong> βρες μια ρύθμιση και μείνε εκεί.</li>
+            <li><strong>Στόχευε στο chest/head level:</strong> συνήθεια να κρατάς το crosshair στο σωστό ύψος.</li>
+          </ul>
+          <div class="badge-row">
+            <div class="badge-small"><span>Tip:</span> λίγη προπόνηση κάθε μέρα > πολύ μια φορά.</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-tag">3.2 Building</div>
+            <div class="card-label">Defense & control</div>
+          </div>
+          <h3 class="card-title">Το build πρώτα για άμυνα, μετά για show</h3>
+          <p class="card-body">
+            Αν δεν χτίζεις, πεθαίνεις χωρίς να προλάβεις να αντιδράσεις. Ξεκίνα απλά:
+          </p>
+          <ul class="list">
+            <li><strong>Πάντα ένα wall όταν σε πυροβολούν:</strong> αν σε δουν έξω, χτίζεις αυτόματα cover.</li>
+            <li><strong>Μάθε 1–2 βασικά ramp + wall patterns:</strong> για να πιάνεις ύψος με ασφάλεια.</li>
+            <li><strong>Box fight basic:</strong> ένα πλήρες box γύρω σου όταν θες να healάρεις ή να πάρεις ανάσα.</li>
+          </ul>
+          <p class="note">
+            Δούλεψε τα βασικά μέχρι να βγαίνουν φυσικά. Δεν χρειάζεται 1000 high-ground retakes, αλλά σταθερές, καθαρές κινήσεις.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-tag">3.3 Editing & movement</div>
+            <div class="card-label">Outplay</div>
+          </div>
+          <h3 class="card-title">Πώς κερδίζεις fights με έξυπνα edits</h3>
+          <p class="card-body">
+            Τα edits δεν είναι για να εντυπωσιάζεις, είναι για να δημιουργείς γωνίες που ο άλλος δεν περιμένει.
+          </p>
+          <ul class="list">
+            <li><strong>Μάθε 3–4 απλά, σταθερά edits:</strong> παράθυρο, γωνία 90 μοιρών, floor + cone edits.</li>
+            <li><strong>Πάντα με cover:</strong> edit-άρεις και επιστρέφεις γρήγορα πίσω από το wall σου.</li>
+            <li><strong>Πρόσεχε το movement:</strong> μην στέκεσαι ακίνητος όταν κοιτάς από edit.</li>
+          </ul>
+          <p class="note">
+            Στόχος δεν είναι η ταχύτητα αλλά η καθαρότητα. Καλύτερο ένα αργό αλλά σωστό edit, παρά τρία random που αφήνουν τρύπες στην άμυνά σου.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="settings">
+      <div class="section-header">
+        <h2 class="section-title">4. Ρυθμίσεις <span>& setup</span></h2>
+        <p class="section-subtitle">
+          Οι ρυθμίσεις δεν θα σε κάνουν κατευθείαν καλό, αλλά μπορούν να σου ανοίξουν τον δρόμο.
+        </p>
+      </div>
+
+      <div class="two-column">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-tag">4.1 Sensitivity & keybinds</div>
+            <div class="card-label">Controls</div>
+          </div>
+          <h3 class="card-title">Φτιάξε ρυθμίσεις που δουλεύουν για σένα</h3>
+          <p class="card-body">
+            Το χειρότερο που μπορείς να κάνεις είναι να αλλάζεις ρυθμίσεις συνέχεια επειδή είδες κάποιον pro στο YouTube.
+          </p>
+          <ul class="list">
+            <li><strong>Κράτα μέτρια sens:</strong> αρκετά γρήγορη για build/edits, αρκετά σταθερή για aim.</li>
+            <li><strong>Keybinds που βολεύουν τα δάχτυλά σου:</strong> όχι αυτά που απλά «είναι meta».</li>
+            <li><strong>Μην μετακινείς συνεχώς κουμπιά:</strong> άσε τον εγκέφαλό σου να μάθει muscle memory.</li>
+          </ul>
+          <div class="badge-row">
+            <div class="badge-small"><span>Στόχος:</span> να μην σκέφτεσαι τα κουμπιά.</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-tag">4.2 Graphics & FPS</div>
+            <div class="card-label">Performance</div>
+          </div>
+          <h3 class="card-title">Σταθερά FPS > όμορφα γραφικά</h3>
+          <p class="card-body">
+            Στο ανταγωνιστικό gaming, η σταθερότητα είναι πιο σημαντική από τα «όμορφα» visuals.
+          </p>
+          <ul class="list">
+            <li><strong>Χαμήλωσε settings αν χρειάζεται:</strong> για πιο σταθερά FPS.</li>
+            <li><strong>Πρόσεξε το input lag:</strong> v-sync κτλ. μπορεί να προσθέτει καθυστέρηση.</li>
+            <li><strong>Επίλεξε καλύτερο performance mode</strong> αν ο υπολογιστής σου ζορίζεται.</li>
+          </ul>
+          <p class="note">
+            Θες να νιώθεις ότι κάθε κίνηση βγαίνει αμέσως, χωρίς μικρο-lag που σου χαλάει το aim και τα builds.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="mindset">
+      <div class="section-header">
+        <h2 class="section-title">5. Νοοτροπία <span>& βελτίωση</span></h2>
+        <p class="section-subtitle">
+          Εδώ κερδίζονται οι σκληροί αγώνες: όχι στο mouse, αλλά στο πώς σκέφτεσαι κάθε game.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-tag">5.1 Tilt & ήρεμο μυαλό</div>
+            <div class="card-label">Calm</div>
+          </div>
+          <h3 class="card-title">Πώς δεν τρελαίνεσαι όταν όλα πάνε λάθος</h3>
+          <p class="card-body">
+            Θα χάσεις fights, θα έχεις κακά games, θα έχεις μέρες που τίποτα δεν βγαίνει. Αυτό είναι φυσιολογικό.
+          </p>
+          <ul class="list">
+            <li><strong>Πάρε μικρά breaks:</strong> 5 λεπτά μακριά από την οθόνη είναι καλύτερα από 5 tilt games.</li>
+            <li><strong>Μην φωνάζεις στους teammates:</strong> focus στο τι <em>εσύ</em> μπορείς να βελτιώσεις.</li>
+            <li><strong>Δες τα λάθη σαν data:</strong> κάθε θάνατος είναι πληροφορία, όχι «απόδειξη ότι είσαι κακός».</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-tag">5.2 Πλάνο προπόνησης</div>
+            <div class="card-label">Routine</div>
+          </div>
+          <h3 class="card-title">Μικρή ρουτίνα, μεγάλη διαφορά</h3>
+          <p class="card-body">
+            Αν αντί να παίζεις random, έχεις μια απλή ρουτίνα, θα δεις τεράστια πρόοδο.
+          </p>
+          <ul class="list">
+            <li><strong>10–15 λεπτά warm-up:</strong> aim + λίγο building/edits.</li>
+            <li><strong>4–5 games με συγκεκριμένο στόχο:</strong> π.χ. μόνο early fights ή μόνο rotation/late game.</li>
+            <li><strong>2 λεπτά στο τέλος:</strong> σκέψου τι έκανες καλά και τι όχι σήμερα.</li>
+          </ul>
+          <p class="note">
+            Το Fortnite είναι καλύτερο όταν νιώθεις ότι βελτιώνεσαι. Όχι όταν κυνηγάς μόνο το ένα “τέλειο” win.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-tag">5.3 Παίζοντας με φίλους</div>
+            <div class="card-label">Team</div>
+          </div>
+          <h3 class="card-title">Πώς η ομάδα σε κάνει καλύτερο</h3>
+          <p class="card-body">
+            Με παρέα είναι πιο διασκεδαστικό, αλλά μπορείς ταυτόχρονα να βελτιώνεσαι.
+          </p>
+          <ul class="list">
+            <li><strong>Συνεννόηση:</strong> πριν το game αποφασίστε playstyle –aggressive ή πιο safe.</li>
+            <li><strong>Μοιράστε ρόλους:</strong> αυτός που έχει καλύτερο aim ανοίγει fights, άλλος καλύπτει κτλ.</li>
+            <li><strong>Μην βρίζεστε για λάθη:</strong> 1–2 λεπτά συζήτηση είναι πιο χρήσιμα από φωνές.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>Fortnite Master Guide</strong> – ένας πλήρης οδηγός για να παίζεις πιο έξυπνα, όχι απλά πιο γρήγορα.
+      </div>
+      <div>
+        Χρησιμοποίησε το scroll & το μίνι μενού πάνω για να γυρίσεις στις ενότητες.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
