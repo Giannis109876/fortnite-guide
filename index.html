@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fortnite Ultimate Guide 2025 🎮</title>
+    <title>Fortnite Guide GR 2025 🎮</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -17,31 +17,33 @@
         .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
         header {
             text-align: center;
-            padding: 50px 20px;
+            padding: 40px 20px;
             background: rgba(0, 0, 0, 0.4);
             border-radius: 20px;
             margin-bottom: 30px;
             border-bottom: 4px solid #ff6b35;
         }
+        
+        /* Navigation */
         .top-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
-        .top-nav a {
-            padding: 10px 20px;
+        .top-nav button {
+            padding: 12px 20px;
             background: #ff6b35;
             color: #fff;
-            text-decoration: none;
+            border: none;
             border-radius: 25px;
             font-weight: bold;
-            transition: 0.3s;
             cursor: pointer;
+            transition: 0.3s;
         }
-        .top-nav a:hover { background: #ff4500; transform: scale(1.05); }
+        .top-nav button:hover { background: #ff4500; transform: translateY(-2px); }
 
-        /* Σελίδες */
+        /* Pages logic */
         .page-content { display: none; background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 15px; animation: fadeIn 0.4s; }
         .active-page { display: block !important; }
 
-        /* Tabs για το Home */
-        .nav-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        /* Tabs for Home */
+        .nav-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; }
         .tab-btn {
             padding: 8px 16px;
             background: rgba(255, 255, 255, 0.1);
@@ -54,14 +56,13 @@
         .content-section { display: none; }
         .active-section { display: block !important; }
 
-        /* Στοιχεία Περιεχομένου */
-        h2 { color: #ffd700; margin-bottom: 15px; }
-        h3 { color: #ff6b35; margin-top: 20px; }
-        .card { background: rgba(0, 0, 0, 0.3); padding: 15px; margin: 10px 0; border-radius: 10px; border-left: 5px solid #ff6b35; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-        .rarity { padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 0.9em; }
-        .mythic { background: #f44336; } .legendary { background: #ff9800; } .epic { background: #9c27b0; }
-
+        /* Content Styling */
+        h1 { margin-bottom: 20px; color: #ffd700; }
+        h2 { color: #ffd700; margin-bottom: 15px; border-bottom: 2px solid #ff6b35; display: inline-block; }
+        .card { background: rgba(0, 0, 0, 0.3); padding: 20px; margin: 15px 0; border-radius: 10px; border-left: 5px solid #ff6b35; }
+        a { color: #ff6b35; text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+        
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
@@ -69,106 +70,106 @@
 
 <div class="container">
     <header>
-        <h1>🎮 Fortnite Guide 2025</h1>
-        <p>Ενημερωμένο για το Chapter 6 & 7</p>
+        <h1>🎮 Fortnite Guide GR</h1>
+        <p>Ο απόλυτος οδηγός για το 2025</p>
     </header>
 
     <nav class="top-nav">
-        <a onclick="showPage(event, 'home')">🏠 Home</a>
-        <a onclick="showPage(event, 'mechanics-page')">⚙️ Mechanics</a>
-        <a onclick="showPage(event, 'about')">ℹ️ About</a>
-        <a onclick="showPage(event, 'privacy')">🔒 Privacy</a>
+        <button onclick="showPage('home')">🏠 Home</button>
+        <button onclick="showPage('about')">ℹ️ About</button>
+        <button onclick="showPage('contact')">📧 Contact</button>
+        <button onclick="showPage('privacy')">🔒 Privacy</button>
     </nav>
 
-    <!-- HOME PAGE -->
+    <!-- Σελίδα: HOME -->
     <div id="home" class="page-content active-page">
         <div class="nav-tabs">
-            <button class="tab-btn active-tab" onclick="showTab(event, 'intro')">Modes 2025</button>
-            <button class="tab-btn" onclick="showTab(event, 'movement')">New Movement</button>
-            <button class="tab-btn" onclick="showTab(event, 'loot')">Loot & Bosses</button>
+            <button class="tab-btn active-tab" onclick="showTab(event, 'intro')">Στρατηγική</button>
+            <button class="tab-btn" onclick="showTab(event, 'tips')">Tips 2025</button>
         </div>
 
         <div id="intro" class="content-section active-section">
-            <h2>🌍 Τα Game Modes του 2025</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Battle Royale / Zero Build</h3>
-                    <p>Η κλασική εμπειρία. Το 2025 το Zero Build είναι το πιο δημοφιλές για νέους παίκτες.</p>
-                </div>
-                <div class="card">
-                    <h3>Fortnite Reload</h3>
-                    <p>40 παίκτες, γρήγορο respawn και δράση χωρίς σταματημό σε μικρότερους χάρτες.</p>
-                </div>
-                <div class="card">
-                    <h3>LEGO & Festival</h3>
-                    <p>Survival crafting (LEGO) και Rhythm games (Festival) μέσα στο ίδιο το Fortnite.</p>
-                </div>
+            <h2>🎯 Βελτίωσε το παιχνίδι σου</h2>
+            <div class="card">
+                <p>Μάθε να ελέγχεις το <b>Early Game</b> επιλέγοντας σωστά σημεία προσγείωσης μακριά από τα "hot drops" αν θέλεις να επιβιώσεις. Στο <b>Mid Game</b>, εστίασε στα rotations χρησιμοποιώντας τα νέα οχήματα και τις δυνατότητες κίνησης του 2025.</p>
+            </div>
+            <div class="card">
+                <h3>Building & Editing</h3>
+                <p>Το χτίσιμο παραμένει η καρδιά του παιχνιδιού. Εξασκήσου στα "90s" και στα "peace control" drills στα Creative maps για να κυριαρχήσεις.</p>
             </div>
         </div>
 
-        <div id="movement" class="content-section">
-            <h2>🏃 Νέες Κινήσεις (Chapter 6+)</h2>
-            <p>Το Fortnite το 2025 έχει εξελιγμένο parkour:</p>
+        <div id="tips" class="content-section">
+            <h2>💡 Pro Tips για το Chapter 6</h2>
             <ul>
-                <li><b>Ledge Jump:</b> Άλμα την ώρα του sprint κοντά σε άκρη σε εκτοξεύει πιο μακριά.</li>
-                <li><b>Roll Landing:</b> Πάτα Jump πριν ακουμπήσεις το έδαφος για να κάνεις βαρελάκι και να μην χάσεις stamina.</li>
-                <li><b>Wall Kick:</b> Πήδα πάνω σε τοίχο για να πάρεις ώθηση προς την άλλη κατεύθυνση.</li>
+                <li>Χρησιμοποίησε τα <b>Medallions</b> με προσοχή, καθώς αποκαλύπτουν τη θέση σου στον χάρτη.</li>
+                <li>Το <b>Visualize Sound Effects</b> είναι απαραίτητο για να ακούς βήματα από μακριά.</li>
+                <li>Κράτα πάντα ένα slot για "Movement" αντικείμενα (π.χ. Grapples ή Shockwaves).</li>
             </ul>
         </div>
-
-        <div id="loot" class="content-section">
-            <h2>💎 Loot & Medallions</h2>
-            <div class="card">
-                <p>Στο τρέχον Season, η νίκη περνάει από τα <b>Bosses</b>. Νίκησε bosses (όπως ο Jason ή ο Carver) για να πάρεις:</p>
-                <ul>
-                    <li><span class="rarity mythic">Mythic Weapons:</span> Τα πιο δυνατά όπλα.</li>
-                    <li><span class="rarity legendary">Medallions:</span> Σου δίνουν passive abilities (π.χ. αναπλήρωση shield ή speed boost).</li>
-                </ul>
-            </div>
-        </div>
     </div>
 
-    <!-- MECHANICS PAGE -->
-    <div id="mechanics-page" class="page-content">
-        <h2>⚙️ Pro Mechanics & Settings</h2>
-        <div class="card">
-            <h3>Visual Sound Effects</h3>
-            <p>Πήγαινε στα Settings > Audio και ενεργοποίησε το <b>Visualize Sound Effects</b>. Θα βλέπεις στην οθόνη πού είναι τα βήματα και τα σεντούκια.</p>
-        </div>
-        <div class="card">
-            <h3>Preferred Item Slots</h3>
-            <p>Ρύθμισε το inventory σου να βάζει αυτόματα το Shotgun στο slot 1 και τα Healing στο slot 5.</p>
-        </div>
-    </div>
-
-    <!-- ABOUT PAGE -->
+    <!-- Σελίδα: ABOUT (Σύμφωνα με το κείμενό σου) -->
     <div id="about" class="page-content">
-        <h2>ℹ️ Σχετικά</h2>
-        <p>Αυτό το site δημιουργήθηκε για την ελληνική κοινότητα του Fortnite. Στόχος μας είναι η ενημέρωση για κάθε νέο update της Epic Games το 2025.</p>
-    </div>
-
-    <!-- PRIVACY PAGE -->
-    <div id="privacy" class="page-content">
-        <h2>🔒 Privacy Policy</h2>
+        <h1>About</h1>
         <div class="card">
-            <p><b>Συλλογή Δεδομένων:</b> Το site μας είναι ενημερωτικού χαρακτήρα και δεν συλλέγει προσωπικά δεδομένα χρηστών (ονόματα, email).</p>
-            <p><b>Cookies:</b> Ενδέχεται να χρησιμοποιούμε βασικά cookies για τη λειτουργία της εναλλαγής σελίδων.</p>
-            <p><b>Τρίτα Μέρη:</b> Δεν μοιραζόμαστε πληροφορίες με διαφημιστικές εταιρείες.</p>
-            <p><b>Fortnite Privacy:</b> Για τις ρυθμίσεις απορρήτου μέσα στο παιχνίδι, επισκεφθείτε το "Account and Privacy" tab στο μενού του Fortnite.</p>
+            <p>Το Fortnite Guide GR είναι ένας δωρεάν ελληνικός οδηγός για το Fortnite, φτιαγμένος για παίκτες κάθε επιπέδου. 
+            Στόχος μου είναι να βοηθήσω τους παίκτες να βελτιώσουν aim, building, editing, rotations, game sense και στρατηγικές για early, mid και late game.</p>
+            <p style="margin-top: 15px;">Το site ενημερώνεται συνεχώς με νέες συμβουλές και περιεχόμενο.</p>
         </div>
     </div>
+
+    <!-- Σελίδα: CONTACT (Σύμφωνα με το κείμενό σου) -->
+    <div id="contact" class="page-content">
+        <h1>Contact</h1>
+        <div class="card">
+            <p>Αν θέλεις να επικοινωνήσεις μαζί μου, μπορείς να στείλεις email στο:</p>
+            <p style="font-size: 1.2em; margin: 15px 0;"><strong>giannis10ritzakis@gmail.com</strong></p>
+            <p>Θα απαντήσω το συντομότερο δυνατό.</p>
+        </div>
+    </div>
+
+    <!-- Σελίδα: PRIVACY (Σύμφωνα με το κείμενό σου) -->
+    <div id="privacy" class="page-content">
+        <h1>Privacy Policy</h1>
+        <div class="card">
+            <p>Αυτό το site χρησιμοποιεί cookies και υπηρεσίες τρίτων, όπως το Google AdSense, για την εμφάνιση διαφημίσεων.</p>
+            <p>Η Google μπορεί να χρησιμοποιεί cookies για την εξατομίκευση διαφημίσεων και για τη μέτρηση της απόδοσης.</p>
+            <p>Δεν συλλέγω προσωπικά δεδομένα χρηστών.</p>
+            <p style="margin-top: 15px;">Για περισσότερες πληροφορίες σχετικά με το πώς η Google χρησιμοποιεί δεδομένα, επισκεφθείτε: 
+            <br><a href="https://policies.google.com/technologies/partner-sites" target="_blank">Google Privacy & Terms</a>.</p>
+        </div>
+    </div>
+
 </div>
 
 <script>
-    function showPage(event, pageId) {
-        event.preventDefault();
-        document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active-page'));
-        document.getElementById(pageId).classList.add('active-page');
+    // Σωστή λειτουργία εναλλαγής σελίδων
+    function showPage(pageId) {
+        // Κλείνουμε όλες τις σελίδες
+        const pages = document.querySelectorAll('.page-content');
+        pages.forEach(page => {
+            page.classList.remove('active-page');
+        });
+
+        // Εμφανίζουμε τη σελίδα που πατήθηκε
+        const targetPage = document.getElementById(pageId);
+        if (targetPage) {
+            targetPage.classList.add('active-page');
+        }
+        
+        // Scroll στην κορυφή
+        window.scrollTo(0, 0);
     }
 
+    // Λειτουργία για τα Tabs στην αρχική
     function showTab(event, tabId) {
-        document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active-section'));
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active-tab'));
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(sec => sec.classList.remove('active-section'));
+
+        const buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach(btn => btn.classList.remove('active-tab'));
+
         document.getElementById(tabId).classList.add('active-section');
         event.currentTarget.classList.add('active-tab');
     }
