@@ -57,6 +57,7 @@
         h3 { color: #ff6b35; margin-bottom: 10px; }
         .card { background: rgba(0, 0, 0, 0.4); padding: 20px; margin: 15px 0; border-radius: 10px; border-left: 5px solid #ff6b35; }
         li { margin-left: 20px; margin-bottom: 8px; }
+        a { color: #ff6b35; text-decoration: none; font-weight: bold; }
         
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
@@ -76,47 +77,47 @@
         <button onclick="showPage('privacy')">🔒 Privacy</button>
     </nav>
 
-    <!-- HOME PAGE -->
-    <div id="home" class="page-content active-page">
+    <!-- Σελίδα: HOME -->
+    <div id="home" class="page-content">
         <div class="nav-tabs">
-            <button class="tab-btn active-tab" onclick="showTab(event, 'mechanics')">Νέοι Μηχανισμοί</button>
-            <button class="tab-btn" onclick="showTab(event, 'loot')">Loot & Weapons</button>
-            <button class="tab-btn" onclick="showTab(event, 'settings')">Best Settings</button>
+            <button class="tab-btn active-tab" onclick="showTab(event, 'mechanics')">Στρατηγικές</button>
+            <button class="tab-btn" onclick="showTab(event, 'movement')">Κίνηση 2025</button>
+            <button class="tab-btn" onclick="showTab(event, 'settings')">Ρυθμίσεις</button>
         </div>
 
         <div id="mechanics" class="content-section active-section">
-            <h2>🏃 Chapter 6 Parkour & Movement</h2>
+            <h2>🎯 Βελτίωσε το παιχνίδι σου</h2>
             <div class="card">
-                <h3>Νέες Κινήσεις</h3>
-                <ul>
-                    <li><b>Ledge Jump:</b> Sprint και άλμα πάνω από άκρη για μεγαλύτερη ώθηση.</li>
-                    <li><b>Wall Kick:</b> Άλμα πάνω σε τοίχο και ξανά πάτημα του jump για αναπήδηση.</li>
-                    <li><b>Roll Landing:</b> Κράτα πατημένο το Jump πριν πέσεις στο έδαφος για barrel roll και stamina.</li>
-                </ul>
+                <p>Μάθε να ελέγχεις το <b>Early Game</b> επιλέγοντας σωστά σημεία προσγείωσης. Στο <b>Mid Game</b>, εστίασε στα rotations χρησιμοποιώντας τα νέα οχήματα. Το <b>Late Game</b> απαιτεί καλή διαχείριση υλικών και σωστό positioning.</p>
+            </div>
+            <div class="card">
+                <h3>Aim & Building</h3>
+                <p>Το 2025 η ακρίβεια (aim) είναι πιο σημαντική από ποτέ. Εξασκήσου στα Creative maps για "peace control" και "editing" ώστε να έχεις το πάνω χέρι στις μάχες.</p>
             </div>
         </div>
 
-        <div id="loot" class="content-section">
-            <h2>⚔️ Weapons & Boons 2025</h2>
+        <div id="movement" class="content-section">
+            <h2>🏃 Chapter 6 Movement</h2>
             <div class="card">
-                <h3>Oni Masks & Boons</h3>
-                <p>Στο τρέχον Season, μπορείς να βρεις <b>Oni Masks</b> που σου δίνουν υπερδυνάμεις (Fire, Void, κλπ). Επίσης, τα <b>Boons</b> δίνουν passive buffs όπως γρηγορότερο reload ή healing στο νερό.</p>
+                <ul>
+                    <li><b>Wall Kick:</b> Πήδα πάνω σε τοίχο και πάτα ξανά jump για να εκτοξευθείς.</li>
+                    <li><b>Roll Landing:</b> Κάνε roll πέφτοντας για να μην χάσεις ταχύτητα.</li>
+                    <li><b>Ledge Jump:</b> Μέγιστη ώθηση όταν πηδάς από άκρες κτιρίων.</li>
+                </ul>
             </div>
         </div>
 
         <div id="settings" class="content-section">
-            <h2>⚙️ Απαραίτητες Ρυθμίσεις</h2>
+            <h2>⚙️ Καλύτερες Ρυθμίσεις</h2>
             <div class="card">
-                <ul>
-                    <li><b>Visualize Sound Effects:</b> ON (Audio Settings). Σου επιτρέπει να βλέπεις οπτικά τα βήματα και τους πυροβολισμούς.</li>
-                    <li><b>Performance Mode:</b> ON (για PC) για μέγιστα FPS.</li>
-                    <li><b>Preferred Item Slots:</b> Ρύθμισε το Shotgun στο Slot 1 για ταχύτητα.</li>
-                </ul>
+                <p>1. <b>Visualize Sound Effects:</b> ON (απαραίτητο για να βλέπεις εχθρούς).</p>
+                <p>2. <b>Performance Mode:</b> Για μέγιστα FPS και καθαρότερο οπτικό πεδίο.</p>
+                <p>3. <b>Preferred Slots:</b> Shotgun πάντα στο 1ο ή 2ο slot.</p>
             </div>
         </div>
     </div>
 
-    <!-- ABOUT PAGE -->
+    <!-- Σελίδα: ABOUT -->
     <div id="about" class="page-content">
         <h1>About</h1>
         <div class="card">
@@ -126,7 +127,7 @@
         </div>
     </div>
 
-    <!-- CONTACT PAGE -->
+    <!-- Σελίδα: CONTACT -->
     <div id="contact" class="page-content">
         <h1>Contact</h1>
         <div class="card">
@@ -136,7 +137,7 @@
         </div>
     </div>
 
-    <!-- PRIVACY PAGE -->
+    <!-- Σελίδα: PRIVACY -->
     <div id="privacy" class="page-content">
         <h1>Privacy Policy</h1>
         <div class="card">
@@ -151,9 +152,23 @@
 </div>
 
 <script>
+    // Φόρτωση της τελευταίας σελίδας κατά το Refresh
+    window.onload = function() {
+        const lastPage = localStorage.getItem('lastPage') || 'home';
+        showPage(lastPage);
+    };
+
     function showPage(pageId) {
+        // Απόκρυψη όλων
         document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active-page'));
-        document.getElementById(pageId).classList.add('active-page');
+        
+        // Εμφάνιση επιλεγμένης
+        const target = document.getElementById(pageId);
+        if (target) {
+            target.classList.add('active-page');
+            // Αποθήκευση στο localStorage
+            localStorage.setItem('lastPage', pageId);
+        }
         window.scrollTo(0,0);
     }
 
@@ -167,4 +182,5 @@
 
 </body>
 </html>
+
 
