@@ -9,7 +9,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             color: #fff;
             line-height: 1.6;
             min-height: 100vh;
@@ -18,13 +18,12 @@
         header {
             text-align: center;
             padding: 40px 20px;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.5);
             border-radius: 20px;
             margin-bottom: 30px;
             border-bottom: 4px solid #ff6b35;
         }
         
-        /* Navigation */
         .top-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
         .top-nav button {
             padding: 12px 20px;
@@ -38,14 +37,12 @@
         }
         .top-nav button:hover { background: #ff4500; transform: translateY(-2px); }
 
-        /* Pages logic */
-        .page-content { display: none; background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 15px; animation: fadeIn 0.4s; }
+        .page-content { display: none; background: rgba(255, 255, 255, 0.08); padding: 30px; border-radius: 15px; animation: fadeIn 0.4s; }
         .active-page { display: block !important; }
 
-        /* Tabs for Home */
-        .nav-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; }
+        .nav-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
         .tab-btn {
-            padding: 8px 16px;
+            padding: 10px 18px;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid #ff6b35;
             color: #fff;
@@ -56,14 +53,12 @@
         .content-section { display: none; }
         .active-section { display: block !important; }
 
-        /* Content Styling */
-        h1 { margin-bottom: 20px; color: #ffd700; }
-        h2 { color: #ffd700; margin-bottom: 15px; border-bottom: 2px solid #ff6b35; display: inline-block; }
-        .card { background: rgba(0, 0, 0, 0.3); padding: 20px; margin: 15px 0; border-radius: 10px; border-left: 5px solid #ff6b35; }
-        a { color: #ff6b35; text-decoration: none; font-weight: bold; }
-        a:hover { text-decoration: underline; }
+        h1, h2 { color: #ffd700; margin-bottom: 15px; }
+        h3 { color: #ff6b35; margin-bottom: 10px; }
+        .card { background: rgba(0, 0, 0, 0.4); padding: 20px; margin: 15px 0; border-radius: 10px; border-left: 5px solid #ff6b35; }
+        li { margin-left: 20px; margin-bottom: 8px; }
         
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -71,7 +66,7 @@
 <div class="container">
     <header>
         <h1>🎮 Fortnite Guide GR</h1>
-        <p>Ο απόλυτος οδηγός για το 2025</p>
+        <p>Οδηγός Chapter 6: Season 1 - Δεκέμβριος 2025</p>
     </header>
 
     <nav class="top-nav">
@@ -81,35 +76,47 @@
         <button onclick="showPage('privacy')">🔒 Privacy</button>
     </nav>
 
-    <!-- Σελίδα: HOME -->
+    <!-- HOME PAGE -->
     <div id="home" class="page-content active-page">
         <div class="nav-tabs">
-            <button class="tab-btn active-tab" onclick="showTab(event, 'intro')">Στρατηγική</button>
-            <button class="tab-btn" onclick="showTab(event, 'tips')">Tips 2025</button>
+            <button class="tab-btn active-tab" onclick="showTab(event, 'mechanics')">Νέοι Μηχανισμοί</button>
+            <button class="tab-btn" onclick="showTab(event, 'loot')">Loot & Weapons</button>
+            <button class="tab-btn" onclick="showTab(event, 'settings')">Best Settings</button>
         </div>
 
-        <div id="intro" class="content-section active-section">
-            <h2>🎯 Βελτίωσε το παιχνίδι σου</h2>
+        <div id="mechanics" class="content-section active-section">
+            <h2>🏃 Chapter 6 Parkour & Movement</h2>
             <div class="card">
-                <p>Μάθε να ελέγχεις το <b>Early Game</b> επιλέγοντας σωστά σημεία προσγείωσης μακριά από τα "hot drops" αν θέλεις να επιβιώσεις. Στο <b>Mid Game</b>, εστίασε στα rotations χρησιμοποιώντας τα νέα οχήματα και τις δυνατότητες κίνησης του 2025.</p>
-            </div>
-            <div class="card">
-                <h3>Building & Editing</h3>
-                <p>Το χτίσιμο παραμένει η καρδιά του παιχνιδιού. Εξασκήσου στα "90s" και στα "peace control" drills στα Creative maps για να κυριαρχήσεις.</p>
+                <h3>Νέες Κινήσεις</h3>
+                <ul>
+                    <li><b>Ledge Jump:</b> Sprint και άλμα πάνω από άκρη για μεγαλύτερη ώθηση.</li>
+                    <li><b>Wall Kick:</b> Άλμα πάνω σε τοίχο και ξανά πάτημα του jump για αναπήδηση.</li>
+                    <li><b>Roll Landing:</b> Κράτα πατημένο το Jump πριν πέσεις στο έδαφος για barrel roll και stamina.</li>
+                </ul>
             </div>
         </div>
 
-        <div id="tips" class="content-section">
-            <h2>💡 Pro Tips για το Chapter 6</h2>
-            <ul>
-                <li>Χρησιμοποίησε τα <b>Medallions</b> με προσοχή, καθώς αποκαλύπτουν τη θέση σου στον χάρτη.</li>
-                <li>Το <b>Visualize Sound Effects</b> είναι απαραίτητο για να ακούς βήματα από μακριά.</li>
-                <li>Κράτα πάντα ένα slot για "Movement" αντικείμενα (π.χ. Grapples ή Shockwaves).</li>
-            </ul>
+        <div id="loot" class="content-section">
+            <h2>⚔️ Weapons & Boons 2025</h2>
+            <div class="card">
+                <h3>Oni Masks & Boons</h3>
+                <p>Στο τρέχον Season, μπορείς να βρεις <b>Oni Masks</b> που σου δίνουν υπερδυνάμεις (Fire, Void, κλπ). Επίσης, τα <b>Boons</b> δίνουν passive buffs όπως γρηγορότερο reload ή healing στο νερό.</p>
+            </div>
+        </div>
+
+        <div id="settings" class="content-section">
+            <h2>⚙️ Απαραίτητες Ρυθμίσεις</h2>
+            <div class="card">
+                <ul>
+                    <li><b>Visualize Sound Effects:</b> ON (Audio Settings). Σου επιτρέπει να βλέπεις οπτικά τα βήματα και τους πυροβολισμούς.</li>
+                    <li><b>Performance Mode:</b> ON (για PC) για μέγιστα FPS.</li>
+                    <li><b>Preferred Item Slots:</b> Ρύθμισε το Shotgun στο Slot 1 για ταχύτητα.</li>
+                </ul>
+            </div>
         </div>
     </div>
 
-    <!-- Σελίδα: ABOUT (Σύμφωνα με το κείμενό σου) -->
+    <!-- ABOUT PAGE -->
     <div id="about" class="page-content">
         <h1>About</h1>
         <div class="card">
@@ -119,7 +126,7 @@
         </div>
     </div>
 
-    <!-- Σελίδα: CONTACT (Σύμφωνα με το κείμενό σου) -->
+    <!-- CONTACT PAGE -->
     <div id="contact" class="page-content">
         <h1>Contact</h1>
         <div class="card">
@@ -129,7 +136,7 @@
         </div>
     </div>
 
-    <!-- Σελίδα: PRIVACY (Σύμφωνα με το κείμενό σου) -->
+    <!-- PRIVACY PAGE -->
     <div id="privacy" class="page-content">
         <h1>Privacy Policy</h1>
         <div class="card">
@@ -137,39 +144,22 @@
             <p>Η Google μπορεί να χρησιμοποιεί cookies για την εξατομίκευση διαφημίσεων και για τη μέτρηση της απόδοσης.</p>
             <p>Δεν συλλέγω προσωπικά δεδομένα χρηστών.</p>
             <p style="margin-top: 15px;">Για περισσότερες πληροφορίες σχετικά με το πώς η Google χρησιμοποιεί δεδομένα, επισκεφθείτε: 
-            <br><a href="https://policies.google.com/technologies/partner-sites" target="_blank">Google Privacy & Terms</a>.</p>
+            <br><a href="policies.google.com" target="_blank">Google Privacy & Terms</a>.</p>
         </div>
     </div>
 
 </div>
 
 <script>
-    // Σωστή λειτουργία εναλλαγής σελίδων
     function showPage(pageId) {
-        // Κλείνουμε όλες τις σελίδες
-        const pages = document.querySelectorAll('.page-content');
-        pages.forEach(page => {
-            page.classList.remove('active-page');
-        });
-
-        // Εμφανίζουμε τη σελίδα που πατήθηκε
-        const targetPage = document.getElementById(pageId);
-        if (targetPage) {
-            targetPage.classList.add('active-page');
-        }
-        
-        // Scroll στην κορυφή
-        window.scrollTo(0, 0);
+        document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active-page'));
+        document.getElementById(pageId).classList.add('active-page');
+        window.scrollTo(0,0);
     }
 
-    // Λειτουργία για τα Tabs στην αρχική
     function showTab(event, tabId) {
-        const sections = document.querySelectorAll('.content-section');
-        sections.forEach(sec => sec.classList.remove('active-section'));
-
-        const buttons = document.querySelectorAll('.tab-btn');
-        buttons.forEach(btn => btn.classList.remove('active-tab'));
-
+        document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active-section'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active-tab'));
         document.getElementById(tabId).classList.add('active-section');
         event.currentTarget.classList.add('active-tab');
     }
@@ -177,5 +167,4 @@
 
 </body>
 </html>
-
 
