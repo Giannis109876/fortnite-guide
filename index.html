@@ -3,62 +3,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fortnite Guide GR 2025 🎮 | Premium Guide</title>
+    <title>Fortnite Guide GR 2025 🎮 | Ολοκληρωμένος Οδηγός</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ===== ROOT VARIABLES ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         :root {
             --primary: #ff6b35;
             --secondary: #0f0c29;
             --accent: #ffd700;
             --dark: #121212;
             --light: #f8f9fa;
-            --success: #00ff88;
-            --warning: #ffcc00;
-            --danger: #ff4757;
-            --sponsor: #8a2be2;
-            --streamer: #1e90ff;
-            --card-bg: rgba(20, 20, 30, 0.85);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            --gradient: linear-gradient(135deg, var(--primary), #ff8e53, var(--accent));
-        }
-        
-        /* ===== RESET & BASE ===== */
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-            scroll-behavior: smooth;
-        }
-        
-        html {
-            scroll-padding-top: 100px;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --card-bg: rgba(20, 20, 30, 0.7);
+            --transition: all 0.3s ease;
         }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--secondary), #1a1a2e, #16213e);
+            background: linear-gradient(135deg, var(--secondary), #302b63, #24243e);
             color: var(--light);
             line-height: 1.6;
             min-height: 100vh;
             background-attachment: fixed;
-            overflow-x: hidden;
+        }
+        
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px; 
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8), rgba(0, 0, 0, 0.8));
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border-bottom: 4px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--accent), var(--primary));
+        }
+        
+        .logo {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo i {
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .tagline {
+            color: #ccc;
+            font-size: 1.1rem;
+            margin-top: 5px;
+        }
+        
+        /* ===== TOP NAVIGATION ===== */
+        .top-nav { 
+            display: flex; 
+            justify-content: center; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 15px;
+        }
+        
+        .top-nav button {
+            padding: 12px 24px;
+            background: rgba(255, 107, 53, 0.2);
+            color: #fff;
+            border: 2px solid var(--primary);
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .top-nav button:hover, .top-nav button.active { 
+            background: var(--primary); 
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+        
+        /* ===== PAGE SYSTEM ===== */
+        .page-content { 
+            display: none; 
+            background: var(--card-bg); 
+            padding: 30px; 
+            border-radius: 15px; 
+            animation: fadeIn 0.4s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .page-content.active { display: block !important; }
+        
+        /* ===== TABS SYSTEM ===== */
+        .nav-tabs { 
+            display: flex; 
+            justify-content: center; 
+            gap: 10px; 
+            margin-bottom: 30px; 
+            flex-wrap: wrap; 
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 15px;
+        }
+        
+        .tab-btn {
+            padding: 12px 22px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 107, 53, 0.5);
+            color: #fff;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: var(--transition);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tab-btn:hover, .tab-btn.active { 
+            background: var(--primary); 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 107, 53, 0.3);
+        }
+        
+        .content-section { display: none; }
+        .content-section.active { display: block !important; }
+        
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2 { color: var(--accent); margin-bottom: 20px; }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; border-bottom: 2px solid var(--primary); padding-bottom: 10px; }
+        h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.5rem; }
+        
+        /* ===== CARDS ===== */
+        .card { 
+            background: rgba(0, 0, 0, 0.4); 
+            padding: 25px; 
+            margin: 20px 0; 
+            border-radius: 12px; 
+            border-left: 5px solid var(--primary);
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .card-header i {
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+        
+        /* ===== LISTS ===== */
+        ul { margin-left: 20px; margin-bottom: 15px; }
+        li { margin-bottom: 10px; padding-left: 5px; }
+        li::marker { color: var(--primary); }
+        
+        /* ===== LINKS ===== */
+        a { color: var(--primary); text-decoration: none; font-weight: bold; transition: var(--transition); }
+        a:hover { color: var(--accent); text-decoration: underline; }
+        
+        /* ===== BADGES ===== */
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+        
+        .badge-new { background: var(--success); color: white; }
+        .badge-pro { background: var(--warning); color: black; }
+        .badge-important { background: var(--danger); color: white; }
+        
+        /* ===== SPONSORS ===== */
+        .sponsors {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(255, 107, 53, 0.3);
+        }
+        
+        .sponsor-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 150px;
+        }
+        
+        .sponsor-item i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        
+        /* ===== COMMUNITY ===== */
+        .community {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .community-card {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 25px;
+            border-radius: 15px;
+            border-top: 4px solid var(--primary);
+        }
+        
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--accent);
+            color: black;
+            transform: translateY(-5px);
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            border-top: 2px solid var(--primary);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
         }
         
         /* ===== ANIMATIONS ===== */
         @keyframes fadeIn { 
-            from { opacity: 0; transform: translateY(20px); } 
+            from { opacity: 0; transform: translateY(10px); } 
             to { opacity: 1; transform: translateY(0); } 
-        }
-        
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
         }
         
         @keyframes pulse {
@@ -67,1502 +329,675 @@
             100% { transform: scale(1); }
         }
         
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 10px var(--primary); }
-            50% { box-shadow: 0 0 25px var(--primary); }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        /* ===== CONTAINER & LAYOUT ===== */
-        .container { 
-            max-width: 1400px; 
-            margin: 0 auto; 
-            padding: 20px; 
-        }
-        
-        /* ===== HEADER ===== */
-        .main-header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(10, 10, 20, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 3px solid var(--primary);
-            animation: fadeIn 0.5s;
-        }
-        
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .logo {
-            font-size: 2.8rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: 900;
-            text-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
-            animation: pulse 3s infinite;
-        }
-        
-        .live-badge {
-            background: var(--danger);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            animation: glow 2s infinite;
-        }
-        
-        .live-badge::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: white;
-            border-radius: 50%;
-            animation: pulse 1s infinite;
-        }
-        
-        .user-menu {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        
-        .user-avatar {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            border: 2px solid var(--primary);
-            overflow: hidden;
-            cursor: pointer;
-        }
-        
-        .user-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .notification-bell {
-            position: relative;
-            font-size: 1.5rem;
-            color: var(--accent);
-            cursor: pointer;
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        .notification-bell::after {
-            content: '3';
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: var(--danger);
-            color: white;
-            font-size: 0.7rem;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        /* ===== MAIN NAVIGATION ===== */
-        .main-nav {
-            background: linear-gradient(to right, 
-                rgba(255, 107, 53, 0.1), 
-                rgba(255, 140, 83, 0.2), 
-                rgba(255, 107, 53, 0.1));
-            padding: 15px;
-            border-radius: 15px;
-            margin: 20px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .main-nav::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(255, 255, 255, 0.1), 
-                transparent);
-            animation: shimmer 3s infinite;
-        }
-        
-        @keyframes shimmer {
-            100% { left: 100%; }
-        }
-        
-        .nav-grid {
-            display: grid;
-            grid-template-columns: repeat(8, 1fr);
-            gap: 10px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .nav-btn {
-            background: rgba(0, 0, 0, 0.4);
-            border: 2px solid rgba(255, 107, 53, 0.3);
-            color: white;
-            padding: 15px 10px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            text-align: center;
-            font-weight: 600;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .nav-btn i {
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-        
-        .nav-btn:hover, .nav-btn.active {
-            background: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
-            border-color: var(--primary);
-        }
-        
-        .nav-btn:hover i, .nav-btn.active i {
-            color: white;
-            animation: float 1s ease-in-out;
-        }
-        
-        .badge {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: var(--danger);
-            color: white;
-            font-size: 0.7rem;
-            padding: 3px 8px;
-            border-radius: 10px;
-            font-weight: bold;
-        }
-        
-        /* ===== HERO SECTION ===== */
-        .hero-section {
-            position: relative;
-            height: 500px;
-            border-radius: 20px;
-            overflow: hidden;
-            margin: 30px 0;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-        }
-        
-        .hero-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.6);
-        }
-        
-        .hero-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            width: 80%;
-            z-index: 2;
-        }
-        
-        .hero-title {
-            font-size: 3.5rem;
-            background: linear-gradient(to right, var(--accent), var(--primary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 20px;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            animation: slideInLeft 1s;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            color: #ddd;
-            animation: slideInRight 1s;
-        }
-        
-        .cta-button {
-            background: var(--gradient);
-            color: white;
-            padding: 18px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            animation: fadeIn 1.5s;
-            background-size: 200% 200%;
-            animation: gradientShift 3s ease infinite;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(255, 107, 53, 0.4);
-        }
-        
-        /* ===== SPONSORS SECTION ===== */
-        .sponsors-section {
-            background: linear-gradient(135deg, 
-                rgba(138, 43, 226, 0.1), 
-                rgba(30, 144, 255, 0.1));
-            padding: 40px;
-            border-radius: 20px;
-            margin: 40px 0;
-            border: 2px solid var(--sponsor);
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            position: relative;
-            color: var(--sponsor);
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--gradient);
-            border-radius: 2px;
-        }
-        
-        .sponsor-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 30px;
-            align-items: center;
-        }
-        
-        .sponsor-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            transition: var(--transition);
-            border: 1px solid rgba(138, 43, 226, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .sponsor-card::before {
-            content: 'PREMIUM';
-            position: absolute;
-            top: 10px;
-            right: -30px;
-            background: var(--sponsor);
-            color: white;
-            padding: 3px 30px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            transform: rotate(45deg);
-        }
-        
-        .sponsor-card:hover {
-            transform: translateY(-10px);
-            background: rgba(138, 43, 226, 0.15);
-            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.2);
-        }
-        
-        .sponsor-logo {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: var(--sponsor);
-        }
-        
-        /* ===== TRAILER SECTION ===== */
-        .trailer-section {
-            position: relative;
-            margin: 60px 0;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-        }
-        
-        .trailer-overlay {
-            background: linear-gradient(45deg, 
-                rgba(16, 14, 41, 0.9), 
-                rgba(48, 43, 99, 0.9));
-            padding: 60px;
-            text-align: center;
-        }
-        
-        .trailer-title {
-            font-size: 3rem;
-            margin-bottom: 30px;
-            background: linear-gradient(to right, var(--accent), var(--primary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .video-container {
-            position: relative;
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-        }
-        
-        .video-placeholder {
-            width: 100%;
-            height: 500px;
-            background: linear-gradient(45deg, #222, #444);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .video-placeholder:hover {
-            background: linear-gradient(45deg, #333, #555);
-        }
-        
-        .play-button {
-            font-size: 5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-            animation: pulse 2s infinite;
-        }
-        
-        /* ===== PAGE CONTENT ===== */
-        .page-content { 
-            display: none; 
-            animation: fadeIn 0.6s;
-            padding: 20px 0;
-        }
-        
-        .active-page { display: block !important; }
-        
-        /* ===== SIDEBAR ===== */
-        .layout-container {
-            display: grid;
-            grid-template-columns: 250px 1fr 250px;
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .sidebar {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 25px;
-            border: 1px solid rgba(255, 107, 53, 0.3);
-            height: fit-content;
-            position: sticky;
-            top: 120px;
-        }
-        
-        .sidebar-title {
-            color: var(--accent);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary);
-        }
-        
-        .sidebar-list {
-            list-style: none;
-        }
-        
-        .sidebar-list li {
-            padding: 12px 15px;
-            margin-bottom: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .sidebar-list li:hover, .sidebar-list li.active {
-            background: var(--primary);
-            transform: translateX(10px);
-        }
-        
-        .main-content {
-            min-height: 800px;
-        }
-        
-        /* ===== STATS WIDGET ===== */
-        .stats-widget {
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            border-radius: 15px;
-            padding: 25px;
-            border: 1px solid rgba(30, 144, 255, 0.3);
-        }
-        
-        .stat-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .stat-item:last-child {
-            border-bottom: none;
-        }
-        
-        .stat-value {
-            color: var(--accent);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        
-        /* ===== CARDS ===== */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-        }
-        
-        .card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 25px;
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient);
-        }
-        
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-        }
-        
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .card-icon {
-            font-size: 2rem;
-            color: var(--primary);
-        }
-        
-        /* ===== STREAMERS SECTION ===== */
-        .streamers-section {
-            background: linear-gradient(135deg, 
-                rgba(30, 144, 255, 0.1), 
-                rgba(138, 43, 226, 0.1));
-            padding: 40px;
-            border-radius: 20px;
-            margin: 40px 0;
-            border: 2px solid var(--streamer);
-        }
-        
-        .streamer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        
-        .streamer-card {
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: var(--transition);
-            border: 1px solid rgba(30, 144, 255, 0.3);
-        }
-        
-        .streamer-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(30, 144, 255, 0.2);
-        }
-        
-        .streamer-header {
-            padding: 20px;
-            background: rgba(30, 144, 255, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .streamer-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 3px solid var(--streamer);
-            overflow: hidden;
-        }
-        
-        .streamer-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .streamer-info h4 {
-            color: white;
-            margin-bottom: 5px;
-        }
-        
-        .streamer-info p {
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-        
-        .streamer-status {
-            padding: 15px 20px;
-            background: rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .live-indicator {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--danger);
-            font-weight: bold;
-        }
-        
-        .live-indicator::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: var(--danger);
-            border-radius: 50%;
-            animation: pulse 1s infinite;
-        }
-        
-        /* ===== FOOTER ===== */
-        .main-footer {
-            background: rgba(10, 10, 20, 0.95);
-            margin-top: 60px;
-            padding: 60px 0 30px;
-            border-top: 3px solid var(--primary);
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column h3 {
-            color: var(--accent);
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: #aaa;
-            text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary);
-            transform: translateX(5px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #888;
-            font-size: 0.9rem;
-        }
-        
-        /* ===== BACK TO TOP ===== */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: var(--gradient);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.5rem;
-            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
-            transition: var(--transition);
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.6);
-        }
-        
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 1200px) {
-            .nav-grid { grid-template-columns: repeat(4, 1fr); }
-            .layout-container { grid-template-columns: 1fr; }
-            .sidebar { position: static; }
-            .sponsor-grid { grid-template-columns: repeat(4, 1fr); }
-            .footer-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        
         @media (max-width: 768px) {
-            .nav-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero-title { font-size: 2.5rem; }
-            .sponsor-grid { grid-template-columns: repeat(2, 1fr); }
-            .streamer-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .main-nav { padding: 10px; }
-            .nav-btn { padding: 12px 5px; font-size: 0.9rem; }
-            .header-top { flex-direction: column; gap: 15px; }
-        }
-        
-        /* ===== UTILITY CLASSES ===== */
-        .gradient-text {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .pulse-animation {
-            animation: pulse 2s infinite;
-        }
-        
-        .glow-animation {
-            animation: glow 2s infinite;
-        }
-        
-        .float-animation {
-            animation: float 3s ease-in-out infinite;
+            .container { padding: 10px; }
+            .top-nav, .nav-tabs { flex-direction: column; }
+            .top-nav button, .tab-btn { width: 100%; justify-content: center; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.7rem; }
+            .logo { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="main-header">
-    <div class="container">
-        <div class="header-top">
-            <div class="logo-container">
-                <div class="logo">
-                    <i class="fas fa-gamepad"></i> Fortnite GR
-                </div>
-                <div class="live-badge">
-                    LIVE UPDATES
-                </div>
-            </div>
-            
-            <div class="user-menu">
-                <div class="notification-bell">
-                    <i class="fas fa-bell"></i>
-                </div>
-                <div class="user-avatar">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
-                </div>
-            </div>
-        </div>
-        
-        <!-- MAIN NAVIGATION -->
-        <nav class="main-nav">
-            <div class="nav-grid">
-                <button class="nav-btn active" onclick="showPage('home')">
-                    <i class="fas fa-home"></i>
-                    <span>Αρχική</span>
-                </button>
-                
-                <button class="nav-btn" onclick="showPage('strategies')">
-                    <i class="fas fa-chess"></i>
-                    <span>Στρατηγικές</span>
-                    <span class="badge">ΝΕΕΣ</span>
-                </button>
-                
-                <button class="nav-btn" onclick="showPage('settings')">
-                    <i class="fas fa-cogs"></i>
-                    <span>Ρυθμίσεις</span>
-                </button>
-                
-                <button class="nav-btn" onclick="showPage('weapons')">
-                    <i class="fas fa-gun"></i>
-                    <span>Όπλα</span>
-                    <span class="badge">2025</span>
-                </button>
-                
-                <button class="nav-btn" onclick="showPage('streamers')">
-                    <i class="fas fa-tv"></i>
-                    <span>Streamers</span>
-                </button>
-                
-                <button class="nav-btn" onclick="showPage('sponsors')">
-                    <i class="fas fa-star"></i>
-                    <span>Sponsors</span>
-                </button>
-                
-                <button class="nav-btn" onclick="showPage('about')">
-                    <i class="fas fa-info-circle"></i>
-                    <span>About</span>
-                </button>
-                
-                <button class="nav-btn" onclick="showPage('privacy')">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Privacy</span>
-                </button>
-            </div>
-        </nav>
-    </div>
-</header>
-
-<!-- HERO SECTION -->
-<div class="hero-section">
-    <video class="hero-video" autoplay muted loop>
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-game-show-spinning-winner-687-large.mp4" type="video/mp4">
-    </video>
-    <div class="hero-content">
-        <h1 class="hero-title">Fortnite Chapter 6: Season 1</h1>
-        <p class="hero-subtitle">Ο ολοκληρωμένος Premium Οδηγός για το 2025 | Ελληνική Έκδοση</p>
-        <button class="cta-button" onclick="showPage('strategies')">
-            <i class="fas fa-rocket"></i>
-            Εκκίνηση Προπόνησης
-        </button>
-    </div>
-</div>
-
 <div class="container">
-    <!-- PAGE CONTENT -->
-    <div class="layout-container">
-        <!-- LEFT SIDEBAR -->
-        <aside class="sidebar">
-            <h3 class="sidebar-title">
-                <i class="fas fa-fire"></i> Δημοφιλή
-            </h3>
-            <ul class="sidebar-list">
-                <li class="active" onclick="showSection('new-movement')">
-                    <i class="fas fa-running"></i> Νέα Κίνηση 2025
-                </li>
-                <li onclick="showSection('meta-weapons')">
-                    <i class="fas fa-crosshairs"></i> Meta Όπλα
-                </li>
-                <li onclick="showSection('pro-settings')">
-                    <i class="fas fa-sliders-h"></i> Pro Settings
-                </li>
-                <li onclick="showSection('landing-spots')">
-                    <i class="fas fa-map-marked-alt"></i> Landing Spots
-                </li>
-                <li onclick="showSection('tournaments')">
-                    <i class="fas fa-trophy"></i> Τουρνουά
-                </li>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-gamepad"></i>
+            <h1>Fortnite Guide GR 2025</h1>
+            <i class="fas fa-crosshairs"></i>
+        </div>
+        <p class="tagline">Ο ολοκληρωμένος ελληνικός οδηγός για το Fortnite Chapter 6</p>
+        <p>Ενημερωμένο για τον Δεκέμβριο 2025</p>
+    </header>
+
+    <!-- MAIN NAVIGATION -->
+    <nav class="top-nav">
+        <button class="active" onclick="showPage('home')">
+            <i class="fas fa-home"></i> Αρχική
+        </button>
+        <button onclick="showPage('strategies')">
+            <i class="fas fa-chess"></i> Στρατηγικές
+        </button>
+        <button onclick="showPage('weapons')">
+            <i class="fas fa-gun"></i> Όπλα 2025
+        </button>
+        <button onclick="showPage('sponsors')">
+            <i class="fas fa-star"></i> Χορηγοί
+        </button>
+        <button onclick="showPage('community')">
+            <i class="fas fa-users"></i> Κοινότητα
+        </button>
+        <button onclick="showPage('about')">
+            <i class="fas fa-info-circle"></i> Σχετικά
+        </button>
+        <button onclick="showPage('privacy')">
+            <i class="fas fa-shield-alt"></i> Privacy
+        </button>
+        <button onclick="showPage('contact')">
+            <i class="fas fa-envelope"></i> Επικοινωνία
+        </button>
+    </nav>
+
+    <!-- ===== PAGES ===== -->
+    
+    <!-- HOME PAGE -->
+    <div id="home" class="page-content active">
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="showTab('guide')">
+                <i class="fas fa-book"></i> Οδηγός
+            </button>
+            <button class="tab-btn" onclick="showTab('movement')">
+                <i class="fas fa-running"></i> Κίνηση 2025
+            </button>
+            <button class="tab-btn" onclick="showTab('settings')">
+                <i class="fas fa-cogs"></i> Ρυθμίσεις
+            </button>
+            <button class="tab-btn" onclick="showTab('tips')">
+                <i class="fas fa-lightbulb"></i> Tips & Tricks
+            </button>
+        </div>
+
+        <!-- Tab 1: Guide -->
+        <div id="guide" class="content-section active">
+            <h2>🎯 Ολοκληρωμένος Οδηγός Fortnite Chapter 6</h2>
+            
+            <div class="card">
+                <h3><i class="fas fa-play-circle"></i> Γρήγορη Έναρξη</h3>
+                <p>Αν είσαι νέος παίκτης, ακολούθησε αυτά τα βήματα:</p>
+                <ol>
+                    <li>Επίλεξε σωστό σημείο προσγείωσης</li>
+                    <li>Μάζεψε βασικά όπλα και υλικά</li>
+                    <li>Μάθε τα βασικά building</li>
+                    <li>Συμμετέχε σε team battles για εμπειρία</li>
+                </ol>
+            </div>
+            
+            <div class="card">
+                <h3><i class="fas fa-chart-line"></i> Στάδιο Ανάπτυξης</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 15px;">
+                    <div>
+                        <h4>👶 Beginner</h4>
+                        <ul>
+                            <li>Μάθε το map</li>
+                            <li>Εξάσκηση στο Creative</li>
+                            <li>Team Rumble για practice</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>🚀 Intermediate</h4>
+                        <ul>
+                            <li>Βελτίωσε το aim</li>
+                            <li>Μάθε advanced building</li>
+                            <li>Παίξε Arena mode</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>🏆 Advanced</h4>
+                        <ul>
+                            <li>Competitive play</li>
+                            <li>Tournament participation</li>
+                            <li>Scrims και custom matches</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Movement -->
+        <div id="movement" class="content-section">
+            <h2>🏃 Νέα Κίνηση 2025</h2>
+            
+            <div class="card">
+                <h3><i class="fas fa-bolt"></i> Advanced Movement Techniques</h3>
+                <ul>
+                    <li><b>Wall Running:</b> Τρέξε σε κατακόρυφες επιφάνειες για γρήγορη αναρρίχηση</li>
+                    <li><b>Slide Cancelling:</b> Ακύρωσε το slide για γρήγορες αλλαγές κατεύθυνσης</li>
+                    <li><b>Mantle Jumping:</b> Πήδα όταν ανεβαίνεις για επιπλέον ύψος</li>
+                    <li><b>Zipline Tech:</b> Νέες τεχνικές με τα ziplines για γρήγορες μετακινήσεις</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3><i class="fas fa-gamepad"></i> Mobility Items Combos</h3>
+                <p>Συνδύασε τα mobility items για maximum effectiveness:</p>
+                <ul>
+                    <li><b>Shockwave + Grapple:</b> Για ακραίες αποστάσεις</li>
+                    <li><b>Launch Pad + Glider:</b> Για ασφαλείς rotations</li>
+                    <li><b>Bouncer + Shotgun:</b> Για πίεση σε αντίπαλο</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tab 3: Settings -->
+        <div id="settings" class="content-section">
+            <h2>⚙️ Pro Settings 2025</h2>
+            
+            <div class="card">
+                <h3><i class="fas fa-volume-up"></i> Ρυθμίσεις Ήχου</h3>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                    <tr>
+                        <td style="padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.1);">Visualize Sound Effects</td>
+                        <td style="padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); color: limegreen;">ON</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.1);">3D Headphones</td>
+                        <td style="padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); color: limegreen;">ON</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.1);">Sound Quality</td>
+                        <td style="padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); color: orange;">Low</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h3><i class="fas fa-sliders-h"></i> Gameplay Settings</h3>
+                <ul>
+                    <li><b>Auto Open Doors:</b> <span style="color: red;">OFF</span></li>
+                    <li><b>Turbo Building:</b> <span style="color: limegreen;">ON</span></li>
+                    <li><b>Edit on Release:</b> <span style="color: limegreen;">ON</span></li>
+                    <li><b>Disable Pre-Edits:</b> <span style="color: limegreen;">ON</span></li>
+                    <li><b>Controller Sensitivity:</b> 40-50 (X & Y)</li>
+                    <li><b>Building Sensitivity:</b> 1.5x-2x</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tab 4: Tips -->
+        <div id="tips" class="content-section">
+            <h2>💡 Pro Tips & Tricks</h2>
+            
+            <div class="card">
+                <h3><i class="fas fa-crown"></i> Victory Royale Tips</h3>
+                <ul>
+                    <li>Πάντα έχε mobility items για endgame</li>
+                    <li>Φρόντισε να έχεις τουλάχιστον 500 υλικά</li>
+                    <li>Κάνε zone predictions για καλύτερο positioning</li>
+                    <li>Μην βιάζεσαι στο τελευταίο 1v1</li>
+                    <li>Χρησιμοποίησε heals πριν την τελική μάχη</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3><i class="fas fa-brain"></i> Game Sense</h3>
+                <ul>
+                    <li>Ακούγε τους ήχους γύρω σου</li>
+                    <li>Κοίτα το mini-map συχνά</li>
+                    <li>Μάθε να προβλέπεις rotations άλλων παικτών</li>
+                    <li>Προσαρμόζου στο meta κάθε season</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- STRATEGIES PAGE -->
+    <div id="strategies" class="page-content">
+        <h1>🎯 Στρατηγικές & Τεχνικές</h1>
+        
+        <div class="card">
+            <h3><i class="fas fa-plane"></i> Early Game Strategies</h3>
+            <p>Καλύτερα landing spots για το Chapter 6:</p>
+            <ul>
+                <li><b>Neo Tilted Towers:</b> Πλούσια σε υλικά αλλά επικίνδυνα</li>
+                <li><b>Lucky Landing:</b> Λιγότεροι παίκτες, καλά loot</li>
+                <li><b>Frosty Flights:</b> Ιδανικό για squad play</li>
+                <li><b>Retail Row:</b> Βασικό spot με καλή τοποθεσία</li>
             </ul>
-            
-            <h3 class="sidebar-title" style="margin-top: 30px;">
-                <i class="fas fa-chart-line"></i> Στατιστικά
-            </h3>
-            <div class="stats-widget">
-                <div class="stat-item">
-                    <span>Online Players</span>
-                    <span class="stat-value">2.4M</span>
-                </div>
-                <div class="stat-item">
-                    <span>Daily Matches</span>
-                    <span class="stat-value">850K</span>
-                </div>
-                <div class="stat-item">
-                    <span>Win Rate (GR)</span>
-                    <span class="stat-value">4.2%</span>
-                </div>
-                <div class="stat-item">
-                    <span>Avg. Kills</span>
-                    <span class="stat-value">3.8</span>
-                </div>
-            </div>
-        </aside>
+        </div>
+        
+        <div class="card">
+            <h3><i class="fas fa-running"></i> Mid Game Tactics</h3>
+            <p>Στρατηγικές για rotations και engagements:</p>
+            <ul>
+                <li>Ακολούθησε το κύκλο από νωρίς</li>
+                <li>Χρησιμοποίησε vehicles για ασφαλείς μετακινήσεις</li>
+                <li>Παρατήρησε τις μάχες από απόσταση</li>
+                <li>Third-party μόνο όταν είναι ασφαλές</li>
+            </ul>
+        </div>
+    </div>
 
-        <!-- MAIN CONTENT -->
-        <main class="main-content">
-            <!-- HOME PAGE -->
-            <div id="home" class="page-content active-page">
-                <h1 class="section-title">🎮 Welcome to Fortnite GR Premium</h1>
-                
-                <div class="card-grid">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-bolt"></i>
-                            </div>
-                            <div>
-                                <h3>Νέες Τεχνικές Κίνησης</h3>
-                                <p style="color: #aaa; font-size: 0.9rem;">Updated: 15/12/2025</p>
-                            </div>
-                        </div>
-                        <p>Μάθε τα νέα movement mechanics του Chapter 6. Wall running, sliding 2.0 και πολλά άλλα.</p>
-                        <button class="nav-btn" style="margin-top: 20px; width: 100%;" onclick="showPage('strategies')">
-                            Δες Περισσότερα
-                        </button>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-trophy"></i>
-                            </div>
-                            <div>
-                                <h3>Tournament Guide</h3>
-                                <p style="color: #aaa; font-size: 0.9rem;">Cash Prizes: $50K</p>
-                            </div>
-                        </div>
-                        <p>Συμβουλές για competitive play και τουρνουά. Μάθε πώς να γίνεις pro player.</p>
-                        <button class="nav-btn" style="margin-top: 20px; width: 100%;" onclick="showPage('tournaments')">
-                            Συμμετοχή
-                        </button>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div>
-                                <h3>Join Our Community</h3>
-                                <p style="color: #aaa; font-size: 0.9rem;">5,000+ Members</p>
-                            </div>
-                        </div>
-                        <p>Συνδέσου με άλλους Έλληνες παίκτες. Custom matches, scrims και coaching.</p>
-                        <button class="nav-btn" style="margin-top: 20px; width: 100%;" onclick="showPage('community')">
-                            Join Discord
-                        </button>
-                    </div>
-                </div>
+    <!-- WEAPONS PAGE -->
+    <div id="weapons" class="page-content">
+        <h1>🔫 Όπλα 2025 - Tier List</h1>
+        
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="showWeaponTab('assault')">
+                <i class="fas fa-crosshairs"></i> Assault
+            </button>
+            <button class="tab-btn" onclick="showWeaponTab('shotgun')">
+                <i class="fas fa-bullseye"></i> Shotgun
+            </button>
+            <button class="tab-btn" onclick="showWeaponTab('smg')">
+                <i class="fas fa-bolt"></i> SMG
+            </button>
+        </div>
+        
+        <div id="assault" class="content-section active">
+            <div class="card">
+                <h3>S-Tier: Scoped Burst AR</h3>
+                <p>Το καλύτερο AR για Chapter 6. Ακρίβεια και δύναμη.</p>
+                <ul>
+                    <li>Damage: 36 (x2 burst)</li>
+                    <li>Fire Rate: 4.0</li>
+                    <li>Magazine: 30</li>
+                    <li>Best Attachments: Red Dot, Vertical Grip</li>
+                </ul>
             </div>
-
-            <!-- SPONSORS PAGE -->
-            <div id="sponsors" class="page-content">
-                <h1 class="section-title">🏆 Επίσημοι Χορηγοί</h1>
-                
-                <div class="sponsor-grid">
-                    <div class="sponsor-card">
-                        <div class="sponsor-logo">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <h4>HyperX</h4>
-                        <p>Επίσημος χορηγός audio</p>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <div class="sponsor-logo">
-                            <i class="fas fa-keyboard"></i>
-                        </div>
-                        <h4>Razer</h4>
-                        <p>Gaming peripherals</p>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <div class="sponsor-logo">
-                            <i class="fas fa-desktop"></i>
-                        </div>
-                        <h4>NVIDIA</h4>
-                        <p>Graphics technology</p>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <div class="sponsor-logo">
-                            <i class="fas fa-microchip"></i>
-                        </div>
-                        <h4>Intel</h4>
-                        <p>Processor partner</p>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <div class="sponsor-logo">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <h4>SCUF</h4>
-                        <p>Pro controllers</p>
-                    </div>
-                    
-                    <div class="sponsor-card">
-                        <div class="sponsor-logo">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h4>G-Fuel</h4>
-                        <p>Energy drink partner</p>
-                    </div>
-                </div>
+        </div>
+        
+        <div id="shotgun" class="content-section">
+            <div class="card">
+                <h3>S-Tier: Tactical Shotgun MK2</h3>
+                <p>Απαραίτητο για κοντινές μάχες. Γρήγορο και ισχυρό.</p>
+                <ul>
+                    <li>Damage: 110 (headshot)</li>
+                    <li>Fire Rate: 1.5</li>
+                    <li>Magazine: 8</li>
+                    <li>Best Range: 0-10m</li>
+                </ul>
             </div>
-
-            <!-- STREAMERS PAGE -->
-            <div id="streamers" class="page-content">
-                <h1 class="section-title">📺 Έλληνες Streamers</h1>
-                
-                <div class="streamer-grid">
-                    <div class="streamer-card">
-                        <div class="streamer-header">
-                            <div class="streamer-avatar">
-                                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Streamer">
-                            </div>
-                            <div class="streamer-info">
-                                <h4>NinjaGR</h4>
-                                <p>Pro Player</p>
-                            </div>
-                        </div>
-                        <div class="streamer-status">
-                            <div class="live-indicator">
-                                LIVE
-                            </div>
-                            <div>
-                                12.5K viewers
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="streamer-card">
-                        <div class="streamer-header">
-                            <div class="streamer-avatar">
-                                <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Streamer">
-                            </div>
-                            <div class="streamer-info">
-                                <h4>Valkyrie</h4>
-                                <p>Arena Grinder</p>
-                            </div>
-                        </div>
-                        <div class="streamer-status">
-                            <div class="live-indicator">
-                                LIVE
-                            </div>
-                            <div>
-                                8.2K viewers
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="streamer-card">
-                        <div class="streamer-header">
-                            <div class="streamer-avatar">
-                                <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Streamer">
-                            </div>
-                            <div class="streamer-info">
-                                <h4>KappaGR</h4>
-                                <p>Content Creator</p>
-                            </div>
-                        </div>
-                        <div class="streamer-status">
-                            <div style="color: #aaa;">
-                                OFFLINE
-                            </div>
-                            <div>
-                                25.3K followers
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="streamer-card">
-                        <div class="streamer-header">
-                            <div class="streamer-avatar">
-                                <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="Streamer">
-                            </div>
-                            <div class="streamer-info">
-                                <h4>Athena</h4>
-                                <p>Coach & Analyst</p>
-                            </div>
-                        </div>
-                        <div class="streamer-status">
-                            <div class="live-indicator">
-                                LIVE
-                            </div>
-                            <div>
-                                5.7K viewers
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        </div>
+        
+        <div id="smg" class="content-section">
+            <div class="card">
+                <h3>S-Tier: Hyper SMG <span class="badge badge-new">ΝΕΟ</span></h3>
+                <p>Νέο SMG με απίστευτο ρυθμό βολής. Ιδανικό για spray.</p>
+                <ul>
+                    <li>Damage: 18</li>
+                    <li>Fire Rate: 12.0</li>
+                    <li>Magazine: 40</li>
+                    <li>Best For: Box fights</li>
+                </ul>
             </div>
+        </div>
+    </div>
 
-            <!-- ABOUT PAGE -->
-            <div id="about" class="page-content">
-                <h1 class="section-title">ℹ️ About Fortnite GR</h1>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-info-circle"></i>
-                        </div>
-                        <div>
-                            <h3>Η Ιστορία μας</h3>
-                        </div>
-                    </div>
-                    <p>Το Fortnite Guide GR είναι ο μεγαλύτερος και πιο ολοκληρωμένος ελληνικός οδηγός για το Fortnite. Ιδρύθηκε το 2023 με στόχο να βοηθήσει την ελληνική gaming community να βελτιωθεί και να ανταγωνιστεί σε παγκόσμιο επίπεδο.</p>
-                    
-                    <h4 style="margin-top: 20px; color: var(--accent);">🏆 Τι προσφέρουμε:</h4>
-                    <ul style="margin: 15px 0 15px 20px;">
-                        <li>Δωρεάν guides και tutorials για κάθε επίπεδο</li>
-                        <li>Εβδομαδιαία αναλύσεις του meta</li>
-                        <li>Pro player interviews και συμβουλές</li>
-                        <li>Custom tournaments με prizes</li>
-                        <li>Coaching sessions από pro players</li>
-                        <li>Community Discord με 5,000+ μέλη</li>
-                    </ul>
-                    
-                    <h4 style="margin-top: 20px; color: var(--accent);">📈 Οι Αριθμοί μας:</h4>
-                    <div class="stats-widget" style="margin: 20px 0; background: rgba(255, 107, 53, 0.1);">
-                        <div class="stat-item">
-                            <span>Μηνιαίοι Χρήστες</span>
-                            <span class="stat-value">50,000+</span>
-                        </div>
-                        <div class="stat-item">
-                            <span>Guide Views</span>
-                            <span class="stat-value">2M+</span>
-                        </div>
-                        <div class="stat-item">
-                            <span>Community Members</span>
-                            <span class="stat-value">5,000+</span>
-                        </div>
-                        <div class="stat-item">
-                            <span>Tournament Prizes</span>
-                            <span class="stat-value">$100K+</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PRIVACY PAGE -->
-            <div id="privacy" class="page-content">
-                <h1 class="section-title">🔒 Privacy Policy & Terms</h1>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <div>
-                            <h3>Πολιτική Απορρήτου</h3>
-                            <p style="color: #aaa; font-size: 0.9rem;">Last Updated: 15/12/2025</p>
-                        </div>
-                    </div>
-                    
-                    <h4 style="color: var(--accent); margin-top: 20px;">📊 Τι Δεδομένα Συλλέγουμε</h4>
-                    <p>Συλλέγουμε μόνο τα απαραίτητα δεδομένα για τη λειτουργία του site:</p>
-                    <ul style="margin: 15px 0 15px 20px;">
-                        <li>Ανώνυμα στατιστικά χρήσης (Google Analytics)</li>
-                        <li>Δεδομένα που παρέχετε εθελοντικά (όνομα, email)</li>
-                        <li>Cookies για την βελτίωση της εμπειρίας σας</li>
-                        <li>Δεδομένα από social media συνδέσεις</li>
-                    </ul>
-                    
-                    <h4 style="color: var(--accent); margin-top: 20px;">🍪 Χρήση Cookies</h4>
-                    <p>Χρησιμοποιούμε cookies για:</p>
-                    <ul style="margin: 15px 0 15px 20px;">
-                        <li>Απομνημόνευση προτιμήσεων χρήστη</li>
-                        <li>Στατιστικά αναλυτικά</li>
-                        <li>Εξατομίκευση διαφημίσεων</li>
-                        <li>Ανίχνευση και πρόληψη απάτης</li>
-                    </ul>
-                    
-                    <h4 style="color: var(--accent); margin-top: 20px;">🎯 Third-Party Services</h4>
-                    <p>Χρησιμοποιούμε τις εξής υπηρεσίες:</p>
-                    <ul style="margin: 15px 0 15px 20px;">
-                        <li>Google Analytics - για στατιστικά</li>
-                        <li>Google AdSense - για διαφημίσεις</li>
-                        <li>Discord - για την κοινότητα</li>
-                        <li>Cloudflare - για ασφάλεια</li>
-                    </ul>
-                    
-                    <h4 style="color: var(--accent); margin-top: 20px;">📧 Επικοινωνία</h4>
-                    <p>Για ερωτήσεις σχετικά με τα δεδομένα σας:</p>
-                    <div style="background: rgba(255, 107, 53, 0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                        <p><strong>Email:</strong> privacy@fortniteguide.gr</p>
-                        <p><strong>Χρόνος Απάντησης:</strong> 48 ώρες</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- OTHER PAGES WOULD GO HERE... -->
-            <div id="strategies" class="page-content">
-                <!-- Strategies content -->
+    <!-- SPONSORS PAGE -->
+    <div id="sponsors" class="page-content">
+        <h1>⭐ Επίσημοι Χορηγοί</h1>
+        
+        <div class="sponsors">
+            <div class="sponsor-item">
+                <i class="fas fa-headset"></i>
+                <h4>HyperX</h4>
+                <p>Επίσημος χορηγός audio</p>
             </div>
             
-            <div id="settings" class="page-content">
-                <!-- Settings content -->
+            <div class="sponsor-item">
+                <i class="fas fa-keyboard"></i>
+                <h4>Razer</h4>
+                <p>Gaming peripherals</p>
             </div>
             
-            <div id="weapons" class="page-content">
-                <!-- Weapons content -->
+            <div class="sponsor-item">
+                <i class="fas fa-desktop"></i>
+                <h4>NVIDIA</h4>
+                <p>Graphics technology</p>
             </div>
-        </main>
+            
+            <div class="sponsor-item">
+                <i class="fas fa-microchip"></i>
+                <h4>Intel</h4>
+                <p>Processor partner</p>
+            </div>
+            
+            <div class="sponsor-item">
+                <i class="fas fa-gamepad"></i>
+                <h4>SCUF</h4>
+                <p>Pro controllers</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h3><i class="fas fa-handshake"></i> Συνεργασίες & Sponsorships</h3>
+            <p>Το Fortnite Guide GR συνεργάζεται με κορυφαίες gaming εταιρείες για να σας προσφέρει:</p>
+            <ul>
+                <li>Δωρεάν giveaways και contests</li>
+                <li>Εκπτωτικούς κωδικούς για gaming gear</li>
+                <li>Εξατομικευμένα setup recommendations</li>
+                <li>Direct support από τις εταιρείες</li>
+            </ul>
+        </div>
+    </div>
 
-        <!-- RIGHT SIDEBAR -->
-        <aside class="sidebar">
-            <h3 class="sidebar-title">
-                <i class="fas fa-calendar-alt"></i> Events
-            </h3>
-            <div class="card" style="margin-bottom: 20px;">
-                <h4 style="color: var(--accent);">🎮 Tournament</h4>
-                <p>Greek Championship 2025</p>
-                <p style="color: #aaa; font-size: 0.9rem;">Prize: $10,000</p>
-                <button class="nav-btn" style="width: 100%; margin-top: 15px;">
-                    Register Now
+    <!-- COMMUNITY PAGE -->
+    <div id="community" class="page-content">
+        <h1>👥 Κοινότητα & Δραστηριότητες</h1>
+        
+        <div class="community">
+            <div class="community-card">
+                <h3><i class="fab fa-discord"></i> Discord Server</h3>
+                <p>Γίνετε μέλος της ελληνικής κοινότητας Fortnite Guide GR!</p>
+                <ul>
+                    <li>5,000+ μέλη</li>
+                    <li>Custom matches και scrims</li>
+                    <li>Coaching από pro players</li>
+                    <li>Giveaways και events</li>
+                </ul>
+                <button class="tab-btn" style="margin-top: 15px; width: 100%;" onclick="alert('Join our Discord: discord.gg/fortnitegr')">
+                    <i class="fab fa-discord"></i> Join Now
                 </button>
             </div>
             
-            <h3 class="sidebar-title" style="margin-top: 30px;">
-                <i class="fas fa-bullhorn"></i> Updates
-            </h3>
-            <ul class="sidebar-list">
-                <li>
-                    <i class="fas fa-exclamation-circle" style="color: var(--danger);"></i>
-                    Server Maintenance
-                </li>
-                <li>
-                    <i class="fas fa-download" style="color: var(--success);"></i>
-                    Patch 25.10 Notes
-                </li>
-                <li>
-                    <i class="fas fa-gift" style="color: var(--accent);"></i>
-                    Winter Event 2025
-                </li>
-                <li>
-                    <i class="fas fa-trophy" style="color: var(--warning);"></i>
-                    New Rewards
-                </li>
-            </ul>
-        </aside>
-    </div>
-
-    <!-- TRAILER SECTION -->
-    <div class="trailer-section">
-        <div class="trailer-overlay">
-            <h2 class="trailer-title">Chapter 6: Official Trailer</h2>
-            <div class="video-container">
-                <div class="video-placeholder">
-                    <div class="play-button">
-                        <i class="fas fa-play-circle"></i>
-                    </div>
-                    <p>Κάντε κλικ για να δείτε το επίσημο trailer</p>
-                </div>
+            <div class="community-card">
+                <h3><i class="fas fa-trophy"></i> Tournaments</h3>
+                <p>Συμμετέχετε σε ελληνικούς τουρνουά Fortnite!</p>
+                <ul>
+                    <li>Weekly tournaments</li>
+                    <li>Cash prizes</li>
+                    <li>Διαβαθμισμένα επίπεδα</li>
+                    <li>Έπαθλα από sponsors</li>
+                </ul>
+                <button class="tab-btn" style="margin-top: 15px; width: 100%;" onclick="alert('Tournament registration opening soon!')">
+                    <i class="fas fa-user-plus"></i> Register
+                </button>
             </div>
         </div>
-    </div>
-
-    <!-- SPONSORS SECTION -->
-    <div class="sponsors-section">
-        <h2 class="section-title">💎 Χορηγίες & Συνεργασίες</h2>
         
-        <div class="sponsor-grid">
-            <div class="sponsor-card">
-                <div class="sponsor-logo">
-                    <i class="fas fa-desktop"></i>
+        <div class="card">
+            <h3><i class="fas fa-users"></i> Stream Team</h3>
+            <p>Γνωρίστε τους επίσημους streamers μας:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background: #444; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+                        👑
+                    </div>
+                    <h4>NinjaGR</h4>
+                    <p>Pro Player</p>
                 </div>
-                <h4>Gaming PCs</h4>
-                <p>Από την MSI</p>
-            </div>
-            
-            <div class="sponsor-card">
-                <div class="sponsor-logo">
-                    <i class="fas fa-tshirt"></i>
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background: #444; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+                        🎯
+                    </div>
+                    <h4>Valkyrie</h4>
+                    <p>Arena Grinder</p>
                 </div>
-                <h4>Merchandise</h4>
-                <p>Επίσημα προϊόντα</p>
-            </div>
-            
-            <div class="sponsor-card">
-                <div class="sponsor-logo">
-                    <i class="fas fa-graduation-cap"></i>
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background: #444; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+                        🎮
+                    </div>
+                    <h4>KappaGR</h4>
+                    <p>Content Creator</p>
                 </div>
-                <h4>Coaching</h4>
-                <p>Pro player lessons</p>
-            </div>
-            
-            <div class="sponsor-card">
-                <div class="sponsor-logo">
-                    <i class="fas fa-server"></i>
-                </div>
-                <h4>Hosting</h4>
-                <p>Powered by AWS</p>
-            </div>
-            
-            <div class="sponsor-card">
-                <div class="sponsor-logo">
-                    <i class="fas fa-video"></i>
-                </div>
-                <h4>Streaming</h4>
-                <p>In partnership with Twitch</p>
-            </div>
-            
-            <div class="sponsor-card">
-                <div class="sponsor-logo">
-                    <i class="fas fa-music"></i>
-                </div>
-                <h4>Music</h4>
-                <p>Spotify Gaming</p>
             </div>
         </div>
     </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page-content">
+        <h1>ℹ️ Σχετικά με εμάς</h1>
+        
+        <div class="card">
+            <h3><i class="fas fa-history"></i> Η Ιστορία μας</h3>
+            <p>Το Fortnite Guide GR δημιουργήθηκε το 2023 με στόχο να δημιουργήσει έναν ολοκληρωμένο ελληνικό οδηγό για το Fortnite. Ξεκινήσαμε ως μια μικρή κοινότητα και έχουμε μεγαλώσει σε χιλιάδες μέλη.</p>
+            
+            <p>Στόχος μας είναι να βοηθήσουμε κάθε Έλληνα παίκτη Fortnite να βελτιωθεί, να μάθει νέες στρατηγικές και να απολαμβάνει περισσότερο το παιχνίδι.</p>
+        </div>
+        
+        <div class="card">
+            <h3><i class="fas fa-bullseye"></i> Ο Στόχος μας</h3>
+            <ul>
+                <li>Δημιουργία της καλύτερης ελληνικής gaming κοινότητας</li>
+                <li>Βοήθεια σε νέους παίκτες να μάθουν το παιχνίδι</li>
+                <li>Διοργάνωση τουρνουά και events</li>
+                <li>Συνεργασία με gaming brands για καλύτερα perks</li>
+                <li>Δημιουργία ελληνικών pro players</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h3><i class="fas fa-chart-line"></i> Τα Επιτεύγματά μας</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 15px;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; color: var(--accent); font-weight: bold;">50K+</div>
+                    <div>Μηνιαίοι Χρήστες</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; color: var(--accent); font-weight: bold;">5K+</div>
+                    <div>Discord Members</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; color: var(--accent); font-weight: bold;">100+</div>
+                    <div>Tournaments</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5rem; color: var(--accent); font-weight: bold;">2025</div>
+                    <div>Ενημερωμένο</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRIVACY PAGE -->
+    <div id="privacy" class="page-content">
+        <h1>🔒 Πολιτική Απορρήτου</h1>
+        
+        <div class="card">
+            <h3><i class="fas fa-shield-alt"></i> Προστασία Δεδομένων</h3>
+            <p>Το Fortnite Guide GR σέβεται την ιδιωτικότητά σας και δεσμεύεται να προστατεύει τα προσωπικά σας δεδομένα.</p>
+            
+            <h4>Τι δεδομένα συλλέγουμε:</h4>
+            <ul>
+                <li>Ανώνυμα στατιστικά χρήσης (Google Analytics)</li>
+                <li>Δεδομένα που παρέχετε εθελοντικά (όπως email για newsletter)</li>
+                <li>Cookies για την βελτίωση της εμπειρίας σας</li>
+            </ul>
+            
+            <h4>Cookies:</h4>
+            <p>Χρησιμοποιούμε cookies για να κατανοήσουμε πώς χρησιμοποιείτε το site και να βελτιώσουμε την εμπειρία σας. Μπορείτε να απενεργοποιήσετε τα cookies στις ρυθμίσεις του browser σας.</p>
+            
+            <h4>Third-Party Services:</h4>
+            <p>Χρησιμοποιούμε τις ακόλουθες υπηρεσίες:</p>
+            <ul>
+                <li>Google Analytics για στατιστικά</li>
+                <li>Google AdSense για διαφημίσεις</li>
+                <li>Discord για την κοινότητα</li>
+            </ul>
+            
+            <p>Για περισσότερες πληροφορίες: <a href="mailto:privacy@fortniteguide.gr">privacy@fortniteguide.gr</a></p>
+        </div>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page-content">
+        <h1>📧 Επικοινωνία</h1>
+        
+        <div class="card">
+            <h3><i class="fas fa-envelope"></i> Επικοινωνήστε μαζί μας</h3>
+            
+            <div style="margin: 20px 0;">
+                <div style="display: flex; align-items: center; gap: 15px; margin: 15px 0;">
+                    <i class="fas fa-envelope" style="color: var(--primary); font-size: 1.5rem;"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>fortniteguidegr@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 15px; margin: 15px 0;">
+                    <i class="fab fa-discord" style="color: var(--primary); font-size: 1.5rem;"></i>
+                    <div>
+                        <h4>Discord</h4>
+                        <p>discord.gg/fortnitegr</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 15px; margin: 15px 0;">
+                    <i class="fas fa-clock" style="color: var(--primary); font-size: 1.5rem;"></i>
+                    <div>
+                        <h4>Χρόνος Απάντησης</h4>
+                        <p>24-48 ώρες</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h4>Για συνεργασίες και sponsorships:</h4>
+            <p>Επικοινωνήστε στο: <strong>partnerships@fortniteguide.gr</strong></p>
+            
+            <h4>Για technical support:</h4>
+            <p>Επικοινωνήστε στο: <strong>support@fortniteguide.gr</strong></p>
+        </div>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer>
+        <p>Fortnite Guide GR © 2025 - Ολοκληρωμένος Ελληνικός Οδηγός Fortnite</p>
+        
+        <div class="footer-links">
+            <a href="#" onclick="showPage('home')">Αρχική</a>
+            <a href="#" onclick="showPage('about')">Σχετικά</a>
+            <a href="#" onclick="showPage('privacy')">Privacy</a>
+            <a href="#" onclick="showPage('contact')">Επικοινωνία</a>
+            <a href="#" onclick="showPage('sponsors')">Χορηγοί</a>
+            <a href="#" onclick="showPage('community')">Κοινότητα</a>
+        </div>
+        
+        <p style="margin-top: 20px; color: #aaa; font-size: 0.9rem;">
+            Το Fortnite είναι εμπορικό σήμα της Epic Games. Αυτό το site δεν συνδέεται με την Epic Games.
+        </p>
+        <p style="color: #888; font-size: 0.8rem; margin-top: 10px;">
+            Τελευταία ενημέρωση: 15 Δεκεμβρίου 2025
+        </p>
+    </footer>
 </div>
 
-<!-- FOOTER -->
-<footer class="main-footer">
-    <div class="container">
-        <div class="footer-grid">
-            <div class="footer-column">
-                <h3>Fortnite Guide GR</h3>
-                <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-home"></i> Αρχική</a></li>
-                    <li><a href="#"><i class="fas fa-info-circle"></i> Σχετικά</a></li>
-                    <li><a href="#"><i class="fas fa-envelope"></i> Επικοινωνία</a></li>
-                    <li><a href="#"><i class="fas fa-question-circle"></i> FAQ</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Οδηγοί</h3>
-                <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-gun"></i> Όπλα 2025</a></li>
-                    <li><a href="#"><i class="fas fa-chess"></i> Στρατηγικές</a></li>
-                    <li><a href="#"><i class="fas fa-cogs"></i> Ρυθμίσεις</a></li>
-                    <li><a href="#"><i class="fas fa-map"></i> Maps</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Community</h3>
-                <ul class="footer-links">
-                    <li><a href="#"><i class="fab fa-discord"></i> Discord</a></li>
-                    <li><a href="#"><i class="fab fa-twitch"></i> Twitch</a></li>
-                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Νομικά</h3>
-                <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
-                    <li><a href="#"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
-                    <li><a href="#"><i class="fas fa-cookie"></i> Cookie Policy</a></li>
-                    <li><a href="#"><i class="fas fa-balance-scale"></i> Legal</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            <p>© 2025 Fortnite Guide GR. All rights reserved. Fortnite is a registered trademark of Epic Games.</p>
-            <p>This site is not affiliated with Epic Games. Created with ❤️ for the Greek gaming community.</p>
-        </div>
-    </div>
-</footer>
-
-<!-- BACK TO TOP -->
-<div class="back-to-top" id="backToTop">
+<!-- BACK TO TOP BUTTON -->
+<div class="back-to-top" id="backToTop" onclick="scrollToTop()">
     <i class="fas fa-arrow-up"></i>
 </div>
 
 <script>
-    // ===== INITIALIZATION =====
-    document.addEventListener('DOMContentLoaded', function() {
-        // Set active page from localStorage or default
-        const lastPage = localStorage.getItem('lastPage') || 'home';
-        showPage(lastPage);
-        
-        // Back to top button
-        const backToTopBtn = document.getElementById('backToTop');
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        });
-        
-        backToTopBtn.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        
-        // Video placeholder click
-        document.querySelector('.video-placeholder').addEventListener('click', function() {
-            this.innerHTML = `
-                <iframe width="100%" height="500" 
-                    src="https://www.youtube.com/embed/your-trailer-id" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            `;
-        });
-        
-        // Update live stats every 5 seconds
-        setInterval(updateLiveStats, 5000);
-    });
-
-    // ===== PAGE NAVIGATION =====
+    // ===== SIMPLE PAGE & TAB SYSTEM =====
+    
+    // Show a specific page
     function showPage(pageId) {
         // Hide all pages
-        document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active-page'));
-        
-        // Remove active class from all nav buttons
-        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-        
-        // Show selected page
-        const target = document.getElementById(pageId);
-        if (target) {
-            target.classList.add('active-page');
-            localStorage.setItem('lastPage', pageId);
-            
-            // Add active class to clicked button
-            const clickedBtn = Array.from(document.querySelectorAll('.nav-btn')).find(btn => 
-                btn.getAttribute('onclick')?.includes(pageId)
-            );
-            if (clickedBtn) clickedBtn.classList.add('active');
-        }
-        
-        // Scroll to top smoothly
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // ===== SECTION NAVIGATION =====
-    function showSection(sectionId) {
-        // Remove active class from all sidebar items
-        document.querySelectorAll('.sidebar-list li').forEach(item => {
-            item.classList.remove('active');
+        document.querySelectorAll('.page-content').forEach(page => {
+            page.classList.remove('active');
         });
         
-        // Add active class to clicked item
+        // Remove active class from all nav buttons
+        document.querySelectorAll('.top-nav button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Show the selected page
+        const selectedPage = document.getElementById(pageId);
+        if (selectedPage) {
+            selectedPage.classList.add('active');
+        }
+        
+        // Make the clicked nav button active
         event.currentTarget.classList.add('active');
         
-        // In a real implementation, this would show different sections
-        alert(`Loading section: ${sectionId}`);
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-
-    // ===== LIVE STATS UPDATER =====
-    function updateLiveStats() {
-        // Simulate live stat updates
-        const stats = document.querySelectorAll('.stat-value');
-        if (stats.length > 0) {
-            // Randomly update one stat
-            const randomStat = stats[Math.floor(Math.random() * stats.length)];
-            const currentValue = parseFloat(randomStat.textContent);
-            const change = (Math.random() - 0.5) * 0.1; // +/- 5%
-            const newValue = Math.max(0.1, currentValue * (1 + change));
+    
+    // Show a specific tab (for home page)
+    function showTab(tabId) {
+        // Hide all tab content in the active page
+        const activePage = document.querySelector('.page-content.active');
+        if (activePage) {
+            activePage.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
             
-            // Format based on stat type
-            if (randomStat.textContent.includes('M')) {
-                randomStat.textContent = (newValue / 1000000).toFixed(1) + 'M';
-            } else if (randomStat.textContent.includes('K')) {
-                randomStat.textContent = (newValue / 1000).toFixed(1) + 'K';
-            } else if (randomStat.textContent.includes('%')) {
-                randomStat.textContent = newValue.toFixed(1) + '%';
-            } else {
-                randomStat.textContent = Math.round(newValue);
+            // Remove active class from all tab buttons in the active page
+            activePage.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show the selected tab content
+            const selectedTab = document.getElementById(tabId);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
             }
             
-            // Add animation effect
-            randomStat.style.transform = 'scale(1.2)';
-            randomStat.style.color = change > 0 ? 'var(--success)' : 'var(--danger)';
-            
-            setTimeout(() => {
-                randomStat.style.transform = 'scale(1)';
-                randomStat.style.color = 'var(--accent)';
-            }, 300);
+            // Make the clicked tab button active
+            event.currentTarget.classList.add('active');
         }
     }
-
-    // ===== NOTIFICATION BELL =====
-    document.querySelector('.notification-bell').addEventListener('click', function() {
-        const count = parseInt(this.querySelector('.notification-bell::after')?.content || '3');
-        alert(`You have ${count} new notifications!`);
-        
-        // Reset notification count
-        this.style.setProperty('--notification-count', '0');
-        this.querySelector('.notification-bell::after')?.remove();
+    
+    // Show weapon tab (for weapons page)
+    function showWeaponTab(tabId) {
+        // Get weapons page
+        const weaponsPage = document.getElementById('weapons');
+        if (weaponsPage) {
+            // Hide all content sections in weapons page
+            weaponsPage.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons in weapons page
+            weaponsPage.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show the selected tab content
+            const selectedTab = document.getElementById(tabId);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+            
+            // Make the clicked tab button active
+            event.currentTarget.classList.add('active');
+        }
+    }
+    
+    // ===== BACK TO TOP FUNCTIONALITY =====
+    
+    // Show/hide back to top button based on scroll position
+    window.addEventListener('scroll', function() {
+        const backToTopBtn = document.getElementById('backToTop');
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
     });
-
-    // ===== USER AVATAR CLICK =====
-    document.querySelector('.user-avatar').addEventListener('click', function() {
-        // Show user menu or profile
-        alert('User profile menu would open here');
+    
+    // Scroll to top function
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    // ===== INITIALIZE ON LOAD =====
+    document.addEventListener('DOMContentLoaded', function() {
+        // Make sure home page is active on load
+        document.getElementById('home').classList.add('active');
+        
+        // Make home button active
+        document.querySelector('.top-nav button').classList.add('active');
+        
+        // Make first tab in home page active
+        document.getElementById('guide').classList.add('active');
+        
+        // Make first tab button active
+        document.querySelector('.tab-btn').classList.add('active');
+        
+        // Add click handlers for all nav buttons
+        document.querySelectorAll('.top-nav button').forEach(button => {
+            button.addEventListener('click', function() {
+                // This is already handled by onclick, but we add it for safety
+            });
+        });
+        
+        // Add click handlers for all tab buttons
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // This is already handled by onclick, but we add it for safety
+            });
+        });
+        
+        console.log('Fortnite Guide GR loaded successfully!');
     });
 </script>
 
 </body>
 </html>
-
-
