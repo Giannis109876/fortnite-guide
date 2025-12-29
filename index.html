@@ -3,213 +3,982 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fortnite Guide GR 2025 🎮</title>
+    <title>Fortnite Guide GR 2025 🎮 | Ολοκληρωμένος Οδηγός Chapter 6</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #ff6b35;
+            --secondary: #0f0c29;
+            --accent: #ffd700;
+            --dark: #121212;
+            --light: #f8f9fa;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --card-bg: rgba(20, 20, 30, 0.7);
+            --transition: all 0.3s ease;
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            color: #fff;
+            background: linear-gradient(135deg, var(--secondary), #302b63, #24243e);
+            color: var(--light);
             line-height: 1.6;
             min-height: 100vh;
+            background-attachment: fixed;
         }
-        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px; 
+        }
+        
         header {
             text-align: center;
             padding: 40px 20px;
-            background: rgba(0, 0, 0, 0.5);
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8), rgba(0, 0, 0, 0.8));
             border-radius: 20px;
             margin-bottom: 30px;
-            border-bottom: 4px solid #ff6b35;
+            border-bottom: 4px solid var(--primary);
+            position: relative;
+            overflow: hidden;
         }
         
-        .top-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--accent), var(--primary));
+        }
+        
+        .logo {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo i {
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .tagline {
+            color: #ccc;
+            font-size: 1.1rem;
+            margin-top: 5px;
+        }
+        
+        .top-nav { 
+            display: flex; 
+            justify-content: center; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 15px;
+        }
+        
         .top-nav button {
-            padding: 12px 20px;
-            background: #ff6b35;
+            padding: 12px 24px;
+            background: rgba(255, 107, 53, 0.2);
             color: #fff;
-            border: none;
-            border-radius: 25px;
+            border: 2px solid var(--primary);
+            border-radius: 30px;
             font-weight: bold;
             cursor: pointer;
-            transition: 0.3s;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        .top-nav button:hover { background: #ff4500; transform: translateY(-2px); }
-
-        .page-content { display: none; background: rgba(255, 255, 255, 0.08); padding: 30px; border-radius: 15px; animation: fadeIn 0.4s; }
+        
+        .top-nav button:hover, .top-nav button.active-page-btn { 
+            background: var(--primary); 
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+        
+        .page-content { 
+            display: none; 
+            background: var(--card-bg); 
+            padding: 30px; 
+            border-radius: 15px; 
+            animation: fadeIn 0.4s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
         .active-page { display: block !important; }
-
-        .nav-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        
+        .nav-tabs { 
+            display: flex; 
+            justify-content: center; 
+            gap: 10px; 
+            margin-bottom: 30px; 
+            flex-wrap: wrap; 
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 15px;
+        }
+        
         .tab-btn {
-            padding: 10px 18px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid #ff6b35;
+            padding: 12px 22px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 107, 53, 0.5);
             color: #fff;
             cursor: pointer;
             border-radius: 10px;
+            transition: var(--transition);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        .tab-btn.active-tab { background: #ff6b35; }
+        
+        .tab-btn:hover, .tab-btn.active-tab { 
+            background: var(--primary); 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 107, 53, 0.3);
+        }
+        
         .content-section { display: none; }
         .active-section { display: block !important; }
-
-        h1, h2 { color: #ffd700; margin-bottom: 15px; }
-        h3 { color: #ff6b35; margin-bottom: 10px; }
-        .card { background: rgba(0, 0, 0, 0.4); padding: 20px; margin: 15px 0; border-radius: 10px; border-left: 5px solid #ff6b35; }
-        li { margin-left: 20px; margin-bottom: 8px; }
-        a { color: #ff6b35; text-decoration: none; font-weight: bold; }
         
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        h1, h2 { color: var(--accent); margin-bottom: 20px; }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; border-bottom: 2px solid var(--primary); padding-bottom: 10px; }
+        h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.5rem; }
+        
+        .card { 
+            background: rgba(0, 0, 0, 0.4); 
+            padding: 25px; 
+            margin: 20px 0; 
+            border-radius: 12px; 
+            border-left: 5px solid var(--primary);
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .card-header i {
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+        
+        ul { margin-left: 20px; margin-bottom: 15px; }
+        li { margin-bottom: 10px; padding-left: 5px; }
+        li::marker { color: var(--primary); }
+        
+        a { color: var(--primary); text-decoration: none; font-weight: bold; transition: var(--transition); }
+        a:hover { color: var(--accent); text-decoration: underline; }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+        
+        .badge-new { background: var(--success); color: white; }
+        .badge-pro { background: var(--warning); color: black; }
+        .badge-important { background: var(--danger); color: white; }
+        
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .setting-card {
+            background: rgba(30, 30, 40, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .setting-option {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .status-on { color: var(--success); font-weight: bold; }
+        .status-off { color: var(--danger); font-weight: bold; }
+        .status-recommended { color: var(--warning); font-weight: bold; }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-box {
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            border-top: 2px solid var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--accent);
+            color: black;
+            transform: translateY(-5px);
+        }
+        
+        .update-date {
+            font-style: italic;
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            text-align: right;
+        }
+        
+        .search-box {
+            margin: 20px auto;
+            max-width: 500px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: 2px solid rgba(255, 107, 53, 0.5);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+        }
+        
+        .pro-tip {
+            background: linear-gradient(to right, rgba(255, 193, 7, 0.1), rgba(255, 193, 7, 0.05));
+            border-left: 5px solid var(--warning);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 107, 53, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0); }
+        }
+        
+        .pulse { animation: pulse 2s infinite; }
+        
+        @media (max-width: 768px) {
+            .container { padding: 10px; }
+            .top-nav, .nav-tabs { flex-direction: column; }
+            .top-nav button, .tab-btn { width: 100%; justify-content: center; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.7rem; }
+            .settings-grid { grid-template-columns: 1fr; }
+            .stats-container { flex-direction: column; }
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <h1>🎮 Fortnite Guide GR</h1>
-        <p>Οδηγός Chapter 6: Season 1 - Δεκέμβριος 2025</p>
+        <div class="logo">
+            <i class="fas fa-gamepad"></i>
+            <h1>Fortnite Guide GR 2025</h1>
+            <i class="fas fa-crosshairs"></i>
+        </div>
+        <p class="tagline">Ο ολοκληρωμένος ελληνικός οδηγός για το Fortnite Chapter 6</p>
+        <p>Ενημερωμένο για τον Δεκέμβριο 2025</p>
     </header>
 
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="🔍 Αναζήτηση στρατηγικών, ρυθμίσεων, tips...">
+    </div>
+
     <nav class="top-nav">
-        <button onclick="showPage('home')">🏠 Home</button>
-        <button onclick="showPage('about')">ℹ️ About</button>
-        <button onclick="showPage('contact')">📧 Contact</button>
-        <button onclick="showPage('privacy')">🔒 Privacy</button>
+        <button onclick="showPage('home')" class="active-page-btn">
+            <i class="fas fa-home"></i> Αρχική
+        </button>
+        <button onclick="showPage('strategies')">
+            <i class="fas fa-chess"></i> Στρατηγικές
+        </button>
+        <button onclick="showPage('settings')">
+            <i class="fas fa-cogs"></i> Ρυθμίσεις
+        </button>
+        <button onclick="showPage('weapons')">
+            <i class="fas fa-gun"></i> Όπλα 2025
+        </button>
+        <button onclick="showPage('about')">
+            <i class="fas fa-info-circle"></i> Σχετικά
+        </button>
+        <button onclick="showPage('contact')">
+            <i class="fas fa-envelope"></i> Επικοινωνία
+        </button>
     </nav>
 
-    <!-- Σελίδα: HOME -->
-    <div id="home" class="page-content">
+    <!-- Σελίδα: Αρχική -->
+    <div id="home" class="page-content active-page">
+        <div class="stats-container">
+            <div class="stat-box">
+                <span class="stat-value">6</span>
+                <span class="stat-label">Κεφάλαιο</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-value">80+</span>
+                <span class="stat-label">Στρατηγικές</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-value">2025</span>
+                <span class="stat-label">Ενημερωμένο</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-value">GR</span>
+                <span class="stat-label">Ελληνικό</span>
+            </div>
+        </div>
+        
+        <h2><i class="fas fa-fire"></i> Τα πιο δημοφιλή για το Chapter 6</h2>
+        
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-bullseye"></i>
+                <h3>Νέα Κίνηση 2025 <span class="badge badge-new">ΝΕΟ</span></h3>
+            </div>
+            <p>Το Chapter 6 έφερε νέους μηχανισμούς κίνησης που αλλάζουν ριζικά το παιχνίδι. Μάθε τα:</p>
+            <ul>
+                <li><b>Wall Running:</b> Τρέξε σε κατακόρυφες επιφάνειες για γρήγορη αναρρίχηση</li>
+                <li><b>Sliding 2.0:</b> Βελτιωμένο sliding με καλύτερο έλεγχο</li>
+                <li><b>Grapple Dash:</b> Νέο mobility item για γρήγορες μετακινήσεις</li>
+            </ul>
+            <button class="tab-btn" onclick="showPage('strategies')" style="margin-top: 15px;">
+                <i class="fas fa-arrow-right"></i> Δες όλες τις στρατηγικές
+            </button>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-chart-line"></i>
+                <h3>Meta Όπλα Δεκεμβρίου <span class="badge badge-important">ΜΕΤΑ</span></h3>
+            </div>
+            <p>Η τρέχουσα λίστα με τα καλύτερα όπλα για το Chapter 6 Season 1:</p>
+            <ol>
+                <li><b>Hyper SMG:</b> Απίστευτος ρυθμός βολής και ελέγχου</li>
+                <li><b>Tactical Shotgun MK2:</b> Deadly σε κοντινές μάχες</li>
+                <li><b>Scoped Burst AR:</b> Ιδανικό για μεσαίες αποστάσεις</li>
+            </ol>
+            <p class="update-date">Τελευταία ενημέρωση: 10/12/2025</p>
+        </div>
+        
+        <div class="pro-tip">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tip της Εβδομάδας</h3>
+            <p>Χρησιμοποίησε το νέο <b>Grapple Dash</b> όχι μόνο για mobility αλλά και για γρήγορη απόδραση όταν σε περικυκλώνουν. Μπορείς να το συνδυάσεις με build για απρόσμενες κινήσεις.</p>
+        </div>
+    </div>
+
+    <!-- Σελίδα: Στρατηγικές -->
+    <div id="strategies" class="page-content">
+        <h2><i class="fas fa-chess"></i> Στρατηγικές & Τεχνικές</h2>
+        
         <div class="nav-tabs">
-            <button class="tab-btn" onclick="showTab(event, 'mechanics')">Στρατηγικές</button>
-            <button class="tab-btn" onclick="showTab(event, 'movement')">Κίνηση 2025</button>
-            <button class="tab-btn" onclick="showTab(event, 'settings')">Ρυθμίσεις</button>
+            <button class="tab-btn active-tab" onclick="showTab(event, 'early-game')">
+                <i class="fas fa-plane"></i> Early Game
+            </button>
+            <button class="tab-btn" onclick="showTab(event, 'mid-game')">
+                <i class="fas fa-running"></i> Mid Game
+            </button>
+            <button class="tab-btn" onclick="showTab(event, 'late-game')">
+                <i class="fas fa-crown"></i> Late Game
+            </button>
+            <button class="tab-btn" onclick="showTab(event, 'movement')">
+                <i class="fas fa-wind"></i> Κίνηση
+            </button>
         </div>
-
-        <div id="mechanics" class="content-section">
-            <h2>🎯 Βελτίωσε το παιχνίδι σου</h2>
+        
+        <div id="early-game" class="content-section active-section">
             <div class="card">
-                <p>Μάθε να ελέγχεις το <b>Early Game</b> επιλέγοντας σωστά σημεία προσγείωσης. Στο <b>Mid Game</b>, εστίασε στα rotations. Το <b>Late Game</b> απαιτεί καλή διαχείριση υλικών και σωστό positioning.</p>
+                <h3>Σωστές Επιλογές Προσγείωσης</h3>
+                <p>Στο Chapter 6, τα καλύτερα σημεία προσγείωσης για υλικά και όπλα είναι:</p>
+                <ul>
+                    <li><b>Neo Tilted Towers:</b> Πλούσια σε υλικά αλλά επικίνδυνα</li>
+                    <li><b>Lucky Landing:</b> Λιγότεροι παίκτες, καλά λεία</li>
+                    <li><b>Frosty Flights:</b> Ιδανικό για squad play</li>
+                </ul>
+                <p>Προτεραιότητα: Όπλο → Υλικά → Θέση → Heals</p>
             </div>
+            
             <div class="card">
-                <h3>Aim & Building</h3>
-                <p>Εξασκήσου στα Creative maps για "peace control" και "editing" ώστε να έχεις το πάνω χέρι στις μάχες. Το 2025 η ακρίβεια (aim) είναι κρίσιμη.</p>
+                <h3>Fast Looting Technique</h3>
+                <p>Βελτιωμένη τεχνική για γρήγορο looting:</p>
+                <ul>
+                    <li>Χρησιμοποίησε το <span class="status-on">Auto Pickup Weapons</span> στις ρυθμίσεις</li>
+                    <li>Άνοιγε όλα τα chests στην περιοχή σου πριν αρχίσεις να μαζεύεις</li>
+                    <li>Χρησιμοποίησε το νέο <b>Quick Loot</b> σύστημα (πατήσε E δύο φορές γρήγορα)</li>
+                </ul>
             </div>
         </div>
-
+        
+        <div id="mid-game" class="content-section">
+            <div class="card">
+                <h3>Rotations & Positioning</h3>
+                <p>Οι καλύτερες στρατηγικές για rotations στο mid game:</p>
+                <ul>
+                    <li>Ακολούθησε το κύκλο από νωρίς για να αποφύγεις storm fights</li>
+                    <li>Χρησιμοποίησε vehicles για ασφαλείς μετακινήσεις</li>
+                    <li>Κατάλαβε την τρέχουσα meta και προσαρμόσου ανάλογα</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3>Third-Party Tactics</h3>
+                <p>Πώς να third-party άρεστα και να αποφεύγεις να σε third-party:</p>
+                <ul>
+                    <li>Πάντα έχε έτοιμο mobility item για απόδραση</li>
+                    <li>Παρατήρησε τις μάχες από απόσταση πριν επέμβεις</li>
+                    <li>Χρησιμοποίησε snipers για να πιέσεις ομάδες που τσακώνονται</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="late-game" class="content-section">
+            <div class="card">
+                <h3>Endgame Mastery</h3>
+                <p>Τα κλειδιά για επιτυχία στο late game:</p>
+                <ul>
+                    <li><b>Height Control:</b> Πάντα προσπάθησε να πάρεις το ψηλότερο σημείο</li>
+                    <li><b>Material Management:</b> Φρόντισε να έχεις τουλάχιστον 500 υλικά</li>
+                    <li><b>Zone Prediction:</b> Μάθε να προβλέπεις την επόμενη ζώνη</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3>1v1 Situations</h3>
+                <p>Πώς να κερδίσεις το τελευταιο 1v1:</p>
+                <ul>
+                    <li>Χρησιμοποίησε heals πριν την τελική μάχη</li>
+                    <li>Πρόσεχε την πίεση της ζώνης</li>
+                    <li>Μην βιάζεσαι - ο αντίπαλος μπορεί να κάνει λάθος πρώτος</li>
+                </ul>
+            </div>
+        </div>
+        
         <div id="movement" class="content-section">
-            <h2>🏃 Chapter 6 Movement</h2>
             <div class="card">
+                <h3>Advanced Movement Techniques <span class="badge badge-new">2025</span></h3>
+                <p>Οι νέες τεχνικές κίνησης του Chapter 6:</p>
                 <ul>
-                    <li><b>Wall Kick:</b> Πήδα πάνω σε τοίχο και πάτα ξανά jump για να εκτοξευθείς.</li>
-                    <li><b>Roll Landing:</b> Κάνε roll πέφτοντας για να μην χάσεις ταχύτητα.</li>
-                    <li><b>Ledge Jump:</b> Μέγιστη ώθηση όταν πηδάς από άκρες κτιρίων.</li>
+                    <li><b>Wall Kick 2.0:</b> Πιο γρήγορη εκτόξευση από τοίχους</li>
+                    <li><b>Mantle Cancel:</b> Ακύρωση mantle για γρηγορότερες κινήσεις</li>
+                    <li><b>Slide Jumping:</b> Συνδυασμός slide και jump για μέγιστη ταχύτητα</li>
+                    <li><b>Zipline Tech:</b> Νέες τεχνικές με τα ziplines</li>
                 </ul>
             </div>
-        </div>
-
-        <!-- ΕΜΠΛΟΥΤΙΣΜΕΝΟ ΠΕΡΙΕΧΟΜΕΝΟ ΡΥΘΜΙΣΕΩΝ -->
-        <div id="settings" class="content-section">
-            <h2>⚙️ Απαραίτητες Ρυθμίσεις</h2>
+            
             <div class="card">
-                <h3>Audio (Ήχος)</h3>
+                <h3>Mobility Item Combos</h3>
+                <p>Οι καλύτεροι συνδυασμοί mobility items:</p>
                 <ul>
-                    <li><b>Visualize Sound Effects:</b> <span style="color: limegreen;">ON</span>. Βλέπεις οπτικά βήματα, σεντούκια, και πυροβολισμούς.</li>
-                    <li><b>Sound Quality:</b> <span style="color: orange;">Low</span>. Μειώνει το latency του ήχου και βελτιώνει την απόδοση.</li>
-                    <li><b>Background Audio:</b> <span style="color: limegreen;">ON</span>.</li>
-                </ul>
-                <h3>Video & Graphics (Βίντεο & Γραφικά)</h3>
-                <ul>
-                    <li><b>Performance Mode:</b> Για μέγιστα FPS σε παλιά PCs.</li>
-                    <li><b>Brightness:</b> Ρύθμισέ το στο 100% ή 120%.</li>
-                    <li><b>Color Blind Mode:</b> Πολλοί Pro players χρησιμοποιούν το Tritanope Strength 5-7.</li>
-                    <li><b>Monitor Refresh Rate:</b> Βεβαιώσου ότι ταιριάζει με τα Hz της οθόνης σου (π.χ. 144Hz ή 240Hz).</li>
-                </ul>
-                 <h3>Gameplay</h3>
-                <ul>
-                    <li><b>Preferred Item Slots:</b> Ρύθμισε το Slot 1 για Shotgun και το Slot 2 για SMG/AR.</li>
-                    <li><b>Auto Open Doors:</b> <span style="color: red;">OFF</span>.</li>
-                    <li><b>Disable Pre-Edit Option:</b> <span style="color: limegreen;">ON</span>.</li>
+                    <li><b>Grapple + Shockwave:</b> Για ακραίες αποστάσεις</li>
+                    <li><b>Launch Pad + Glider Redeploy:</b> Για ασφαλείς rotations</li>
+                    <li><b>Bouncer + Slide:</b> Για γρήγορες αποφυγές</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- Σελίδα: ABOUT -->
+    <!-- Σελίδα: Ρυθμίσεις -->
+    <div id="settings" class="page-content">
+        <h2><i class="fas fa-cogs"></i> Βέλτιστες Ρυθμίσεις 2025</h2>
+        
+        <div class="pro-tip pulse">
+            <h3><i class="fas fa-exclamation-circle"></i> Προσοχή!</h3>
+            <p>Αυτές οι ρυθμίσεις βασίζονται στα δεδομένα του Chapter 6 και διαφέρουν από προηγούμενες σεζόν. Συνιστώνται για PC παίκτες.</p>
+        </div>
+        
+        <div class="settings-grid">
+            <div class="setting-card">
+                <h3><i class="fas fa-volume-up"></i> Ρυθμίσεις Ήχου</h3>
+                <div class="setting-option">
+                    <span>Visualize Sound Effects</span>
+                    <span class="status-on">ON</span>
+                </div>
+                <div class="setting-option">
+                    <span>3D Headphones</span>
+                    <span class="status-on">ON</span>
+                </div>
+                <div class="setting-option">
+                    <span>Sound Quality</span>
+                    <span class="status-recommended">Low</span>
+                </div>
+                <div class="setting-option">
+                    <span>Master Volume</span>
+                    <span>70%</span>
+                </div>
+            </div>
+            
+            <div class="setting-card">
+                <h3><i class="fas fa-tv"></i> Ρυθμίσεις Γραφικών</h3>
+                <div class="setting-option">
+                    <span>Display Mode</span>
+                    <span class="status-recommended">Fullscreen</span>
+                </div>
+                <div class="setting-option">
+                    <span>Frame Rate Limit</span>
+                    <span>Unlimited</span>
+                </div>
+                <div class="setting-option">
+                    <span>Brightness</span>
+                    <span>120%</span>
+                </div>
+                <div class="setting-option">
+                    <span>Color Blind Mode</span>
+                    <span class="status-recommended">Tritanope 7</span>
+                </div>
+            </div>
+            
+            <div class="setting-card">
+                <h3><i class="fas fa-gamepad"></i> Gameplay Settings</h3>
+                <div class="setting-option">
+                    <span>Auto Open Doors</span>
+                    <span class="status-off">OFF</span>
+                </div>
+                <div class="setting-option">
+                    <span>Turbo Building</span>
+                    <span class="status-on">ON</span>
+                </div>
+                <div class="setting-option">
+                    <span>Disable Pre-Edits</span>
+                    <span class="status-on">ON</span>
+                </div>
+                <div class="setting-option">
+                    <span>Confirm Edit on Release</span>
+                    <span class="status-recommended">ON</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h3><i class="fas fa-keyboard"></i> Προτεινόμενες Bindings</h3>
+            <p>Για προχωρημένους παίκτες (επαγγελματίες χρήση):</p>
+            <ul>
+                <li><b>Wall:</b> Mouse Button 4 / Q</li>
+                <li><b>Floor:</b> Mouse Button 5 / F</li>
+                <li><b>Ramp:</b> Left Shift / V</li>
+                <li><b>Edit:</b> F / G</li>
+                <li><b>Crouch:</b> Left Ctrl</li>
+                <li><b>Pickaxe:</b> 1 / Tab</li>
+            </ul>
+            <p class="update-date">Σύστημα: Mouse & Keyboard</p>
+        </div>
+    </div>
+
+    <!-- Σελίδα: Όπλα -->
+    <div id="weapons" class="page-content">
+        <h2><i class="fas fa-gun"></i> Tier List Όπλων - Δεκέμβριος 2025</h2>
+        
+        <div class="nav-tabs">
+            <button class="tab-btn active-tab" onclick="showTab(event, 'ar')">
+                <i class="fas fa-crosshairs"></i> Assault Rifles
+            </button>
+            <button class="tab-btn" onclick="showTab(event, 'shotgun')">
+                <i class="fas fa-bullseye"></i> Shotguns
+            </button>
+            <button class="tab-btn" onclick="showTab(event, 'smg')">
+                <i class="fas fa-bolt"></i> SMGs
+            </button>
+            <button class="tab-btn" onclick="showTab(event, 'sniper')">
+                <i class="fas fa-eye"></i> Snipers
+            </button>
+        </div>
+        
+        <div id="ar" class="content-section active-section">
+            <div class="card">
+                <h3>S-Tier: Scoped Burst AR <span class="badge badge-pro">PRO</span></h3>
+                <p>Το καλύτερο AR για το Chapter 6. Ακριβές, ισχυρό και ελεγχόμενο.</p>
+                <ul>
+                    <li><b>Damage:</b> 36 (x2 burst)</li>
+                    <li><b>Fire Rate:</b> 4.0</li>
+                    <li><b>Magazine:</b> 30</li>
+                    <li><b>Best Attachments:</b> Red Dot, Vertical Grip</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3>A-Tier: Thermal AR</h3>
+                <p>Ιδανικό για mid-range engagements με thermal scope.</p>
+                <ul>
+                    <li><b>Damage:</b> 32</li>
+                    <li><b>Fire Rate:</b> 6.5</li>
+                    <li><b>Magazine:</b> 25</li>
+                    <li><b>Special:</b> Thermal vision ενεργό</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="shotgun" class="content-section">
+            <div class="card">
+                <h3>S-Tier: Tactical Shotgun MK2 <span class="badge badge-important">META</span></h3>
+                <p>Απαραίτητο για κοντινές μάχες. Μεγάλη ζημιά και γρήγορη fire rate.</p>
+                <ul>
+                    <li><b>Damage:</b> 110 (headshot)</li>
+                    <li><b>Fire Rate:</b> 1.5</li>
+                    <li><b>Magazine:</b> 8</li>
+                    <li><b>Best Range:</b> 0-10m</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="smg" class="content-section">
+            <div class="card">
+                <h3>S-Tier: Hyper SMG <span class="badge badge-new">NEW</span></h3>
+                <p>Νέο SMG με απίστευτο ρυθμό βολής. Ιδανικό για spray και pressure.</p>
+                <ul>
+                    <li><b>Damage:</b> 18</li>
+                    <li><b>Fire Rate:</b> 12.0 (πιο γρήγορο στο παιχνίδι!)</li>
+                    <li><b>Magazine:</b> 40</li>
+                    <li><b>Best For:</b> Box fights, spray pressure</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="sniper" class="content-section">
+            <div class="card">
+                <h3>S-Tier: Heavy Sniper</h3>
+                <p>Μονόπυρο sniper που μπορεί να καταστρέψει builds και να σκοτώσει με ένα headshot.</p>
+                <ul>
+                    <li><b>Damage:</b> 132 / 330 (headshot)</li>
+                    <li><b>Fire Rate:</b> 0.6</li>
+                    <li><b>Magazine:</b> 1</li>
+                    <li><b>Special:</b> Κάνει 150 ζημιά σε builds</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Σελίδα: Σχετικά -->
     <div id="about" class="page-content">
-        <h1>About</h1>
+        <h2><i class="fas fa-info-circle"></i> Σχετικά με τον Οδηγό</h2>
+        
         <div class="card">
-            <p>Το Fortnite Guide GR είναι ένας δωρεάν ελληνικός οδηγός για το Fortnite, φτιαγμένος για παίκτες κάθε επιπέδου. 
-            Στόχος μου είναι να βοηθήσω τους παίκτες να βελτιώσουν aim, building, editing, rotations, game sense και στρατηγικές για early, mid και late game.</p>
-            <p style="margin-top: 15px;">Το site ενημερώνεται συνεχώς με νέες συμβουλές και περιεχόμενο.</p>
+            <h3>Η Ιστορία μας</h3>
+            <p>Ο Fortnite Guide GR δημιουργήθηκε το 2023 με στόχο να παρέχει στους Έλληνες παίκτες του Fortnite έναν ολοκληρωμένο, ενημερωμένο και δωρεάν οδηγό για το παιχνίδι.</p>
+            <p>Από τότε, έχουμε βοηθήσει χιλιάδες παίκτες να βελτιώσουν το gameplay τους μέσω συμβουλών, στρατηγικών και αναλυτικών οδηγών.</p>
+        </div>
+        
+        <div class="card">
+            <h3>Γιατί να μας εμπιστευτείτε;</h3>
+            <ul>
+                <li><b>Ελληνικό περιεχόμενο:</b> Όλα στα Ελληνικά, χωρίς μετάφραση</li>
+                <li><b>Ενημερωμένο:</b> Ανανεώνουμε το site κάθε εβδομάδα με νέες στρατηγικές</li>
+                <li><b>Δωρεάν:</b> Όλο το περιεχόμενο είναι 100% δωρεάν</li>
+                <li><b>Ακριβές:</b> Οι στρατηγικές μας βασίζονται σε προ-scrims και pro gameplay</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h3>Το Μέλλον</h3>
+            <p>Στο μέλλον σχεδιάζουμε να προσθέσουμε:</p>
+            <ul>
+                <li>Βίντεο tutorials από Έλληνες pro players</li>
+                <li>Interactive map με landing spots και rotations</li>
+                <li>Custom matchmaking για την ελληνική κοινότητα</li>
+                <li>Weekly tournament με prizes</li>
+            </ul>
         </div>
     </div>
 
-    <!-- Σελίδα: CONTACT -->
+    <!-- Σελίδα: Επικοινωνία -->
     <div id="contact" class="page-content">
-        <h1>Contact</h1>
+        <h2><i class="fas fa-envelope"></i> Επικοινωνία & Κοινότητα</h2>
+        
         <div class="card">
-            <p>Αν θέλεις να επικοινωνήσεις μαζί μου, μπορείς να στείλεις email στο:</p>
-            <p style="font-size: 1.2em; margin: 15px 0;"><strong>giannis10ritzakis@gmail.com</strong></p>
-            <p>Θα απαντήσω το συντομότερο δυνατό.</p>
+            <h3>Στείλτε μας Μήνυμα</h3>
+            <p>Έχετε ερωτήσεις, προτάσεις ή θέλετε να συνεργαστείτε;</p>
+            
+            <div style="margin: 20px 0;">
+                <div style="display: flex; align-items: center; gap: 10px; margin: 15px 0;">
+                    <i class="fas fa-envelope" style="color: var(--primary); font-size: 1.2rem;"></i>
+                    <div>
+                        <strong>Email:</strong>
+                        <p>fortniteguidegr@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 10px; margin: 15px 0;">
+                    <i class="fas fa-clock" style="color: var(--primary); font-size: 1.2rem;"></i>
+                    <div>
+                        <strong>Χρόνος Απάντησης:</strong>
+                        <p>24-48 ώρες</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p>Μπορείτε επίσης να μας βρείτε στα social media:</p>
+        </div>
+        
+        <div class="social-links">
+            <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" title="Discord"><i class="fab fa-discord"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="Twitch"><i class="fab fa-twitch"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+        
+        <div class="card">
+            <h3>Join Our Discord</h3>
+            <p>Γίνετε μέλος της ελληνικής κοινότητας Fortnite Guide GR στο Discord!</p>
+            <p>Συζητήσεις, βοήθεια, custom games και πολλά άλλα.</p>
+            <button style="margin-top: 15px; padding: 12px 25px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 10px;">
+                <i class="fab fa-discord"></i> Join Discord Server
+            </button>
         </div>
     </div>
 
-    <!-- Σελίδα: PRIVACY -->
-    <div id="privacy" class="page-content">
-        <h1>Privacy Policy</h1>
-        <div class="card">
-            <p>Αυτό το site χρησιμοποιεί cookies και υπηρεσίες τρίτων, όπως το Google AdSense, για την εμφάνιση διαφημίσεων.</p>
-            <p>Η Google μπορεί να χρησιμοποιεί cookies για την εξατομίκευση διαφημίσεων και για τη μέτρηση της απόδοσης.</p>
-            <p>Δεν συλλέγω προσωπικά δεδομένα χρηστών.</p>
-            <p style="margin-top: 15px;">Για περισσότερες πληροφορίες σχετικά με το πώς η Google χρησιμοποιεί δεδομένα, επισκεφθείτε: 
-            <br><a href="policies.google.com" target="_blank">Google Privacy & Terms</a>.</p>
+    <footer>
+        <p>Fortnite Guide GR © 2025 - Ολοκληρωμένος Ελληνικός Οδηγός Fortnite</p>
+        <p>Αυτό το site δεν συνδέεται με την Epic Games. Το Fortnite είναι εμπορικό σήμα της Epic Games.</p>
+        <p class="update-date">Τελευταία ενημέρωση: 15 Δεκεμβρίου 2025</p>
+        
+        <div class="social-links" style="margin-top: 25px;">
+            <a href="#"><i class="fas fa-home"></i></a>
+            <a href="#privacy" onclick="showPage('privacy')"><i class="fas fa-lock"></i></a>
+            <a href="#contact" onclick="showPage('contact')"><i class="fas fa-question-circle"></i></a>
         </div>
-    </div>
+    </footer>
+</div>
 
+<div class="back-to-top" id="backToTop">
+    <i class="fas fa-chevron-up"></i>
 </div>
 
 <script>
-    // Φόρτωση της τελευταίας σελίδας κατά το Refresh
-    window.onload = function() {
-        const lastPage = localStorage.getItem('lastPage') || 'home'; 
+    // Αρχικοποίηση
+    document.addEventListener('DOMContentLoaded', function() {
+        const lastPage = localStorage.getItem('lastPage') || 'home';
         showPage(lastPage);
+        showTabInternal('early-game');
         
-        // Κατά τη φόρτωση, βεβαιωνόμαστε ότι το σωστό tab είναι ενεργό
-        if (lastPage === 'home') {
-            // Αυτόματα επιλέγει το tab "Settings" όταν φορτώνει η αρχική σελίδα (default behaviour)
-             showTabInternal('settings');
-        }
-    };
+        // Προσθήκη event listener για το back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Αναζήτηση
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            if (searchTerm.length > 2) {
+                highlightSearch(searchTerm);
+            } else {
+                clearHighlights();
+            }
+        });
+    });
 
     function showPage(pageId) {
+        // Απόκρυψη όλων των σελίδων
         document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active-page'));
+        
+        // Αφαίρεση active class από όλα τα κουμπιά
+        document.querySelectorAll('.top-nav button').forEach(b => b.classList.remove('active-page-btn'));
+        
+        // Εμφάνιση της επιλεγμένης σελίδας
         const target = document.getElementById(pageId);
         if (target) {
             target.classList.add('active-page');
             localStorage.setItem('lastPage', pageId);
+            
+            // Προσθήκη active class στο κουμπί που πατήθηκε
+            const activeBtn = Array.from(document.querySelectorAll('.top-nav button')).find(btn => 
+                btn.getAttribute('onclick')?.includes(pageId)
+            );
+            if (activeBtn) {
+                activeBtn.classList.add('active-page-btn');
+            }
         }
-        window.scrollTo(0,0);
+        
+        // Ανάπτυξη στην κορυφή της σελίδας
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // Επιλογή default tab για κάθε σελίδα
+        if (pageId === 'home') {
+            showTabInternal('early-game');
+        }
+        if (pageId === 'strategies') {
+            showTabInternal('early-game');
+        }
+        if (pageId === 'weapons') {
+            showTabInternal('ar');
+        }
     }
 
     function showTab(event, tabId) {
-        // Καλέστε την εσωτερική συνάρτηση με το event
-        showTabInternal(tabId);
-        // Προσθέστε την ενεργή κλάση στο κουμπί που πατήθηκε
+        // Προσθήκη active class στο tab button
+        const tabButtons = event.currentTarget.parentElement.querySelectorAll('.tab-btn');
+        tabButtons.forEach(b => b.classList.remove('active-tab'));
         event.currentTarget.classList.add('active-tab');
+        
+        // Εμφάνιση του επιλεγμένου tab
+        showTabInternal(tabId);
     }
 
     function showTabInternal(tabId) {
-         // Βεβαιωνόμαστε ότι κλείνουν όλα τα tabs της ΤΡΕΧΟΥΣΑΣ σελίδας home
-        document.querySelectorAll('#home .content-section').forEach(s => s.classList.remove('active-section'));
-        document.querySelectorAll('#home .tab-btn').forEach(b => b.classList.remove('active-tab'));
+        // Βρίσκουμε την ενεργή σελίδα
+        const activePage = document.querySelector('.page-content.active-page');
         
-        // Ενεργοποιούμε το σωστό tab/content
-        document.getElementById(tabId).classList.add('active-section');
+        // Απόκρυψη όλων των sections της ενεργής σελίδας
+        activePage.querySelectorAll('.content-section').forEach(s => s.classList.remove('active-section'));
         
-        // Βρίσκουμε το αντίστοιχο κουμπί και το ενεργοποιούμε (χρησιμοποιείται για το onload)
-        const correspondingButton = document.querySelector(`.tab-btn[onclick*="${tabId}"]`);
-        if(correspondingButton) {
-            correspondingButton.classList.add('active-tab');
+        // Εμφάνιση του επιλεγμένου section
+        const targetSection = document.getElementById(tabId);
+        if (targetSection) {
+            targetSection.classList.add('active-section');
         }
+    }
+
+    function highlightSearch(term) {
+        // Καθαρίζουμε προηγούμενες επισήμανσεις
+        clearHighlights();
+        
+        // Επισήμανση όρων σε όλο το περιεχόμενο
+        const elements = document.querySelectorAll('.page-content.active-page .card, .page-content.active-page h2, .page-content.active-page h3, .page-content.active-page p, .page-content.active-page li');
+        
+        elements.forEach(element => {
+            const html = element.innerHTML;
+            const regex = new RegExp(`(${term})`, 'gi');
+            const newHtml = html.replace(regex, '<mark style="background-color: yellow; color: black;">$1</mark>');
+            
+            if (newHtml !== html) {
+                element.innerHTML = newHtml;
+            }
+        });
+    }
+
+    function clearHighlights() {
+        const marks = document.querySelectorAll('mark');
+        marks.forEach(mark => {
+            const parent = mark.parentNode;
+            parent.replaceChild(document.createTextNode(mark.textContent), mark);
+            parent.normalize();
+        });
     }
 </script>
 
