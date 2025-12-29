@@ -1,5 +1,4 @@
-
-          <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="el">
 <head>
     <meta charset="UTF-8">
@@ -80,19 +79,19 @@
     <!-- Σελίδα: HOME -->
     <div id="home" class="page-content">
         <div class="nav-tabs">
-            <button class="tab-btn active-tab" onclick="showTab(event, 'mechanics')">Στρατηγικές</button>
+            <button class="tab-btn" onclick="showTab(event, 'mechanics')">Στρατηγικές</button>
             <button class="tab-btn" onclick="showTab(event, 'movement')">Κίνηση 2025</button>
             <button class="tab-btn" onclick="showTab(event, 'settings')">Ρυθμίσεις</button>
         </div>
 
-        <div id="mechanics" class="content-section active-section">
+        <div id="mechanics" class="content-section">
             <h2>🎯 Βελτίωσε το παιχνίδι σου</h2>
             <div class="card">
-                <p>Μάθε να ελέγχεις το <b>Early Game</b> επιλέγοντας σωστά σημεία προσγείωσης. Στο <b>Mid Game</b>, εστίασε στα rotations χρησιμοποιώντας τα νέα οχήματα. Το <b>Late Game</b> απαιτεί καλή διαχείριση υλικών και σωστό positioning.</p>
+                <p>Μάθε να ελέγχεις το <b>Early Game</b> επιλέγοντας σωστά σημεία προσγείωσης. Στο <b>Mid Game</b>, εστίασε στα rotations. Το <b>Late Game</b> απαιτεί καλή διαχείριση υλικών και σωστό positioning.</p>
             </div>
             <div class="card">
                 <h3>Aim & Building</h3>
-                <p>Το 2025 η ακρίβεια (aim) είναι πιο σημαντική από ποτέ. Εξασκήσου στα Creative maps για "peace control" και "editing" ώστε να έχεις το πάνω χέρι στις μάχες.</p>
+                <p>Εξασκήσου στα Creative maps για "peace control" και "editing" ώστε να έχεις το πάνω χέρι στις μάχες. Το 2025 η ακρίβεια (aim) είναι κρίσιμη.</p>
             </div>
         </div>
 
@@ -113,22 +112,22 @@
             <div class="card">
                 <h3>Audio (Ήχος)</h3>
                 <ul>
-                    <li><b>Visualize Sound Effects:</b> <span style="color: limegreen;">ON</span>. Απαραίτητο. Βλέπεις οπτικά βήματα, σεντούκια, και πυροβολισμούς.</li>
+                    <li><b>Visualize Sound Effects:</b> <span style="color: limegreen;">ON</span>. Βλέπεις οπτικά βήματα, σεντούκια, και πυροβολισμούς.</li>
                     <li><b>Sound Quality:</b> <span style="color: orange;">Low</span>. Μειώνει το latency του ήχου και βελτιώνει την απόδοση.</li>
-                    <li><b>Background Audio:</b> <span style="color: limegreen;">ON</span>. Για να ακούς το παιχνίδι αν κάνεις Alt+Tab.</li>
+                    <li><b>Background Audio:</b> <span style="color: limegreen;">ON</span>.</li>
                 </ul>
                 <h3>Video & Graphics (Βίντεο & Γραφικά)</h3>
                 <ul>
-                    <li><b>Performance Mode:</b> Χρησιμοποίησέ το αν έχεις παλιό PC για μέγιστα FPS.</li>
-                    <li><b>Brightness:</b> Ρύθμισέ το στο 100% ή 120%. Βοηθάει να βλέπεις καλύτερα μέσα στις σκιές.</li>
-                    <li><b>Color Blind Mode:</b> Προσωπική προτίμηση, πολλοί Pro players χρησιμοποιούν το Tritanope Strength 5-7.</li>
+                    <li><b>Performance Mode:</b> Για μέγιστα FPS σε παλιά PCs.</li>
+                    <li><b>Brightness:</b> Ρύθμισέ το στο 100% ή 120%.</li>
+                    <li><b>Color Blind Mode:</b> Πολλοί Pro players χρησιμοποιούν το Tritanope Strength 5-7.</li>
                     <li><b>Monitor Refresh Rate:</b> Βεβαιώσου ότι ταιριάζει με τα Hz της οθόνης σου (π.χ. 144Hz ή 240Hz).</li>
                 </ul>
                  <h3>Gameplay</h3>
                 <ul>
                     <li><b>Preferred Item Slots:</b> Ρύθμισε το Slot 1 για Shotgun και το Slot 2 για SMG/AR.</li>
-                    <li><b>Auto Open Doors:</b> <span style="color: red;">OFF</span>. Σε εκθέτει άσκοπα στους εχθρούς.</li>
-                    <li><b>Disable Pre-Edit Option:</b> <span style="color: limegreen;">ON</span>. Αποτρέπει λάθος edits σε δοκάρια που κρατάς.</li>
+                    <li><b>Auto Open Doors:</b> <span style="color: red;">OFF</span>.</li>
+                    <li><b>Disable Pre-Edit Option:</b> <span style="color: limegreen;">ON</span>.</li>
                 </ul>
             </div>
         </div>
@@ -171,42 +170,49 @@
 <script>
     // Φόρτωση της τελευταίας σελίδας κατά το Refresh
     window.onload = function() {
-        // Ελέγχουμε αν υπάρχει αποθηκευμένη σελίδα, αλλιώς default 'home'
         const lastPage = localStorage.getItem('lastPage') || 'home'; 
         showPage(lastPage);
         
-        // Κατά τη φόρτωση, βεβαιωνόμαστε ότι το πρώτο tab στο home είναι ενεργό
+        // Κατά τη φόρτωση, βεβαιωνόμαστε ότι το σωστό tab είναι ενεργό
         if (lastPage === 'home') {
-             // Βρίσκει το πρώτο κουμπί tab και προσθέτει την ενεργή κλάση
-             document.querySelector('#home .tab-btn').classList.add('active-tab');
-             document.querySelector('#home .content-section').classList.add('active-section');
+            // Αυτόματα επιλέγει το tab "Settings" όταν φορτώνει η αρχική σελίδα (default behaviour)
+             showTabInternal('settings');
         }
     };
 
     function showPage(pageId) {
-        // Απόκρυψη όλων των σελίδων
         document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active-page'));
-        
-        // Εμφάνιση της επιλεγμένης σελίδας
         const target = document.getElementById(pageId);
         if (target) {
             target.classList.add('active-page');
-            // Αποθήκευση στο localStorage
             localStorage.setItem('lastPage', pageId);
         }
         window.scrollTo(0,0);
     }
 
     function showTab(event, tabId) {
-        // Βεβαιωνόμαστε ότι κλείνουν όλα τα tabs της ΤΡΕΧΟΥΣΑΣ σελίδας home
+        // Καλέστε την εσωτερική συνάρτηση με το event
+        showTabInternal(tabId);
+        // Προσθέστε την ενεργή κλάση στο κουμπί που πατήθηκε
+        event.currentTarget.classList.add('active-tab');
+    }
+
+    function showTabInternal(tabId) {
+         // Βεβαιωνόμαστε ότι κλείνουν όλα τα tabs της ΤΡΕΧΟΥΣΑΣ σελίδας home
         document.querySelectorAll('#home .content-section').forEach(s => s.classList.remove('active-section'));
         document.querySelectorAll('#home .tab-btn').forEach(b => b.classList.remove('active-tab'));
         
         // Ενεργοποιούμε το σωστό tab/content
         document.getElementById(tabId).classList.add('active-section');
-        event.currentTarget.classList.add('active-tab');
+        
+        // Βρίσκουμε το αντίστοιχο κουμπί και το ενεργοποιούμε (χρησιμοποιείται για το onload)
+        const correspondingButton = document.querySelector(`.tab-btn[onclick*="${tabId}"]`);
+        if(correspondingButton) {
+            correspondingButton.classList.add('active-tab');
+        }
     }
 </script>
 
 </body>
 </html>
+
