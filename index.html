@@ -1,30 +1,20 @@
 
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="el">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fortnite Beginner's Guide 🎮</title>
+    <title>Fortnite Beginner's Guide 2025 🎮</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #fff;
             line-height: 1.6;
+            min-height: 100vh;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         header {
             text-align: center;
             padding: 40px 20px;
@@ -33,26 +23,8 @@
             margin-bottom: 30px;
             backdrop-filter: blur(10px);
         }
-
-        h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-
-        .top-nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
+        h1 { font-size: 3em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .top-nav { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
         .top-nav a {
             padding: 10px 20px;
             background: rgba(255, 107, 53, 0.8);
@@ -60,22 +32,10 @@
             text-decoration: none;
             border-radius: 20px;
             font-weight: bold;
-            transition: all 0.3s;
+            transition: 0.3s;
         }
-
-        .top-nav a:hover {
-            background: #ff6b35;
-            transform: translateY(-2px);
-        }
-
-        .nav-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 30px;
-            justify-content: center;
-        }
-
+        .top-nav a:hover { background: #ff6b35; transform: translateY(-2px); }
+        .nav-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; justify-content: center; }
         .tab-btn {
             padding: 12px 24px;
             background: rgba(255, 255, 255, 0.2);
@@ -83,573 +43,114 @@
             border-radius: 25px;
             color: #fff;
             cursor: pointer;
-            transition: all 0.3s;
-            font-size: 16px;
             font-weight: bold;
         }
-
-        .tab-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .tab-btn.active {
-            background: #ff6b35;
-            border-color: #ff6b35;
-        }
-
-        .content-section {
-            display: none;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 30px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            animation: fadeIn 0.5s;
-        }
-
-        .content-section.active {
-            display: block;
-        }
-
-        .page-content {
-            display: none;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 30px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            animation: fadeIn 0.5s;
-        }
-
-        .page-content.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h2 {
-            color: #ffd700;
-            margin-bottom: 20px;
-            font-size: 2em;
-            border-bottom: 3px solid #ff6b35;
-            padding-bottom: 10px;
-        }
-
-        h3 {
-            color: #ffeb3b;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 10px;
-            border-left: 4px solid #ff6b35;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .grid-item {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .grid-item:hover {
-            transform: scale(1.05);
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .rarity {
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 5px;
-            margin: 5px;
-            font-weight: bold;
-        }
-
-        .common { background: #808080; }
-        .uncommon { background: #4caf50; }
-        .rare { background: #2196f3; }
-        .epic { background: #9c27b0; }
-        .legendary { background: #ff9800; }
-        .mythic { background: #f44336; }
-
-        ul, ol {
-            margin-left: 25px;
-            margin-top: 10px;
-        }
-
-        li {
-            margin: 8px 0;
-        }
-
-        .tip {
-            background: rgba(76, 175, 80, 0.3);
-            border-left: 4px solid #4caf50;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-
-        .warning {
-            background: rgba(244, 67, 54, 0.3);
-            border-left: 4px solid #f44336;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-
-        .controls-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 10px;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 10px;
-            border-radius: 5px;
-            margin: 10px 0;
-        }
-
-        .key {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px;
-            border-radius: 5px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            margin-top: 40px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-        }
-
-        a {
-            color: #ffd700;
-        }
-
-        a:hover {
-            color: #ffeb3b;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2em; }
-            .nav-tabs { flex-direction: column; }
-            .controls-grid { grid-template-columns: 1fr; }
-            .top-nav { flex-direction: column; }
-        }
+        .tab-btn.active { background: #ff6b35; border-color: #ff6b35; }
+        .content-section, .page-content { display: none; background: rgba(0, 0, 0, 0.4); padding: 30px; border-radius: 15px; backdrop-filter: blur(10px); animation: fadeIn 0.5s; }
+        .active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        h2 { color: #ffd700; border-bottom: 3px solid #ff6b35; padding-bottom: 10px; margin-bottom: 20px; }
+        .card { background: rgba(255, 255, 255, 0.1); padding: 20px; margin: 15px 0; border-radius: 10px; border-left: 4px solid #ff6b35; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0; }
+        .grid-item { background: rgba(255, 255, 255, 0.15); padding: 20px; border-radius: 10px; text-align: center; }
+        .controls-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 10px; margin: 10px 0; }
+        .key { background: rgba(255, 255, 255, 0.2); padding: 5px; border-radius: 5px; text-align: center; font-weight: bold; }
+        .rarity { padding: 5px 10px; border-radius: 5px; font-weight: bold; display: inline-block; margin: 5px; }
+        .common { background: #808080; } .rare { background: #2196f3; } .legendary { background: #ff9800; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🎮 Fortnite Beginner's Guide</h1>
-            <p class="subtitle">Μάθε να παίζεις Fortnite σαν επαγγελματίας!</p>
-        </header>
 
-        <div class="top-nav">
-            <a href="#" onclick="showPage('home'); return false;">🏠 Home</a>
-            <a href="#" onclick="showPage('about'); return false;">ℹ️ About</a>
-            <a href="#" onclick="showPage('contact'); return false;">📧 Contact</a>
-            <a href="#" onclick="showPage('privacy'); return false;">🔒 Privacy Policy</a>
+<div class="container">
+    <header>
+        <h1>🎮 Fortnite Guide 2025</h1>
+        <p>Γίνε ο κυρίαρχος του Battle Royale</p>
+    </header>
+
+    <nav class="top-nav">
+        <a href="#" onclick="showPage('home')">🏠 Home</a>
+        <a href="#" onclick="showPage('about')">ℹ️ About</a>
+        <a href="#" onclick="showPage('contact')">📧 Contact</a>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page-content active">
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="showTab('intro')">Εισαγωγή</button>
+            <button class="tab-btn" onclick="showTab('controls')">Controls</button>
+            <button class="tab-btn" onclick="showTab('mechanics')">Μηχανισμοί</button>
+            <button class="tab-btn" onclick="showTab('tips')">Tips</button>
         </div>
 
-        <!-- Home Page (Guide) -->
-        <div id="home" class="page-content active">
-            <div class="nav-tabs">
-                <button class="tab-btn active" onclick="showTab('intro')">Εισαγωγή</button>
-                <button class="tab-btn" onclick="showTab('controls')">Controls</button>
-                <button class="tab-btn" onclick="showTab('mechanics')">Mechanics</button>
-                <button class="tab-btn" onclick="showTab('landing')">Landing</button>
-                <button class="tab-btn" onclick="showTab('building')">Building</button>
-                <button class="tab-btn" onclick="showTab('combat')">Combat</button>
-                <button class="tab-btn" onclick="showTab('tips')">Tips</button>
-            </div>
-
-            <!-- Intro Section -->
-            <div id="intro" class="content-section active">
-                <h2>🎯 Τι είναι το Fortnite;</h2>
-                <div class="card">
-                    <p>Το Fortnite Battle Royale είναι ένα δωρεάν παιχνίδι όπου 100 παίκτες μάχονται για να είναι ο τελευταίος που επιζεί. Συνδυάζει shooting, building και survival σε έναν χάρτη που συνεχώς συρρικνώνεται.</p>
-                </div>
-
-                <h3>🎮 Game Modes</h3>
-                <div class="grid">
-                    <div class="grid-item">
-                        <h4>Battle Royale</h4>
-                        <p>Solo, Duo ή Squad (έως 4 παίκτες)</p>
-                    </div>
-                    <div class="grid-item">
-                        <h4>Zero Build</h4>
-                        <p>Battle Royale χωρίς building</p>
-                    </div>
-                    <div class="grid-item">
-                        <h4>Creative</h4>
-                        <p>Custom παιχνίδια από players</p>
-                    </div>
-                    <div class="grid-item">
-                        <h4>Save the World</h4>
-                        <p>Co-op PvE mode (επί πληρωμή)</p>
-                    </div>
-                </div>
-
-                <h3>📊 Loot Rarity</h3>
-                <div style="text-align: center; margin: 20px 0;">
-                    <span class="rarity common">Common</span>
-                    <span class="rarity uncommon">Uncommon</span>
-                    <span class="rarity rare">Rare</span>
-                    <span class="rarity epic">Epic</span>
-                    <span class="rarity legendary">Legendary</span>
-                    <span class="rarity mythic">Mythic</span>
-                </div>
-            </div>
-
-            <!-- Controls Section -->
-            <div id="controls" class="content-section">
-                <h2>🎮 Basic Controls (PC)</h2>
-                
-                <h3>⌨️ Κίνηση</h3>
-                <div class="controls-grid">
-                    <div class="key">W/A/S/D</div><div>Κίνηση</div>
-                    <div class="key">Space</div><div>Άλμα</div>
-                    <div class="key">Shift</div><div>Τρέξιμο</div>
-                    <div class="key">Ctrl</div><div>Crouch</div>
-                    <div class="key">C</div><div>Αλλαγή στάσης</div>
-                </div>
-
-                <h3>🔫 Combat</h3>
-                <div class="controls-grid">
-                    <div class="key">Left Click</div><div>Πυροβολισμός</div>
-                    <div class="key">Right Click</div><div>Aim down sights</div>
-                    <div class="key">R</div><div>Reload</div>
-                    <div class="key">1-5</div><div>Weapon slots</div>
-                    <div class="key">G</div><div>Building edit mode</div>
-                </div>
-
-                <h3>🏗️ Building</h3>
-                <div class="controls-grid">
-                    <div class="key">Q</div><div>Τοίχος (Wall)</div>
-                    <div class="key">E</div><div>Πάτωμα (Floor)</div>
-                    <div class="key">R</div><div>Ράμπα (Ramp)</div>
-                    <div class="key">T</div><div>Πυραμίδα (Roof)</div>
-                    <div class="key">G</div><div>Edit</div>
-                    <div class="key">Left Click</div><div>Τοποθέτηση</div>
-                </div>
-
-                <div class="tip">
-                    <strong>💡 Tip:</strong> Τα controls διαφέρουν ανάλογα με την πλατφόρμα. Τσέκαρε τα in-game settings!
-                </div>
-            </div>
-
-            <!-- Mechanics Section -->
-            <div id="mechanics" class="content-section">
-                <h2>⚙️ Core Mechanics</h2>
-
-                <h3>🌪️ The Storm</h3>
-                <div class="card">
-                    <ul>
-                        <li>Μια θανατηφόρα καταιγίδα κλείνει με την πάροδο του χρόνου</li>
-                        <li>Αν μείνεις στην καταιγίδα, χάνεις υγεία</li>
-                        <li>Πρέπει πάντα να είσαι μέσα στον κύκλο</li>
-                        <li>Τσέκαρε τον χάρτη συχνά!</li>
-                    </ul>
-                </div>
-
-                <h3>❤️ Health & Shields</h3>
-                <div class="grid">
-                    <div class="grid-item">
-                        <h4>Health (Υγεία)</h4>
-                        <p>100 HP (κόκκινη μπάρα)</p>
-                        <p>Επαναφέρεται με healing items</p>
-                    </div>
-                    <div class="grid-item">
-                        <h4>Shields (Ασπίδες)</h4>
-                        <p>Έως 100 (μπλε μπάρα)</p>
-                        <p>Προσθέτονται με shield potions</p>
-                    </div>
-                </div>
-
-                <div class="tip">
-                    <strong>💡 Σημαντικό:</strong> Τα shields απορροφούν damage πριν από την υγεία σου!
-                </div>
-
-                <h3>🧱 Υλικά Κατασκευής</h3>
-                <div class="card">
-                    <ul>
-                        <li><strong>Ξύλο (Wood):</strong> 100 HP, χτίζει γρηγορότερα</li>
-                        <li><strong>Πέτρα (Brick):</strong> 150 HP, μεσαία ταχύτητα</li>
-                        <li><strong>Μέταλλο (Metal):</strong> 200 HP, χτίζει πιο αργά</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Landing Section -->
-            <div id="landing" class="content-section">
-                <h2>🪂 Landing Strategy</h2>
-
-                <h3>📍 Πού να κάνεις land;</h3>
-                <div class="grid">
-                    <div class="grid-item">
-                        <h4>🔥 Hot Drops</h4>
-                        <p><strong>High Risk, High Reward</strong></p>
-                        <ul>
-                            <li>Named POIs</li>
-                            <li>Κέντρο χάρτη</li>
-                            <li>Κοντά στη διαδρομή του Battle Bus</li>
-                        </ul>
-                    </div>
-                    <div class="grid-item">
-                        <h4>✅ Safe Drops</h4>
-                        <p><strong>Low Risk, Steady Loot</strong></p>
-                        <ul>
-                            <li>Unnamed locations</li>
-                            <li>Άκρη χάρτη</li>
-                            <li>Μικρά κτίρια</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <h3>🎯 Landing Tips</h3>
-                <div class="card">
-                    <ol>
-                        <li>Άνοιξε το glider στη σωστή στιγμή για ταχύτητα</li>
-                        <li>Στόχευσε σε ταράτσες για γρήγορο loot</li>
-                        <li>Κάνε land κοντά σε άλλους μόνο αν είσαι σίγουρος</li>
-                        <li>Πάρε όπλο ΑΜΕΣΩΣ!</li>
-                    </ol>
-                </div>
-
-                <div class="warning">
-                    <strong>⚠️ Προσοχή:</strong> Μην κάνεις land σε hot drops αν είσαι αρχάριος!
-                </div>
-            </div>
-
-            <!-- Building Section -->
-            <div id="building" class="content-section">
-                <h2>🏗️ Building Basics</h2>
-
-                <div class="card">
-                    <p><strong>Το building είναι αυτό που κάνει το Fortnite μοναδικό!</strong> Ακόμα και βασικό building είναι απαραίτητο.</p>
-                </div>
-
-                <h3>📦 Πότε να χτίζεις;</h3>
-                <ul>
-                    <li>Όταν σε πυροβολούν → Χτίσε τοίχους για cover</li>
-                    <li>Χρειάζεσαι high ground → Χτίσε ράμπες</li>
-                    <li>Διασχίζεις ανοιχτό χώρο → Χτίσε για προστασία</li>
-                    <li>Final circles → Χτίσε defensive box</li>
-                </ul>
-
-                <h3>🎯 Βασικές Κατασκευές</h3>
-                
-                <div class="card">
-                    <h4>1x1 Box (Αμυντικό)</h4>
-                    <ol>
-                        <li>Τοποθέτησε 4 τοίχους γύρω σου</li>
-                        <li>Χτίσε μια ράμπα μέσα</li>
-                        <li>Edit έξοδο όταν χρειαστεί</li>
-                    </ol>
-                </div>
-
-                <div class="card">
-                    <h4>Ramp Rush (Επιθετικό)</h4>
-                    <ol>
-                        <li>Τοποθέτησε ράμπα</li>
-                        <li>Τοποθέτησε τοίχο μπροστά</li>
-                        <li>Τρέξε πάνω και επανάλαβε</li>
-                    </ol>
-                </div>
-
-                <div class="tip">
-                    <strong>💡 Pro Tip:</strong> Χρησιμοποίησε ξύλο για γρήγορη προστασία, μέταλλο για final circle!
-                </div>
-            </div>
-
-            <!-- Combat Section -->
-            <div id="combat" class="content-section">
-                <h2>⚔️ Combat Tips</h2>
-
-                <h3>🔫 Τύποι Όπλων</h3>
-                <div class="grid">
-                    <div class="grid-item">
-                        <h4>Assault Rifles</h4>
-                        <p>Μεσαία απόσταση, versatile, καλά για αρχάριους</p>
-                    </div>
-                    <div class="grid-item">
-                        <h4>Shotguns</h4>
-                        <p>Κοντινή απόσταση, υψηλό damage, headshots</p>
-                    </div>
-                    <div class="grid-item">
-                        <h4>SMGs</h4>
-                        <p>Πολύ κοντινή απόσταση, γρήγορος ρυθμός πυρός</p>
-                    </div>
-                    <div class="grid-item">
-                        <h4>Sniper Rifles</h4>
-                        <p>Μεγάλη απόσταση, υψηλή δεξιότητα, one-shot</p>
-                    </div>
-                </div>
-
-                <h3>🎯 Combat Strategy</h3>
-                <div class="card">
-                    <ol>
-                        <li><strong>Πάντα έχε shields</strong> - Πίνε τα αμέσως</li>
-                        <li><strong>Στόχευε για headshots</strong> - 2x damage</li>
-                        <li><strong>Χρησιμοποίησε cover</strong> - Peek, shoot, hide</li>
-                        <li><strong>High ground advantage</strong> - Χτίσε ψηλά</li>
-                        <li><strong>Third-partying</strong> - Απόφυγε μακριές μάχες</li>
-                    </ol>
-                </div>
-
-                <h3>🎒 Συνιστώμενο Loadout</h3>
-                <div class="card">
-                    <ol>
-                        <li>Assault Rifle ή SMG</li>
-                        <li>Shotgun</li>
-                        <li>Healing items</li>
-                        <li>Shield potions</li>
-                        <li>Utility item ή sniper</li>
-                    </ol>
-                </div>
-            </div>
-
-            <!-- Tips Section -->
-            <div id="tips" class="content-section">
-                <h2>💡 Beginner Tips</h2>
-
-                <h3>✅ Do's (Κάνε αυτά)</h3>
-                <div class="card">
-                    <ul>
-                        <li>Κάνε land στο ίδιο spot για να το μάθεις</li>
-                        <li>Εξασκήσου στο building σε Creative mode</li>
-                        <li>Παίξε Zero Build πρώτα αν σε πιέζει το building</li>
-                        <li>Δες streamers για να μάθεις strategies</li>
-                        <li>Χρησιμοποίησε ακουστικά για καλύτερο ήχο</li>
-                        <li>Διατήρησε την ψυχραιμία σου στις μάχες</li>
-                        <li>Μάθε από κάθε θάνατο</li>
-                    </ul>
-                </div>
-
-                <h3>❌ Don'ts (Μην κάνεις αυτά)</h3>
-                <div class="card">
-                    <ul>
-                        <li>Μην μένεις στο storm</li>
-                        <li>Μην αγνοείς τα audio cues</li>
-                        <li>Μην στέκεσαι ακίνητος όταν heal-άρεις</li>
-                        <li>Μην κουβαλάς διπλά όπλα</li>
-                        <li>Μην μπαίνεις σε κάθε μάχη που βλέπεις</li>
-                        <li>Μην ξεχνάς να κάνεις reload</li>
-                        <li>Μην τα παρατάς μετά από ήττες</li>
-                    </ul>
-                </div>
-
-                <h3>🎓 Practice Routine</h3>
-                <div class="card">
-                    <ol>
-                        <li><strong>10 λεπτά:</strong> Creative building practice</li>
-                        <li><strong>5 games:</strong> Zero Build για positioning</li>
-                        <li><strong>5 games:</strong> Regular mode με building</li>
-                        <li><strong>Review:</strong> Δες τα replays σου</li>
-                    </ol>
-                </div>
-
-                <div class="tip">
-                    <strong>🌟 Το πιο σημαντικό:</strong> Διασκέδασε! Οι νίκες έρχονται με την εξάσκηση. Όλοι ήταν αρχάριοι κάποτε!
-                </div>
-
-                <h3>🔗 Resources</h3>
-                <div class="card">
-                    <ul>
-                        <li><strong>r/FortniteBR:</strong> Reddit community</li>
-                        <li><strong>Fortnite Tracker:</strong> Stats tracking</li>
-                        <li><strong>YouTube:</strong> Tutorial videos</li>
-                        <li><strong>Creative Codes:</strong> Practice maps (aim trainer, building courses)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- About Page -->
-        <div id="about" class="page-content">
-            <h2>ℹ️ About</h2>
+        <div id="intro" class="content-section active">
+            <h2>🎯 Τι είναι το Fortnite;</h2>
             <div class="card">
-                <p>Το Fortnite Guide GR είναι ένας δωρεάν ελληνικός οδηγός για το Fortnite, φτιαγμένος για παίκτες κάθε επιπέδου.</p>
-                <p>Στόχος μου είναι να βοηθήσω τους παίκτες να βελτιώσουν aim, building, editing, rotations, game sense και στρατηγικές για early, mid και late game.</p>
-                <p>Το site ενημερώνεται συνεχώς με νέες συμβουλές και περιεχόμενο.</p>
+                <p>Το 2025, το Fortnite είναι μια τεράστια πλατφόρμα. Περιλαμβάνει το κλασικό <b>Battle Royale</b>, το <b>LEGO Fortnite</b>, το <b>Rocket Racing</b> και το <b>Festival</b>.</p>
+            </div>
+            <div class="grid">
+                <div class="grid-item"><h3>Battle Royale</h3><p>100 παίκτες - 1 νικητής.</p></div>
+                <div class="grid-item"><h3>Zero Build</h3><p>Μόνο σημάδι, χωρίς χτίσιμο.</p></div>
             </div>
         </div>
 
-        <!-- Contact Page -->
-        <div id="contact" class="page-content">
-            <h2>📧 Contact</h2>
-            <div class="card">
-                <p>Αν θέλεις να επικοινωνήσεις μαζί μου, μπορείς να στείλεις email στο:</p>
-                <p style="font-size: 1.3em; margin: 20px 0;"><strong>📧 giannis10ritzakis@gmail.com</strong></p>
-                <p>Θα απαντήσω το συντομότερο δυνατό.</p>
+        <div id="controls" class="content-section">
+            <h2>⌨️ Βασικοί Χειρισμοί (PC)</h2>
+            <div class="controls-grid">
+                <div class="key">WASD</div><div>Κίνηση</div>
+                <div class="key">Space</div><div>Άλμα</div>
+                <div class="key">Left Click</div><div>Πυροβολισμός</div>
+                <div class="key">Right Click</div><div>Στόχευση (ADS)</div>
+                <div class="key">R</div><div>Reload</div>
+                <div class="key">E / F</div><div>Interact / Loot</div>
             </div>
         </div>
 
-        <!-- Privacy Policy Page -->
-        <div id="privacy" class="page-content">
-            <h2>🔒 Privacy Policy</h2>
-            <div class="card">
-                <p>Αυτό το site χρησιμοποιεί cookies και υπηρεσίες τρίτων, όπως το Google AdSense, για την εμφάνιση διαφημίσεων.</p>
-                <p>Η Google μπορεί να χρησιμοποιεί cookies για την εξατομίκευση διαφημίσεων και για τη μέτρηση της απόδοσης.</p>
-                <p>Δεν συλλέγω προσωπικά δεδομένα χρηστών.</p>
-                <p>Για περισσότερες πληροφορίες σχετικά με το πώς η Google χρησιμοποιεί δεδομένα, επισκεφθείτε: 
-                <a href="https://policies.google.com/technologies/partner-sites" target="_blank">Google Privacy & Terms</a>.</p>
-            </div>
+        <div id="mechanics" class="content-section">
+            <h2>⚔️ Σπανιότητα Όπλων</h2>
+            <p>Όσο πιο σπάνιο, τόσο περισσότερο damage:</p>
+            <span class="rarity common">Common (Γκρι)</span>
+            <span class="rarity rare">Rare (Μπλε)</span>
+            <span class="rarity legendary">Legendary (Πορτοκαλί)</span>
         </div>
 
-        <footer>
-            <p>📅 Last Updated: December 2025 | Game Version: Chapter 6</p>
-            <p>💜 Made with passion for Fortnite beginners</p>
-            <p>🌟 Keep practicing and have fun!</p>
-        </footer>
+        <div id="tips" class="content-section">
+            <h2>💡 Συμβουλές Νίκης</h2>
+            <div class="card">✅ Χρησιμοποίησε τα <b>Visual Sound Effects</b> στις ρυθμίσεις ήχου.</div>
+            <div class="card">✅ Πίνε πάντα τα μικρά shields (minis) πριν τα μεγάλα.</div>
+            <div class="card">✅ Μην μένεις σταθερός όταν πυροβολείς.</div>
+        </div>
     </div>
 
-    <script>
-        function showTab(tabName) {
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => section.classList.remove('active'));
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page-content">
+        <h2>ℹ️ Σχετικά με τον Οδηγό</h2>
+        <p>Αυτός ο οδηγός δημιουργήθηκε για να βοηθήσει νέους παίκτες να κατανοήσουν τα βασικά του Fortnite το 2025.</p>
+    </div>
 
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page-content">
+        <h2>📧 Επικοινωνία</h2>
+        <p>Στείλτε μας email στο: support@fortniteguide.gr</p>
+    </div>
+</div>
 
-            document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
+<script>
+    // Λειτουργία για τις Κύριες Σελίδες (Home, About, Contact)
+    function showPage(pageId) {
+        document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+    }
 
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
+    // Λειτουργία για τα Tabs (Intro, Controls, κλπ)
+    function showTab(tabId) {
+        document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        
+        document.getElementById(tabId).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+</script>
+
 </body>
-</html>smooth' });
-        }
-
-        function showPage(pageName) {
-            const pages = document.querySelectorAll('.page-content');
-            pages.forEach(page => page.classList.remove('active'));
-
-            document.getElementById(pageName).classList.add('active');
-
-            if (pageName === 'home') {
-                document.querySelector('.nav-tabs').style.display = 'flex';
-            } else {
-                document.querySelector('.nav-tabs').style.display = 'none';
-            }
-
-            window.scrollTo({ top: 0, behavior: '
+</html>
 
