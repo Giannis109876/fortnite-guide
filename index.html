@@ -1,218 +1,136 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="el">
 <head>
   <meta charset="UTF-8" />
-  <title>Ο Απόλυτος Οδηγός Fortnite</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <title>Fortnite Guide</title>
   <style>
-    :root {
-      --primary: #00c3ff;
-      --accent: #ff2fd3;
-      --text: #f5f5f5;
-      --muted: #a5a5b5;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      font-family: system-ui, sans-serif;
-      background: radial-gradient(circle at top, #1b2555, #050816);
-      color: var(--text);
-      line-height: 1.6;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
     }
-
-    a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    /* TOP BAR */
-    .top-bar {
-      background: #02010c;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .top-bar-inner {
-      max-width: 1100px;
-      margin: auto;
-      padding: 6px 20px;
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-      font-size: 12px;
-    }
-
-    .top-bar span {
-      opacity: 0.3;
-    }
-
-    /* HEADER */
     header {
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(10px);
-      background: rgba(3,5,20,0.9);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      z-index: 100;
-    }
-
-    .nav {
-      max-width: 1100px;
-      margin: auto;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-    }
-
-    .logo {
-      font-weight: 800;
-      font-size: 18px;
-    }
-
-    /* HERO */
-    .hero {
-      max-width: 1100px;
-      margin: 40px auto;
+      background: linear-gradient(90deg, #2563eb, #7c3aed);
       padding: 20px;
       text-align: center;
     }
-
-    .hero h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
     }
-
-    .hero p {
-      color: var(--muted);
+    nav {
+      background: #020617;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 12px;
     }
-
-    /* SECTIONS */
+    nav a {
+      color: #93c5fd;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #fff;
+    }
     section {
       max-width: 900px;
-      margin: 60px auto;
+      margin: auto;
+      padding: 30px 20px;
+    }
+    h2 {
+      color: #60a5fa;
+      border-bottom: 2px solid #1e3a8a;
+      padding-bottom: 5px;
+    }
+    ul {
+      line-height: 1.8;
+    }
+    .card {
+      background: #020617;
+      border-radius: 12px;
       padding: 20px;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
     }
-
-    /* BACK BUTTON */
-    #backToTop {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: none;
-      background: linear-gradient(135deg, #00c3ff, #ff2fd3);
-      color: white;
-      font-size: 18px;
-      cursor: pointer;
-      display: none;
-      z-index: 999;
-    }
-
     footer {
       text-align: center;
       padding: 20px;
-      font-size: 12px;
-      opacity: 0.6;
+      background: #020617;
+      color: #94a3b8;
     }
   </style>
 </head>
-
 <body>
 
-<!-- REAL HOME ANCHOR (FIX) -->
-<div id="home"></div>
-
-<!-- TOP BAR -->
-<div class="top-bar">
-  <div class="top-bar-inner">
-    <a href="#home">Home</a>
-    <span>|</span>
-    <a href="#about">About</a>
-    <span>|</span>
-    <a href="#contact">Contact</a>
-    <span>|</span>
-    <a href="#privacy">Privacy Policy</a>
-  </div>
-</div>
-
-<!-- HEADER -->
 <header>
-  <div class="nav">
-    <div class="logo">FORTNITE MASTER GUIDE</div>
-  </div>
+  <h1>🎮 Fortnite Ultimate Guide</h1>
+  <p>Νόμιμος οδηγός για βελτίωση skill & στρατηγικής</p>
 </header>
 
-<main>
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Αναλυτικός Οδηγός Fortnite</h1>
-    <p>
-      Καλώς ήρθες στον απόλυτο οδηγό για το Fortnite!
-      Εδώ θα βρεις tips, στρατηγικές και μυστικά.
-    </p>
-  </section>
+<nav>
+  <a href="#settings">Settings</a>
+  <a href="#combat">Combat</a>
+  <a href="#building">Building</a>
+  <a href="#strategy">Strategy</a>
+</nav>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <h1>About</h1>
-    <p>
-      Το Fortnite Guide GR είναι ένας δωρεάν ελληνικός οδηγός για το Fortnite, φτιαγμένος για παίκτες κάθε επιπέδου.
-      Στόχος μου είναι να βοηθήσω τους παίκτες να βελτιώσουν aim, building, editing, rotations και game sense.
-    </p>
-    <p>Το site ενημερώνεται συνεχώς.</p>
-  </section>
+<section id="settings">
+  <h2>⚙️ Προτεινόμενες Ρυθμίσεις</h2>
+  <div class="card">
+    <ul>
+      <li>Graphics Mode: Performance</li>
+      <li>Shadows: Off</li>
+      <li>View Distance: Medium</li>
+      <li>FPS Limit: Unlimited</li>
+      <li>DPI: 800</li>
+      <li>Sensitivity: 6% – 8%</li>
+    </ul>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <h1>Contact</h1>
-    <p>Email:</p>
-    <strong>giannis10ritzakis@gmail.com</strong>
-  </section>
+<section id="combat">
+  <h2>🔫 Combat Tips</h2>
+  <div class="card">
+    <ul>
+      <li>Χρησιμοποίησε πάντα right-hand peek</li>
+      <li>Μην κάνεις spray χωρίς cover</li>
+      <li>Πρώτα shot, μετά edit</li>
+      <li>Crosshair πάντα στο κεφάλι</li>
+    </ul>
+  </div>
+</section>
 
-  <!-- PRIVACY -->
-  <section id="privacy">
-    <h1>Privacy Policy</h1>
-    <p>Αυτό το site χρησιμοποιεί cookies και Google AdSense.</p>
-    <p>Δεν συλλέγω προσωπικά δεδομένα.</p>
-    <a href="https://policies.google.com/technologies/partner-sites" target="_blank">
-      Google Privacy & Terms
-    </a>
-  </section>
-</main>
+<section id="building">
+  <h2>🧱 Building & Editing</h2>
+  <div class="card">
+    <ul>
+      <li>Μάθε βασικά 90s</li>
+      <li>Γρήγορα resets στα edits</li>
+      <li>Μην κάνεις edit αν δεν έχεις πλεονέκτημα</li>
+    </ul>
+  </div>
+</section>
 
-<button id="backToTop">↑</button>
+<section id="strategy">
+  <h2>♟️ Game Strategy</h2>
+  <div class="card">
+    <ul>
+      <li>Early game: ασφάλεια > kills</li>
+      <li>Mid game: έξυπνα rotations</li>
+      <li>End game: height = win condition</li>
+    </ul>
+  </div>
+</section>
 
 <footer>
-  Fortnite Master Guide © 2025
+  <p>© 2025 Fortnite Guide | No cheats – Skill only</p>
 </footer>
-
-<script>
-  const btn = document.getElementById("backToTop");
-
-  window.addEventListener("scroll", () => {
-    btn.style.display = window.scrollY > 300 ? "block" : "none";
-  });
-
-  btn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
-</script>
 
 </body>
 </html>
-
-
-
 
 
 
