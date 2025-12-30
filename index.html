@@ -696,28 +696,28 @@
 
     <!-- MAIN NAVIGATION -->
     <nav class="top-nav">
-        <button class="active" onclick="showPage('home')">
+        <button class="active" data-page="home">
             <i class="fas fa-home"></i> Αρχική
         </button>
-        <button onclick="showPage('strategies')">
+        <button data-page="strategies">
             <i class="fas fa-chess"></i> Στρατηγικές
         </button>
-        <button onclick="showPage('weapons')">
+        <button data-page="weapons">
             <i class="fas fa-gun"></i> Όπλα 2025
         </button>
-        <button onclick="showPage('settings')">
+        <button data-page="settings">
             <i class="fas fa-cogs"></i> Ρυθμίσεις
         </button>
-        <button onclick="showPage('movement')">
+        <button data-page="movement">
             <i class="fas fa-running"></i> Κίνηση
         </button>
-        <button onclick="showPage('about')">
+        <button data-page="about">
             <i class="fas fa-info-circle"></i> Σχετικά
         </button>
-        <button onclick="showPage('privacy')">
+        <button data-page="privacy">
             <i class="fas fa-shield-alt"></i> Privacy
         </button>
-        <button onclick="showPage('contact')">
+        <button data-page="contact">
             <i class="fas fa-envelope"></i> Επικοινωνία
         </button>
     </nav>
@@ -757,13 +757,13 @@
         <h1>🎯 Στρατηγικές & Τεχνικές</h1>
         
         <div class="nav-tabs">
-            <button class="tab-btn active" onclick="showTab('early-game')">
+            <button class="tab-btn active" data-tab="early-game">
                 <i class="fas fa-plane"></i> Early Game
             </button>
-            <button class="tab-btn" onclick="showTab('mid-game')">
+            <button class="tab-btn" data-tab="mid-game">
                 <i class="fas fa-running"></i> Mid Game
             </button>
-            <button class="tab-btn" onclick="showTab('late-game')">
+            <button class="tab-btn" data-tab="late-game">
                 <i class="fas fa-crown"></i> Late Game
             </button>
         </div>
@@ -885,4 +885,9 @@
                 <li><b>Wall Running:</b> Τρέξτε σε κατακόρυφες επιφάνειες</li>
                 <li><b>Slide Cancelling:</b> Ακυρώστε το slide για γρήγορες αλλαγές</li>
                 <li><b>Mantle Jumping:</b> Πηδήξτε ενώ ανεβαίνετε</li>
-                <li><b>Roll Landing:</b> Κάντε roll όταν πέφτετε από 
+                <li><b>Roll Landing:</b> Κάντε roll όταν πέφτετε από ύψος</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h3><i class="
