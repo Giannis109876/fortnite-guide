@@ -270,6 +270,11 @@
             z-index: 999;
             max-width: 500px;
             margin: 0 auto;
+            display: none;
+        }
+        
+        .cookie-popup.show {
+            display: block;
         }
         
         .cookie-content {
@@ -336,6 +341,135 @@
         
         .cookie-reject:hover {
             background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* ===== COOKIE SETTINGS POPUP ===== */
+        .cookie-settings-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            display: none;
+        }
+        
+        .cookie-settings-popup.show {
+            display: flex;
+        }
+        
+        .cookie-settings-content {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 500px;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 50px rgba(255, 107, 53, 0.5);
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .cookie-setting {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .cookie-setting-info {
+            flex: 1;
+        }
+        
+        .cookie-setting-info h4 {
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+        
+        .cookie-setting-info p {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        .cookie-toggle {
+            position: relative;
+            width: 60px;
+            height: 30px;
+        }
+        
+        .cookie-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .cookie-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .cookie-slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .cookie-slider {
+            background-color: var(--success);
+        }
+        
+        input:checked + .cookie-slider:before {
+            transform: translateX(30px);
+        }
+        
+        .cookie-settings-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 15px;
+        }
+        
+        .cookie-settings-button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .cookie-save {
+            background: var(--success);
+            color: white;
+        }
+        
+        .cookie-save:hover {
+            background: #218838;
             transform: translateY(-2px);
         }
         
@@ -424,6 +558,8 @@
             .cookie-popup { left: 10px; right: 10px; bottom: 10px; }
             .cookie-buttons { flex-direction: column; }
             .cookie-button { width: 100%; }
+            .cookie-settings-content { padding: 20px; margin: 20px; }
+            .cookie-settings-buttons { flex-direction: column; }
         }
     </style>
 </head>
@@ -467,17 +603,82 @@
         <p>Με το "Αποδοχή", συμφωνείτε με τη χρήση όλων των cookies.</p>
         
         <div class="cookie-buttons">
-            <button class="cookie-button cookie-accept" onclick="acceptCookies()">
+            <button class="cookie-button cookie-accept" onclick="acceptAllCookies()">
                 <i class="fas fa-check"></i> Αποδοχή όλων
             </button>
-            <button class="cookie-button cookie-reject" onclick="rejectCookies()">
-                <i class="fas fa-times"></i> Απόρριψη
+            <button class="cookie-button cookie-reject" onclick="rejectAllCookies()">
+                <i class="fas fa-times"></i> Απόρριψη όλων
+            </button>
+            <button class="cookie-button" onclick="showCookieSettings()" style="background: rgba(0, 123, 255, 0.8); color: white;">
+                <i class="fas fa-cog"></i> Επιλογές
             </button>
         </div>
         
         <button class="cookie-more-info" onclick="showCookieInfo()">
             <i class="fas fa-info-circle"></i> Περισσότερες πληροφορίες
         </button>
+    </div>
+</div>
+
+<!-- COOKIE SETTINGS POPUP -->
+<div class="cookie-settings-popup" id="cookieSettingsPopup">
+    <div class="cookie-settings-content">
+        <h3 style="color: var(--accent); text-align: center; margin-bottom: 20px;">
+            <i class="fas fa-cog"></i> Ρυθμίσεις Cookies
+        </h3>
+        
+        <div class="cookie-setting">
+            <div class="cookie-setting-info">
+                <h4>Απαραίτητα Cookies</h4>
+                <p>Απαραίτητα για τη λειτουργία του site. Δεν μπορούν να απενεργοποιηθούν.</p>
+            </div>
+            <label class="cookie-toggle">
+                <input type="checkbox" id="essentialCookies" checked disabled>
+                <span class="cookie-slider"></span>
+            </label>
+        </div>
+        
+        <div class="cookie-setting">
+            <div class="cookie-setting-info">
+                <h4>Στατιστικά Cookies</h4>
+                <p>Μας βοηθούν να κατανοήσουμε πώς χρησιμοποιείτε το site.</p>
+            </div>
+            <label class="cookie-toggle">
+                <input type="checkbox" id="analyticsCookies" checked>
+                <span class="cookie-slider"></span>
+            </label>
+        </div>
+        
+        <div class="cookie-setting">
+            <div class="cookie-setting-info">
+                <h4>Λειτουργικά Cookies</h4>
+                <p>Αποθηκεύουν τις προτιμήσεις σας για καλύτερη εμπειρία.</p>
+            </div>
+            <label class="cookie-toggle">
+                <input type="checkbox" id="functionalCookies" checked>
+                <span class="cookie-slider"></span>
+            </label>
+        </div>
+        
+        <div class="cookie-setting">
+            <div class="cookie-setting-info">
+                <h4>Marketing Cookies</h4>
+                <p>Χρησιμοποιούνται για προσωποποιημένη διαφήμιση.</p>
+            </div>
+            <label class="cookie-toggle">
+                <input type="checkbox" id="marketingCookies">
+                <span class="cookie-slider"></span>
+            </label>
+        </div>
+        
+        <div class="cookie-settings-buttons">
+            <button class="cookie-settings-button cookie-save" onclick="saveCookieSettings()">
+                <i class="fas fa-save"></i> Αποθήκευση
+            </button>
+            <button class="cookie-settings-button" onclick="hideCookieSettings()" style="background: rgba(255, 255, 255, 0.1); color: white;">
+                <i class="fas fa-times"></i> Άκυρο
+            </button>
+        </div>
     </div>
 </div>
 
@@ -684,392 +885,4 @@
                 <li><b>Wall Running:</b> Τρέξτε σε κατακόρυφες επιφάνειες</li>
                 <li><b>Slide Cancelling:</b> Ακυρώστε το slide για γρήγορες αλλαγές</li>
                 <li><b>Mantle Jumping:</b> Πηδήξτε ενώ ανεβαίνετε</li>
-                <li><b>Roll Landing:</b> Κάντε roll όταν πέφτετε από ύψος</li>
-            </ul>
-        </div>
-        
-        <div class="card">
-            <h3><i class="fas fa-gamepad"></i> Mobility Combos</h3>
-            <p>Συνδυασμοί για γρήγορες μετακινήσεις:</p>
-            <ul>
-                <li>Shockwave + Grapple = Ακραίες αποστάσεις</li>
-                <li>Launch Pad + Glider = Ασφαλείς rotations</li>
-                <li>Bouncer + Shotgun = Πίεση σε αντίπαλο</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- ABOUT PAGE -->
-    <div id="about" class="page-content">
-        <h1>ℹ️ Σχετικά με εμάς</h1>
-        
-        <div class="card">
-            <h3><i class="fas fa-history"></i> Η Ιστορία μας</h3>
-            <p>Το <strong>Fortnite Guide GR</strong> δημιουργήθηκε τον <strong>Δεκέμβριο του 2025</strong> με έναν απλό στόχο: να δημιουργήσουμε τον καλύτερο ελληνικό οδηγό για το Fortnite.</p>
-            
-            <p>Ξεκινήσαμε ως μια μικρή προσπάθεια να βοηθήσουμε Έλληνες παίκτες να βελτιωθούν στο παιχνίδι. Τον Δεκέμβριο του 2025, αποφασίσαμε να δημιουργήσουμε αυτό το site για να παρέχουμε:</p>
-            <ul>
-                <li>Αναλυτικούς οδηγούς και στρατηγικές</li>
-                <li>Ενημερωμένα tips & tricks</li>
-                <li>Πληροφορίες για το τρέχον meta</li>
-                <li>Βοήθεια σε νέους παίκτες</li>
-            </ul>
-        </div>
-        
-        <div class="card">
-            <h3><i class="fas fa-bullseye"></i> Ο Στόχος μας</h3>
-            <p>Ο κύριος στόχος μας είναι:</p>
-            <ul>
-                <li>Να βοηθήσουμε κάθε Έλληνα παίκτη Fortnite να βελτιωθεί</li>
-                <li>Να δημιουργήσουμε μια δυνατή ελληνική gaming κοινότητα</li>
-                <li>Να παρέχουμε ενημερωμένο και αξιόπιστο περιεχόμενο</li>
-                <li>Να κάνουμε το Fortnite πιο προσβάσιμο και ευχάριστο για όλους</li>
-            </ul>
-        </div>
-        
-        <div class="card">
-            <h3><i class="fas fa-road"></i> Το Μέλλον μας</h3>
-            <p>Για το μέλλον, έχουμε μεγάλα σχέδια:</p>
-            
-            <h4>📅 2026 - Προσεχή Σχέδια:</h4>
-            <ul>
-                <li><strong>Ζωντανά μαθήματα:</strong> Online μαθήματα από experienced παίκτες</li>
-                <li><strong>Interactive tools:</strong> Διαδραστικά εργαλεία προπόνησης</li>
-                <li><strong>Real-time stats:</strong> Πραγματικές στατιστικές και αναλύσεις</li>
-                <li><strong>Community features:</strong> Συναντήσεις, events και tournaments</li>
-            </ul>
-            
-            <h4>🎯 Μελλοντικές Επιλογές:</h4>
-            <ul>
-                <li>Coaching από pro players</li>
-                <li>Custom training maps</li>
-                <li>Tournament organization</li>
-                <li>Mobile app development</li>
-            </ul>
-            
-            <p style="margin-top: 20px; padding: 15px; background: rgba(255, 107, 53, 0.1); border-radius: 10px;">
-                <i class="fas fa-info-circle"></i> <strong>Σημείωση:</strong> Αυτό είναι το πρώτο μας beta έκδοση. Στο μέλλον, με βάση τα σχόλιά σας και τις ανάγκες της κοινότητας, θα προσθέσουμε πολλές περισσότερες λειτουργίες!
-            </p>
-        </div>
-    </div>
-
-    <!-- PRIVACY PAGE -->
-    <div id="privacy" class="page-content">
-        <h1>🔒 Πολιτική Απορρήτου</h1>
-        
-        <div class="card">
-            <h3><i class="fas fa-shield-alt"></i> Προστασία Δεδομένων</h3>
-            <p>Το Fortnite Guide GR σέβεται την ιδιωτικότητά σας και δεσμεύεται να προστατεύει τα προσωπικά σας δεδομένα.</p>
-            
-            <h4>📊 Τι δεδομένα συλλέγουμε:</h4>
-            <ul>
-                <li><b>Ανώνυμα στατιστικά:</b> Χρησιμοποιούμε Google Analytics για ανώνυμα στατιστικά χρήσης</li>
-                <li><b>Εθελοντικά δεδομένα:</b> Εάν επικοινωνήσετε μαζί μας μέσω email</li>
-                <li><b>Cookies:</b> Χρησιμοποιούμε cookies για τη βελτίωση της εμπειρίας σας</li>
-                <li><b>Δεν συλλέγουμε:</b> Προσωπικά στοιχεία, πληρωμές ή ευαίσθητα δεδομένα</li>
-            </ul>
-        </div>
-        
-        <div class="card">
-            <h3><i class="fas fa-cookie-bite"></i> Χρήση Cookies</h3>
-            <p>Τα cookies είναι μικρά αρχεία που αποθηκεύονται στη συσκευή σας. Τα χρησιμοποιούμε για:</p>
-            <ul>
-                <li>Απομνημόνευση προτιμήσεων χρήστη</li>
-                <li>Στατιστική ανάλυση της χρήσης του site</li>
-                <li>Βελτίωση της απόδοσης και λειτουργικότητας</li>
-                <li>Ανίχνευση και πρόληψη κατάχρησης</li>
-            </ul>
-            
-            <p>Μπορείτε να απενεργοποιήσετε τα cookies στις ρυθμίσεις του browser σας, αλλά ορισμένες λειτουργίες μπορεί να μην λειτουργούν σωστά.</p>
-        </div>
-        
-        <div class="card">
-            <h3><i class="fas fa-external-link-alt"></i> Third-Party Services</h3>
-            <p>Χρησιμοποιούμε τις ακόλουθες υπηρεσίες τρίτων:</p>
-            
-            <h4>📈 Google Analytics:</h4>
-            <p>Για στατιστική ανάλυση της χρήσης του site. Όλα τα δεδομένα είναι ανώνυμα.</p>
-            
-            <h4>📧 Email:</h4>
-            <p>Χρησιμοποιούμε email υπηρεσίες για επικοινωνία. Οι email σας διατηρούνται ιδιωτικοί.</p>
-            
-            <h4>🌐 Web Hosting:</h4>
-            <p>Το site φιλοξενείται σε ασφαλείς servers που συμμορφώνονται με τους κανόνες προστασίας δεδομένων.</p>
-        </div>
-        
-        <div class="card">
-            <h3><i class="fas fa-user-lock"></i> Δικαιώματα Χρήστη</h3>
-            <p>Έχετε τα ακόλουθα δικαιώματα:</p>
-            <ul>
-                <li><b>Δικαίωμα πρόσβασης:</b> Μπορείτε να ρωτήσετε τι δεδομένα έχουμε για εσάς</li>
-                <li><b>Δικαίωμα διόρθωσης:</b> Μπορείτε να ζητήσετε διόρθωση ανακριβών δεδομένων</li>
-                <li><b>Δικαίωμα διαγραφής:</b> Μπορείτε να ζητήσετε τη διαγραφή των δεδομένων σας</li>
-                <li><b>Δικαίωμα ανάκλησης συγκατάθεσης:</b> Μπορείτε να ανακαλέσετε τη συγκατάθεσή σας ανά πάσα στιγμή</li>
-            </ul>
-        </div>
-        
-        <div class="card">
-            <h3><i class="fas fa-question-circle"></i> Συχνές Ερωτήσεις</h3>
-            
-            <h4>🤔 Συλλέγετε προσωπικά δεδομένα;</h4>
-            <p><strong>Όχι.</strong> Δεν συλλέγουμε προσωπικά δεδομένα χρηστών. Όλα τα στατιστικά είναι ανώνυμα.</p>
-            
-            <h4>📝 Πώς επικοινωνώ για απορρήτου ζητήματα;</h4>
-            <p>Στείλτε email στο: <strong>privacy@fortniteguide.gr</strong></p>
-            <p>Χρόνος απάντησης: 1-3 εργάσιμες ημέρες</p>
-            
-            <h4>📅 Πότε ενημερώνεται αυτή η πολιτική;</h4>
-            <p>Τελευταία ενημέρωση: <strong>15 Δεκεμβρίου 2025</strong></p>
-            <p>Ενημερώνουμε αυτή τη σελίδα κατά περίπτωση. Παρακαλώ ελέγξτε περιοδικά για αλλαγές.</p>
-        </div>
-        
-        <div class="card">
-            <h3><i class="fas fa-balance-scale"></i> Νομική Προστασία</h3>
-            <p>Αυτό το site συμμορφώνεται με:</p>
-            <ul>
-                <li>Γενικό Κανονισμό Προστασίας Δεδομένων (GDPR)</li>
-                <li>Ελληνική νομοθεσία για προστασία δεδομένων</li>
-                <li>Καλύπτειες για την προστασία των ανώνυμων χρηστών</li>
-            </ul>
-            
-            <p style="margin-top: 15px; padding: 15px; background: rgba(0, 123, 255, 0.1); border-radius: 10px;">
-                <i class="fas fa-info-circle"></i> <strong>Σημαντικό:</strong> Αυτή είναι μια alpha/beta έκδοση του site. Οι πολιτικές μπορεί να αναθεωρηθούν καθώς αναπτυσσόμαστε.
-            </p>
-        </div>
-    </div>
-
-    <!-- CONTACT PAGE -->
-    <div id="contact" class="page-content">
-        <h1>📧 Επικοινωνία</h1>
-        
-        <div class="card">
-            <h3><i class="fas fa-envelope"></i> Επικοινωνήστε μαζί μας</h3>
-            
-            <div style="margin: 20px 0;">
-                <div style="display: flex; align-items: center; gap: 15px; margin: 15px 0;">
-                    <i class="fas fa-envelope" style="color: var(--primary); font-size: 1.5rem;"></i>
-                    <div>
-                        <h4>Email</h4>
-                        <p>fortniteguidegr@gmail.com</p>
-                    </div>
-                </div>
-                
-                <div style="display: flex; align-items: center; gap: 15px; margin: 15px 0;">
-                    <i class="fas fa-clock" style="color: var(--primary); font-size: 1.5rem;"></i>
-                    <div>
-                        <h4>Χρόνος Απάντησης</h4>
-                        <p>24-48 ώρες</p>
-                    </div>
-                </div>
-            </div>
-            
-            <h4>Για συνεργασίες:</h4>
-            <p>Επικοινωνήστε στο: <strong>collaborations@fortniteguide.gr</strong></p>
-            
-            <h4>Για προτάσεις βελτίωσης:</h4>
-            <p>Έχουμε ανοιχτό αυτί για προτάσεις! Στείλτε μας τις ιδέες σας στο: <strong>suggestions@fortniteguide.gr</strong></p>
-            
-            <h4>Για ζητήματα απορρήτου:</h4>
-            <p>Στείλτε email στο: <strong>privacy@fortniteguide.gr</strong></p>
-        </div>
-        
-        <div class="card">
-            <h3><i class="fas fa-comment-dots"></i> Βοηθήστε μας να Βελτιωθούμε</h3>
-            <p>Αυτή είναι η beta έκδοση του site μας. Θα χαρουμε πολύ να:</p>
-            <ul>
-                <li>Ακούσουμε τα σχόλιά σας</li>
-                <li>Λάβουμε προτάσεις για βελτίωση</li>
-                <li>Μάθουμε τι θα θέλατε να δείτε στο μέλλον</li>
-                <li>Καταλάβουμε τις ανάγκες της ελληνικής κοινότητας</li>
-            </ul>
-            <p style="margin-top: 15px; font-style: italic;">Η γνώμη σας είναι πολύτιμη για εμάς!</p>
-        </div>
-    </div>
-    
-    <!-- FOOTER -->
-    <footer>
-        <p>Fortnite Guide GR © 2025 - Ολοκληρωμένος Ελληνικός Οδηγός Fortnite</p>
-        
-        <div class="footer-links">
-            <button onclick="showPage('home')" style="background: none; border: none; color: #ccc; cursor: pointer; font-size: 1rem;">Αρχική</button>
-            <button onclick="showPage('about')" style="background: none; border: none; color: #ccc; cursor: pointer; font-size: 1rem;">Σχετικά</button>
-            <button onclick="showPage('privacy')" style="background: none; border: none; color: #ccc; cursor: pointer; font-size: 1rem;">Privacy</button>
-            <button onclick="showPage('contact')" style="background: none; border: none; color: #ccc; cursor: pointer; font-size: 1rem;">Επικοινωνία</button>
-        </div>
-        
-        <p style="margin-top: 20px; color: #aaa; font-size: 0.9rem;">
-            Το Fortnite είναι εμπορικό σήμα της Epic Games. Αυτό το site δεν συνδέεται με την Epic Games.
-        </p>
-        <p style="color: #888; font-size: 0.8rem; margin-top: 10px;">
-            Τελευταία ενημέρωση: Δεκέμβριος 2025 | Beta Version 1.0
-        </p>
-    </footer>
-</div>
-
-<!-- BACK TO TOP BUTTON -->
-<div class="back-to-top" id="backToTop" onclick="scrollToTop()">
-    <i class="fas fa-arrow-up"></i>
-</div>
-
-<script>
-    // ===== SIMPLE PAGE & TAB SYSTEM =====
-    
-    // Show a specific page
-    function showPage(pageId) {
-        // Hide all pages
-        document.querySelectorAll('.page-content').forEach(page => {
-            page.classList.remove('active');
-        });
-        
-        // Remove active class from all nav buttons
-        document.querySelectorAll('.top-nav button').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        
-        // Show the selected page
-        const selectedPage = document.getElementById(pageId);
-        if (selectedPage) {
-            selectedPage.classList.add('active');
-        }
-        
-        // Make the clicked nav button active
-        event.currentTarget.classList.add('active');
-        
-        // Scroll to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-    
-    // Show a specific tab (for pages with tabs)
-    function showTab(tabId) {
-        // Get the active page
-        const activePage = document.querySelector('.page-content.active');
-        if (activePage) {
-            // Hide all tab content in the active page
-            activePage.querySelectorAll('.content-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Remove active class from all tab buttons in the active page
-            activePage.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Show the selected tab content
-            const selectedTab = document.getElementById(tabId);
-            if (selectedTab) {
-                selectedTab.classList.add('active');
-            }
-            
-            // Make the clicked tab button active
-            event.currentTarget.classList.add('active');
-        }
-    }
-    
-    // ===== BETA POPUP =====
-    
-    // Show beta popup on load
-    function showBetaPopup() {
-        document.getElementById('betaPopup').style.display = 'flex';
-    }
-    
-    // Close beta popup
-    function closeBetaPopup() {
-        document.getElementById('betaPopup').style.display = 'none';
-        // Store in localStorage that user has seen the popup
-        localStorage.setItem('betaPopupClosed', 'true');
-        
-        // Show cookie popup after beta popup
-        setTimeout(showCookiePopup, 500);
-    }
-    
-    // ===== COOKIE POPUP =====
-    
-    // Show cookie popup
-    function showCookiePopup() {
-        // Check if user has already made a choice
-        if (!localStorage.getItem('cookieChoice')) {
-            document.getElementById('cookiePopup').style.display = 'block';
-        }
-    }
-    
-    // Hide cookie popup
-    function hideCookiePopup() {
-        document.getElementById('cookiePopup').style.display = 'none';
-    }
-    
-    // Accept cookies
-    function acceptCookies() {
-        localStorage.setItem('cookieChoice', 'accepted');
-        localStorage.setItem('cookiesAccepted', 'true');
-        hideCookiePopup();
-        alert('Σας ευχαριστούμε! Τα cookies έχουν αποδεχτεί.');
-    }
-    
-    // Reject cookies
-    function rejectCookies() {
-        localStorage.setItem('cookieChoice', 'rejected');
-        localStorage.setItem('cookiesAccepted', 'false');
-        hideCookiePopup();
-        alert('Τα cookies έχουν απορριφθεί. Ορισμένες λειτουργίες μπορεί να μην λειτουργούν σωστά.');
-    }
-    
-    // Show more cookie info
-    function showCookieInfo() {
-        showPage('privacy');
-        hideCookiePopup();
-    }
-    
-    // ===== BACK TO TOP FUNCTIONALITY =====
-    
-    // Show/hide back to top button based on scroll position
-    window.addEventListener('scroll', function() {
-        const backToTopBtn = document.getElementById('backToTop');
-        if (window.pageYOffset > 300) {
-            backToTopBtn.classList.add('visible');
-        } else {
-            backToTopBtn.classList.remove('visible');
-        }
-    });
-    
-    // Scroll to top function
-    function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-    
-    // ===== INITIALIZE ON LOAD =====
-    document.addEventListener('DOMContentLoaded', function() {
-        // Make sure home page is active on load
-        document.getElementById('home').classList.add('active');
-        
-        // Make home button active
-        document.querySelector('.top-nav button').classList.add('active');
-        
-        // Check if beta popup should be shown
-        if (!localStorage.getItem('betaPopupClosed')) {
-            // Show popup after a small delay
-            setTimeout(showBetaPopup, 1000);
-        } else {
-            // If beta popup already closed, show cookie popup
-            setTimeout(showCookiePopup, 1000);
-        }
-        
-        // Add click handlers for all nav buttons
-        document.querySelectorAll('.top-nav button').forEach(button => {
-            button.addEventListener('click', function() {
-                // Already handled by onclick
-            });
-        });
-        
-        // Add click handlers for all tab buttons
-        document.querySelectorAll('.tab-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                // Already handled by onclick
-            });
-        });
-        
-        console.log('Fortnite Guide GR 2025 loaded successfully!');
-    });
-</script>
-
-</body>
-</html>
+                <li><b>Roll Landing:</b> Κάντε roll όταν πέφτετε από 
